@@ -16,18 +16,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .topbar h1{font-size:20px;font-weight:700}
 .topbar .sub{font-size:13px;opacity:.8;margin-top:2px}
 .topbar-row{display:flex;align-items:center;justify-content:space-between}
-#screen-welcome{background:#7F77DD;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px}
+
+/* WELCOME */
+#screen-welcome{background:#7F77DD;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px;padding-bottom:40px}
 .welcome-logo{font-size:72px;margin-bottom:12px}
 .welcome-title{font-size:30px;font-weight:800;color:#fff;text-align:center;margin-bottom:6px}
 .welcome-sub{font-size:15px;color:rgba(255,255,255,.75);text-align:center;margin-bottom:36px}
 .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:340px}
-.profile-btn{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:20px;padding:24px 12px;cursor:pointer;text-align:center;transition:all .18s;color:#fff;user-select:none}
+.profile-btn{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:20px;padding:24px 12px;cursor:pointer;text-align:center;color:#fff;user-select:none;transition:all .18s}
 .profile-btn:active{background:rgba(255,255,255,.28);transform:scale(.96)}
 .profile-btn .av{font-size:44px;margin-bottom:8px}
 .profile-btn .nm{font-size:19px;font-weight:700}
 .profile-btn .rl{font-size:12px;opacity:.75;margin-top:2px}
 .profile-btn.pais{grid-column:1/-1;padding:16px 20px;display:flex;align-items:center;gap:16px;text-align:left}
 .profile-btn.pais .av{font-size:36px;margin-bottom:0}
+
+/* PIN */
 .pin-overlay{position:fixed;inset:0;background:rgba(83,74,183,.97);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:32px}
 .pin-overlay.show{display:flex}
 .pin-title{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
@@ -36,13 +40,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .pin-dot{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.6);background:transparent;transition:background .15s}
 .pin-dot.filled{background:#fff;border-color:#fff}
 .pin-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;max-width:280px}
-.pin-key{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.25);border-radius:16px;padding:18px;font-size:22px;font-weight:600;color:#fff;cursor:pointer;text-align:center;transition:all .12s;user-select:none}
+.pin-key{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.25);border-radius:16px;padding:18px;font-size:22px;font-weight:600;color:#fff;cursor:pointer;text-align:center;user-select:none;transition:all .12s}
 .pin-key:active{background:rgba(255,255,255,.35);transform:scale(.95)}
 .pin-key.empty{background:transparent;border-color:transparent;cursor:default}
 .pin-error{color:#F0997B;font-size:14px;margin-top:16px;min-height:20px;text-align:center}
 .pin-cancel{color:rgba(255,255,255,.6);font-size:14px;margin-top:20px;cursor:pointer;padding:8px}
+
+/* CARDS */
 .card{background:#fff;border-radius:18px;padding:16px;margin:12px 16px;border:1px solid rgba(0,0,0,.07)}
 .card-title{font-size:12px;color:#888780;font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+
+/* RING */
 .ring-wrap{display:flex;justify-content:center;padding:6px 0 4px}
 .ring-inner{position:relative;width:140px;height:140px}
 .ring-inner svg{transform:rotate(-90deg)}
@@ -51,11 +59,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .ring-pct{font-size:28px;font-weight:800;color:#534AB7}
 .ring-lbl{font-size:11px;color:#888780;margin-top:2px}
+
+/* DEBT */
 .debt-bar-bg{background:#EEEDFE;border-radius:8px;height:12px;overflow:hidden;margin-top:8px}
 .debt-bar-fill{background:#7F77DD;height:100%;border-radius:8px;transition:width .8s}
 .debt-nums{display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:#888780}
 .debt-big{font-size:26px;font-weight:800;color:#3C3489;margin:4px 0}
-.debt-paid-lbl{font-size:13px;color:#1D9E75;font-weight:600}
+.debt-sub{font-size:13px;color:#1D9E75;font-weight:600}
+
+/* WEEK / DAY */
 .week-row{display:flex;align-items:center;gap:8px;padding:10px 16px 0}
 .week-arrow{width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid #D3D1C7;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;user-select:none}
 .week-arrow:active{background:#EEEDFE}
@@ -64,6 +76,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .day-scroll::-webkit-scrollbar{display:none}
 .day-chip{flex-shrink:0;padding:8px 14px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid #D3D1C7;background:#fff;color:#444441;transition:all .15s;user-select:none}
 .day-chip.active{background:#7F77DD;border-color:#7F77DD;color:#fff}
+
+/* TASKS */
 .section-hdr{padding:14px 16px 4px;font-size:12px;color:#888780;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
 .task-item{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid rgba(0,0,0,.07);overflow:hidden}
 .task-item.done{border-color:#9FE1CB;background:#F7FFFC}
@@ -71,33 +85,55 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .task-item.rejected{border-color:#F09595;background:#FFF5F5}
 .task-hdr{display:flex;align-items:center;gap:12px;padding:13px 14px}
 .task-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.ti-roupa{background:#EEEDFE}
-.ti-refeicoes{background:#E1F5EE}
-.ti-gerais{background:#FAECE7}
-.ti-penalizacao{background:#FCEBEB}
+.ti-roupa{background:#EEEDFE}.ti-refeicoes{background:#E1F5EE}.ti-gerais{background:#FAECE7}.ti-penalizacao{background:#FCEBEB}.ti-extra{background:#E1F5EE}
 .task-info{flex:1;min-width:0}
 .task-name{font-size:14px;font-weight:500;color:#2C2C2A;line-height:1.3}
 .task-meta{font-size:12px;color:#888780;margin-top:2px}
 .task-pts{font-size:13px;font-weight:700;color:#534AB7;white-space:nowrap}
-.task-pts.neg{color:#A32D2D}
-.task-pts.ok{color:#3B6D11}
+.task-pts.neg{color:#A32D2D}.task-pts.ok{color:#3B6D11}
 .task-check{width:30px;height:30px;border-radius:50%;border:2px solid #B4B2A9;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:all .2s;font-size:14px}
 .task-check.checked{background:#1D9E75;border-color:#1D9E75;color:#fff}
 .task-check.waiting{background:#EF9F27;border-color:#EF9F27;color:#fff}
 .task-check.rej{background:#E24B4A;border-color:#E24B4A;color:#fff}
+
+/* EXTRA SLIDER */
+.extra-slider-wrap{padding:0 14px 14px}
+.extra-slider-inner{background:#F1EFE8;border-radius:12px;padding:12px 14px}
+.extra-slider-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.extra-slider-row label{font-size:13px;color:#444441;font-weight:500;flex:1}
+.extra-slider-row span{font-size:15px;font-weight:700;color:#534AB7;min-width:48px;text-align:right}
+.extra-slider-row input[type=range]{flex:2}
+.extra-desc{width:100%;padding:8px 10px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:14px;outline:none}
+.extra-desc:focus{border-color:#7F77DD}
+.btn-mark-extra{width:100%;padding:10px;background:#7F77DD;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px}
+.btn-mark-extra:active{background:#534AB7}
+
+/* APPROVE */
 .approve-actions{padding:0 14px 14px;display:flex;gap:8px}
 .btn-app{flex:1;padding:11px;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;transition:all .15s}
 .btn-app.yes{background:#1D9E75;color:#fff}
 .btn-app.no{background:#FCEBEB;color:#A32D2D;border:1.5px solid #F09595}
 .btn-app:active{transform:scale(.96)}
+
+/* STATS */
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px;margin-top:4px}
 .stat-card{background:#fff;border-radius:16px;padding:14px;border:1px solid rgba(0,0,0,.07)}
 .stat-lbl{font-size:11px;color:#888780;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .stat-val{font-size:22px;font-weight:800;margin-top:4px}
-.c-purple{color:#534AB7}.c-green{color:#1D9E75}.c-amber{color:#BA7517}.c-red{color:#A32D2D}
+.c-purple{color:#534AB7}.c-green{color:#1D9E75}.c-red{color:#A32D2D}
 .target-bar{margin:6px 16px 0;background:#EEEDFE;border-radius:8px;height:8px;overflow:hidden}
 .target-fill{background:#7F77DD;height:100%;border-radius:8px;transition:width .8s}
 .target-lbl{padding:6px 16px 0;font-size:11px;color:#888780;font-weight:600}
+
+/* PENALTY FORM */
+.penalty-form{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid #F09595;overflow:hidden;padding:14px}
+.penalty-form .pf-title{font-size:14px;font-weight:700;color:#A32D2D;margin-bottom:12px}
+.penalty-form select{width:100%;padding:10px 12px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:14px;outline:none;margin-bottom:8px;background:#fff}
+.penalty-form select:focus{border-color:#E24B4A}
+.btn-penalty{width:100%;padding:10px;background:#E24B4A;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer}
+.btn-penalty:active{background:#A32D2D}
+
+/* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid rgba(0,0,0,.1);display:none;z-index:200;padding:6px 0 max(10px,env(safe-area-inset-bottom))}
 .bottom-nav.visible{display:flex}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px;cursor:pointer;border:none;background:none}
@@ -105,48 +141,53 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .nav-btn .nl{font-size:10px;color:#888780;font-weight:600}
 .nav-btn.active .nl{color:#534AB7}
 .nav-badge{background:#E24B4A;color:#fff;border-radius:20px;font-size:10px;font-weight:700;padding:1px 6px;margin-left:2px;display:inline-block}
+
+/* CONFIG */
 .cfg-section{padding:4px 16px 8px}
 .cfg-row{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:8px;border:1px solid rgba(0,0,0,.07)}
 .cfg-row label{font-size:13px;color:#444441;font-weight:500;display:block;margin-bottom:6px}
 .cfg-row input{width:100%;padding:10px 12px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:15px;outline:none;transition:border-color .2s;background:#fff}
 .cfg-row input:focus{border-color:#7F77DD}
-.btn-primary{width:100%;padding:14px;background:#7F77DD;color:#fff;border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;margin-top:4px;transition:all .15s}
-.btn-primary:active{transform:scale(.98);background:#534AB7}
+.btn-primary{width:100%;padding:14px;background:#7F77DD;color:#fff;border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;margin-top:4px}
+.btn-primary:active{background:#534AB7;transform:scale(.98)}
 .btn-secondary{width:100%;padding:12px;background:#EEEDFE;color:#534AB7;border:none;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer;margin-top:8px}
 .btn-danger{width:calc(100% - 32px);margin:8px 16px;padding:12px;background:#FCEBEB;color:#A32D2D;border:none;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer}
 .info-box{background:#EEEDFE;border-radius:14px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:#3C3489;line-height:1.7}
 .sd-ok{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1D9E75;margin-right:6px}
 .sd-err{display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;margin-right:6px}
+
+/* MISC */
 .empty{text-align:center;padding:40px 24px;color:#888780}
 .empty .ei{font-size:48px;margin-bottom:10px}
-.empty p{font-size:15px}
 .hist-banner{background:#FAC775;border-radius:12px;margin:8px 16px 0;padding:10px 14px;font-size:13px;color:#412402;font-weight:500;text-align:center}
-.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#2C2C2A;color:#fff;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:500;z-index:9999;transition:transform .3s ease;white-space:nowrap;max-width:calc(100vw - 32px);text-align:center}
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#2C2C2A;color:#fff;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:500;z-index:9999;transition:transform .3s;white-space:nowrap;max-width:calc(100vw - 32px);text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
 
+<!-- WELCOME -->
 <div id="screen-welcome" class="screen active">
   <div class="welcome-logo">🏠</div>
   <div class="welcome-title">Tarefas da Casa</div>
   <div class="welcome-sub">Quem és tu hoje?</div>
   <div class="profile-grid">
-    <div class="profile-btn" onclick="login('joao')">
+    <div class="profile-btn" onclick="showPin('joao')">
       <div class="av">🧒</div><div class="nm">João</div><div class="rl">as minhas tarefas</div>
     </div>
-    <div class="profile-btn" onclick="login('bia')">
+    <div class="profile-btn" onclick="showPin('bia')">
       <div class="av">👧</div><div class="nm">Bia</div><div class="rl">as minhas tarefas</div>
     </div>
-    <div class="profile-btn pais" onclick="showPin()">
+    <div class="profile-btn pais" onclick="showPin('pais')">
       <div class="av">👨‍👩‍👧‍👦</div>
-      <div style="text-align:left"><div class="nm">Pais</div><div class="rl">aprovar · ver resumo · histórico</div></div>
+      <div style="text-align:left"><div class="nm">Pais</div><div class="rl">aprovar · resumo · histórico</div></div>
     </div>
   </div>
 </div>
 
+<!-- PIN -->
 <div class="pin-overlay" id="pin-overlay">
-  <div class="pin-title">Área dos Pais 🔐</div>
+  <div class="pin-title" id="pin-title">PIN</div>
   <div class="pin-sub">Introduz o PIN de 4 dígitos</div>
   <div class="pin-dots">
     <div class="pin-dot" id="pd0"></div><div class="pin-dot" id="pd1"></div>
@@ -170,6 +211,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="pin-cancel" onclick="hidePin()">Cancelar</div>
 </div>
 
+<!-- FILHO -->
 <div id="screen-filho" class="screen">
   <div class="topbar">
     <div class="topbar-row">
@@ -183,7 +225,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="card" style="margin-top:14px">
     <div class="card-title">💜 a minha dívida</div>
     <div class="debt-big" id="filho-debt">€ —</div>
-    <div class="debt-paid-lbl" id="filho-debt-sub"></div>
+    <div class="debt-sub" id="filho-debt-sub"></div>
     <div class="debt-bar-bg"><div class="debt-bar-fill" id="filho-debt-bar" style="width:0%"></div></div>
     <div class="debt-nums"><span id="filho-paid-txt">Pago: €0</span><span id="filho-total-txt">Total: €775</span></div>
   </div>
@@ -214,6 +256,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div id="filho-tasks"></div>
 </div>
 
+<!-- PAIS -->
 <div id="screen-pais" class="screen">
   <div class="topbar">
     <div class="topbar-row">
@@ -228,9 +271,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="stat-card"><div class="stat-lbl">João — esta semana</div><div class="stat-val c-green" id="pais-joao-week">0 min</div></div>
       <div class="stat-card"><div class="stat-lbl">Bia — esta semana</div><div class="stat-val c-green" id="pais-bia-week">0 min</div></div>
     </div>
-    <div class="target-lbl">João (mínimo 210 min/semana)</div>
+    <div class="target-lbl">João (mínimo 210 min)</div>
     <div class="target-bar"><div class="target-fill" id="pais-joao-bar" style="width:0%"></div></div>
-    <div class="target-lbl">Bia (mínimo 210 min/semana)</div>
+    <div class="target-lbl">Bia (mínimo 210 min)</div>
     <div class="target-bar"><div class="target-fill" id="pais-bia-bar" style="width:0%"></div></div>
   </div>
   <div class="week-row" style="margin-top:12px">
@@ -238,6 +281,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="week-label" id="pais-week-nav">—</div>
     <div class="week-arrow" onclick="changePaisWeek(1)">›</div>
   </div>
+
+  <!-- PENALIZAÇÕES -->
+  <div style="padding:14px 16px 4px;font-size:15px;font-weight:700;color:#2C2C2A">Aplicar penalização ⚠️</div>
+  <div class="penalty-form">
+    <div class="pf-title">Seleciona filho e penalização</div>
+    <select id="pen-who">
+      <option value="joao">João</option>
+      <option value="bia">Bia</option>
+    </select>
+    <select id="pen-type">
+      <option value="0">Não arrumou o quarto (-10 min)</option>
+      <option value="1">Não ajudou nas refeições (-10 min)</option>
+      <option value="2">Não arrumou após refeição individual (-10 min)</option>
+    </select>
+    <button class="btn-penalty" onclick="applyPenalty()">Aplicar penalização</button>
+  </div>
+
   <div style="padding:14px 16px 4px;font-size:15px;font-weight:700;color:#2C2C2A">
     Para aprovar <span class="nav-badge" id="pais-pending-badge" style="display:none">0</span>
   </div>
@@ -246,23 +306,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div id="pais-approved-list"></div>
 </div>
 
+<!-- CONFIG (só pais) -->
 <div id="screen-config" class="screen">
-  <div class="topbar"><h1>Configurações ⚙️</h1><div class="sub">App + Google Sheets + Email</div></div>
+  <div class="topbar"><h1>Configurações ⚙️</h1><div class="sub">Só visível para os pais</div></div>
   <div style="padding:14px 16px 0">
     <div class="info-box">
-      <strong>Configuração em 5 passos:</strong><br>
-      1. Abre o Google Sheets → Extensões → Apps Script<br>
-      2. Apaga o código existente e cola o script desta app<br>
-      3. Guarda e vai a: Implementar → Nova implementação<br>
-      4. Tipo: App Web · Executar como: Tu · Acesso: Qualquer pessoa<br>
-      5. Copia o URL e cola aqui em baixo<br><br>
-      <strong>Para o email automático:</strong> no Apps Script vai a Triggers (relógio) → Adicionar trigger → função <em>sendWeeklySummary</em> → Semanal → Domingo → 20h00
+      <strong>Google Apps Script:</strong><br>
+      1. Abre o Sheet → Extensões → Apps Script<br>
+      2. Cola o script → Implementar → Nova implementação<br>
+      3. App Web · Executar como: Tu · Acesso: Qualquer pessoa<br>
+      4. Copia o URL e cola aqui<br><br>
+      <strong>Email automático:</strong> no Apps Script vai a Triggers → Adicionar → <em>sendWeeklySummary</em> → Semanal → Domingo → 20h
     </div>
   </div>
   <div class="cfg-section">
     <div class="cfg-row"><label>URL do Google Apps Script</label><input type="url" id="cfg-url" placeholder="https://script.google.com/macros/s/…/exec"/></div>
     <div class="cfg-row"><label>ID do Google Sheet</label><input type="text" id="cfg-sheet-id" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms"/></div>
-    <div class="cfg-row"><label>PIN dos pais (4 dígitos)</label><input type="number" id="cfg-pin" placeholder="1234" maxlength="4"/></div>
+    <div class="cfg-row"><label>PIN dos pais (4 dígitos)</label><input type="number" id="cfg-pin-pais" placeholder="1234"/></div>
+    <div class="cfg-row"><label>PIN do João (4 dígitos)</label><input type="number" id="cfg-pin-joao" placeholder="1202"/></div>
+    <div class="cfg-row"><label>PIN da Bia (4 dígitos)</label><input type="number" id="cfg-pin-bia" placeholder="1623"/></div>
     <div class="cfg-row"><label>Email para resumo semanal</label><input type="email" id="cfg-email" placeholder="email@gmail.com"/></div>
     <div class="cfg-row"><label>URL desta app (para links no email)</label><input type="url" id="cfg-app-url" placeholder="https://…"/></div>
     <div class="cfg-row"><label>Dívida inicial do João (€)</label><input type="number" id="cfg-joao-total" placeholder="775"/></div>
@@ -271,20 +333,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <button class="btn-secondary" onclick="testConn()">🔌 Testar ligação ao Sheets</button>
     <div id="cfg-status" style="text-align:center;padding:10px;font-size:13px;color:#888780;min-height:28px"></div>
     <div style="margin-top:8px;background:#F1EFE8;border-radius:14px;padding:14px">
-      <div style="font-size:13px;font-weight:700;color:#444441;margin-bottom:8px">Script para o Apps Script — cola isto no editor:</div>
-      <button onclick="copyScript()" style="font-size:13px;padding:8px 14px;background:#7F77DD;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600">📋 Copiar script completo</button>
+      <div style="font-size:13px;font-weight:700;color:#444441;margin-bottom:8px">Script para o Apps Script:</div>
+      <button onclick="copyScript()" style="font-size:13px;padding:8px 14px;background:#7F77DD;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600">📋 Copiar script</button>
       <pre id="script-pre" style="margin-top:10px;font-size:9px;color:#444441;overflow-x:auto;white-space:pre-wrap;line-height:1.5;max-height:180px;overflow-y:auto;background:#fff;border-radius:8px;padding:10px"></pre>
     </div>
   </div>
-  <button class="btn-danger" onclick="logout()">← Sair / Trocar utilizador</button>
+  <button class="btn-danger" onclick="logout()">← Sair</button>
   <div style="height:20px"></div>
 </div>
 
+<!-- BOTTOM NAV -->
 <div class="bottom-nav" id="bottom-nav">
   <button class="nav-btn active" id="nav-home" onclick="navTo('home')"><span class="ni">🏠</span><span class="nl">Início</span></button>
   <button class="nav-btn" id="nav-tarefas" onclick="navTo('tarefas')"><span class="ni">✅</span><span class="nl">Tarefas</span></button>
   <button class="nav-btn" id="nav-historico" onclick="navTo('historico')"><span class="ni">📅</span><span class="nl">Histórico</span></button>
-  <button class="nav-btn" id="nav-config" onclick="navTo('config')"><span class="ni">⚙️</span><span class="nl">Config</span></button>
+  <button class="nav-btn pais-only" id="nav-config" onclick="navTo('config')" style="display:none"><span class="ni">⚙️</span><span class="nl">Config</span></button>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -293,7 +356,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 const SCRIPT = `// ============================================
 // TAREFAS DA CASA — Google Apps Script
 // Cola este código no Apps Script do teu Sheet
-// Implementar → Nova implementação → App Web
+// Deploy → Nova implementação → App Web
 // Executar como: Tu | Acesso: Qualquer pessoa
 // ============================================
 
@@ -315,15 +378,10 @@ const TASKS = [
   {cat:'gerais', name:'Fazer compras no Continente', mins:30},
   {cat:'gerais', name:'Varrer a cozinha apos jantar', mins:10},
   {cat:'gerais', name:'Aspirar um piso completo', mins:30},
-  {cat:'gerais', name:'Extra (com comentario)', mins:0},
-  {cat:'penalizacao', name:'Nao arrumou o quarto', mins:-10},
-  {cat:'penalizacao', name:'Nao ajudou nas refeicoes', mins:-10},
-  {cat:'penalizacao', name:'Nao arrumou apos refeicao individual', mins:-10},
 ];
 
-// ← Muda estes dois valores:
-var CONFIG_EMAIL = 'o_teu_email@gmail.com';
-var APP_URL = 'https://coloca_o_url_da_app_aqui';
+var CONFIG_EMAIL = 'adelino.quintiliano@gmail.com';
+var APP_URL = '';
 
 function doGet(e) { return handle(e); }
 function doPost(e) { return handle(e); }
@@ -345,10 +403,10 @@ function getOrCreate(week) {
   var ss=SpreadsheetApp.getActiveSpreadsheet(), sh=ss.getSheetByName(week);
   if(!sh){
     sh=ss.insertSheet(week);
-    var h=['Tarefa','Mins'];
-    ['Seg','Ter','Qua','Qui','Sex','Sab','Dom'].forEach(function(d){h.push(d+' Quem',d+' Status',d+' Min');});
+    var h=['Tarefa','Mins','Quem'];
+    ['Seg','Ter','Qua','Qui','Sex','Sab','Dom'].forEach(function(d){h.push(d+' Status',d+' Min');});
     sh.appendRow(h);
-    TASKS.forEach(function(t){sh.appendRow([t.name,t.mins]);});
+    TASKS.forEach(function(t){sh.appendRow([t.name,t.mins,'']);});
   }
   return sh;
 }
@@ -357,61 +415,53 @@ function getWeek(week) {
   var sh=getOrCreate(week), data=sh.getDataRange().getValues(), rows=[];
   for(var r=1;r<data.length;r++){
     var row=data[r], days=[];
-    for(var d=0;d<7;d++){var b=2+d*3;days.push({who:row[b]||'',status:row[b+1]||'',mins:row[b+2]||0});}
-    rows.push({name:row[0],mins:row[1],days:days});
+    for(var d=0;d<7;d++){var b=3+d*2;days.push({status:row[b]||'',mins:row[b+1]||0});}
+    rows.push({name:row[0],mins:row[1],who:row[2],days:days});
   }
   return {week:week,rows:rows};
 }
 
 function saveTask(p) {
-  var sh=getOrCreate(p.week), row=parseInt(p.row)+1, b=2+parseInt(p.day)*3;
-  sh.getRange(row,b+1).setValue(p.who);
-  sh.getRange(row,b+2).setValue('pendente');
-  sh.getRange(row,b+3).setValue(0);
+  var sh=getOrCreate(p.week), row=parseInt(p.row)+1, b=3+parseInt(p.day)*2;
+  sh.getRange(row,3).setValue(p.who);
+  sh.getRange(row,b+1).setValue('pendente');
+  sh.getRange(row,b+2).setValue(0);
   return {ok:true};
 }
 
 function approveTask(p) {
-  var sh=getOrCreate(p.week), row=parseInt(p.row)+1, b=2+parseInt(p.day)*3;
+  var sh=getOrCreate(p.week), row=parseInt(p.row)+1, b=3+parseInt(p.day)*2;
   if(p.approved==='true'){
-    sh.getRange(row,b+2).setValue('aprovado');
-    var mins=sh.getRange(row,2).getValue();
-    sh.getRange(row,b+3).setValue(mins);
+    sh.getRange(row,b+1).setValue('aprovado');
+    sh.getRange(row,b+2).setValue(sh.getRange(row,2).getValue());
   } else {
     sh.getRange(row,b+1).setValue('');
-    sh.getRange(row,b+2).setValue('');
-    sh.getRange(row,b+3).setValue(0);
+    sh.getRange(row,b+2).setValue(0);
   }
   return {ok:true};
 }
 
 function approveAll(week) {
   var sh=getOrCreate(week), data=sh.getDataRange().getValues();
-  for(var r=1;r<data.length;r++){
+  for(var r=1;r<data.length;r++)
     for(var d=0;d<7;d++){
-      var b=2+d*3;
-      if(data[r][b]&&data[r][b+1]==='pendente'){
-        sh.getRange(r+1,b+2).setValue('aprovado');
-        sh.getRange(r+1,b+3).setValue(data[r][1]);
-      }
+      var b=3+d*2;
+      if(data[r][b]==='pendente'){sh.getRange(r+1,b+1).setValue('aprovado');sh.getRange(r+1,b+2).setValue(data[r][1]);}
     }
-  }
   return {ok:true};
 }
 
-// Para activar o email:
-// Triggers → Adicionar trigger → sendWeeklySummary → Semanal → Domingo → 20h00
 function sendWeeklySummary() {
   var week=getCurrentWeek(), data=getWeek(week);
   var joaoM=0,biaM=0,pending=[];
   var dias=['Seg','Ter','Qua','Qui','Sex','Sab','Dom'];
   data.rows.forEach(function(row,ri){
     row.days.forEach(function(d,di){
-      if(d.who&&d.status==='aprovado'){
-        if(d.who==='joao') joaoM+=Math.max(0,row.mins);
-        else biaM+=Math.max(0,row.mins);
+      if(d.status==='aprovado'){
+        if(row.who==='joao') joaoM+=Math.max(0,parseInt(row.mins)||0);
+        else biaM+=Math.max(0,parseInt(row.mins)||0);
       }
-      if(d.who&&d.status==='pendente') pending.push({name:row.name,who:d.who,day:dias[di],row:ri,dayIdx:di});
+      if(d.status==='pendente') pending.push({name:row.name,who:row.who,day:dias[di],row:ri,dayIdx:di});
     });
   });
   var approveAllUrl=APP_URL+'?action=approveAll&week='+week;
@@ -429,25 +479,24 @@ function sendWeeklySummary() {
   var html='<div style="font-family:sans-serif;max-width:600px;margin:0 auto">'+
     '<div style="background:#7F77DD;padding:24px;border-radius:16px 16px 0 0;text-align:center">'+
     '<h1 style="color:#fff;margin:0;font-size:24px">Tarefas da Casa</h1>'+
-    '<p style="color:rgba(255,255,255,.8);margin:6px 0 0">Resumo da semana '+week+'</p></div>'+
+    '<p style="color:rgba(255,255,255,.8);margin:6px 0 0">Semana '+week+'</p></div>'+
     '<div style="background:#fff;padding:24px;border:1px solid #eee;border-top:none;border-radius:0 0 16px 16px">'+
     '<div style="display:flex;gap:12px;margin-bottom:20px">'+
     '<div style="flex:1;background:#EEEDFE;border-radius:12px;padding:16px;text-align:center">'+
-    '<p style="margin:0;font-size:11px;color:#534AB7;font-weight:700;text-transform:uppercase">JOAO</p>'+
+    '<p style="margin:0;font-size:11px;color:#534AB7;font-weight:700">JOAO</p>'+
     '<p style="margin:4px 0;font-size:28px;font-weight:800;color:#3C3489">'+joaoM+' min</p>'+
     '<p style="margin:0;font-size:13px;color:#1D9E75;font-weight:600">€'+(joaoM/10).toFixed(2)+' ganhos</p>'+
     (joaoM<210?'<p style="margin:4px 0 0;font-size:12px;color:#A32D2D">Abaixo do minimo</p>':'<p style="margin:4px 0 0;font-size:12px;color:#1D9E75">Minimo atingido</p>')+
     '</div>'+
     '<div style="flex:1;background:#E1F5EE;border-radius:12px;padding:16px;text-align:center">'+
-    '<p style="margin:0;font-size:11px;color:#0F6E56;font-weight:700;text-transform:uppercase">BIA</p>'+
+    '<p style="margin:0;font-size:11px;color:#0F6E56;font-weight:700">BIA</p>'+
     '<p style="margin:4px 0;font-size:28px;font-weight:800;color:#085041">'+biaM+' min</p>'+
     '<p style="margin:0;font-size:13px;color:#1D9E75;font-weight:600">€'+(biaM/10).toFixed(2)+' ganhos</p>'+
     (biaM<210?'<p style="margin:4px 0 0;font-size:12px;color:#A32D2D">Abaixo do minimo</p>':'<p style="margin:4px 0 0;font-size:12px;color:#1D9E75">Minimo atingido</p>')+
     '</div></div>';
   if(pending.length){
-    html+='<h2 style="font-size:16px;color:#2C2C2A;margin:0 0 12px">Pendentes de aprovacao ('+pending.length+')</h2>'+
-      '<div style="text-align:center;margin-bottom:16px">'+
-      '<a href="'+approveAllUrl+'" style="background:#7F77DD;color:#fff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;display:inline-block">Aprovar tudo de uma vez</a></div>'+
+    html+='<h2 style="font-size:16px;margin:0 0 12px">Pendentes ('+pending.length+')</h2>'+
+      '<div style="text-align:center;margin-bottom:16px"><a href="'+approveAllUrl+'" style="background:#7F77DD;color:#fff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;display:inline-block">Aprovar tudo de uma vez</a></div>'+
       '<table style="width:100%;border-collapse:collapse;font-size:14px">'+
       '<tr><th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Quem</th>'+
       '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Tarefa</th>'+
@@ -455,12 +504,9 @@ function sendWeeklySummary() {
       '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Acao</th></tr>'+
       pendRows+'</table>';
   } else {
-    html+='<div style="text-align:center;padding:20px;background:#E1F5EE;border-radius:12px">'+
-      '<p style="font-size:20px;margin:0">Tudo aprovado esta semana!</p></div>';
+    html+='<div style="text-align:center;padding:20px;background:#E1F5EE;border-radius:12px"><p style="color:#0F6E56;font-weight:600;margin:0">Tudo aprovado!</p></div>';
   }
-  html+='<div style="text-align:center;margin-top:20px">'+
-    '<a href="'+APP_URL+'" style="background:#EEEDFE;color:#534AB7;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px">Abrir app</a></div>'+
-    '</div></div>';
+  html+='<div style="text-align:center;margin-top:20px"><a href="'+APP_URL+'" style="background:#EEEDFE;color:#534AB7;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px">Abrir app</a></div></div></div>';
   MailApp.sendEmail({to:CONFIG_EMAIL,subject:'Tarefas da Casa - Semana '+week+' ('+pending.length+' pendentes)',htmlBody:html});
 }
 
@@ -470,32 +516,42 @@ function getCurrentWeek(){
   return 'W'+String(w).padStart(2,'0')+now.getFullYear();
 }`;
 
-const TASKS=[
-  {cat:'roupa',icon:'👕',name:'Colocar roupa a lavar',mins:10},
-  {cat:'roupa',icon:'👕',name:'Estender a roupa (1 máquina)',mins:20},
-  {cat:'roupa',icon:'👕',name:'Recolher e dobrar roupa estendida',mins:15},
-  {cat:'roupa',icon:'🔥',name:'Passar a ferro (1 máquina)',mins:60},
-  {cat:'roupa',icon:'🧦',name:'Dobrar meias e cuecas',mins:15},
-  {cat:'refeicoes',icon:'🍽️',name:'Pôr a mesa (almoço)',mins:5},
-  {cat:'refeicoes',icon:'🍽️',name:'Pôr a mesa (jantar)',mins:5},
-  {cat:'refeicoes',icon:'🧹',name:'Levantar a mesa e arrumar',mins:15},
-  {cat:'refeicoes',icon:'🫙',name:'Tirar a loiça da máquina (almoço)',mins:5},
-  {cat:'refeicoes',icon:'🫙',name:'Tirar a loiça da máquina (jantar)',mins:5},
-  {cat:'refeicoes',icon:'🧼',name:'Lavar a loiça à mão',mins:15},
-  {cat:'refeicoes',icon:'✨',name:'Limpar bancadas e arrumar escorredor',mins:10},
-  {cat:'gerais',icon:'🗑️',name:'Levar o lixo e reciclagem',mins:5},
-  {cat:'gerais',icon:'🪟',name:'Fechar as portadas à noite',mins:5},
-  {cat:'gerais',icon:'🛒',name:'Fazer compras no Continente',mins:30},
-  {cat:'gerais',icon:'🧹',name:'Varrer a cozinha após jantar',mins:10},
-  {cat:'gerais',icon:'🌀',name:'Aspirar um piso completo',mins:30},
-  {cat:'gerais',icon:'⭐',name:'Extra (com comentário)',mins:0},
-  {cat:'penalizacao',icon:'⚠️',name:'Não arrumou o quarto',mins:-10},
-  {cat:'penalizacao',icon:'⚠️',name:'Não ajudou nas refeições',mins:-10},
-  {cat:'penalizacao',icon:'⚠️',name:'Não arrumou após refeição individual',mins:-10},
+const TASKS = [
+  {cat:'roupa', icon:'👕', name:'Colocar roupa a lavar', mins:10},
+  {cat:'roupa', icon:'👕', name:'Estender a roupa (1 máquina)', mins:20},
+  {cat:'roupa', icon:'👕', name:'Recolher e dobrar roupa estendida', mins:15},
+  {cat:'roupa', icon:'🔥', name:'Passar a ferro (1 máquina)', mins:60},
+  {cat:'roupa', icon:'🧦', name:'Dobrar meias e cuecas', mins:15},
+  {cat:'refeicoes', icon:'🍽️', name:'Pôr a mesa (almoço)', mins:5},
+  {cat:'refeicoes', icon:'🍽️', name:'Pôr a mesa (jantar)', mins:5},
+  {cat:'refeicoes', icon:'🧹', name:'Levantar a mesa e arrumar', mins:15},
+  {cat:'refeicoes', icon:'🫙', name:'Tirar a loiça da máquina (almoço)', mins:5},
+  {cat:'refeicoes', icon:'🫙', name:'Tirar a loiça da máquina (jantar)', mins:5},
+  {cat:'refeicoes', icon:'🧼', name:'Lavar a loiça à mão', mins:15},
+  {cat:'refeicoes', icon:'✨', name:'Limpar bancadas e arrumar escorredor', mins:10},
+  {cat:'gerais', icon:'🗑️', name:'Levar o lixo e reciclagem', mins:5},
+  {cat:'gerais', icon:'🪟', name:'Fechar as portadas à noite', mins:5},
+  {cat:'gerais', icon:'🛒', name:'Fazer compras no Continente', mins:30},
+  {cat:'gerais', icon:'🧹', name:'Varrer a cozinha após jantar', mins:10},
+  {cat:'gerais', icon:'🌀', name:'Aspirar um piso completo', mins:30},
 ];
-const DAYS=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
 
-let S={user:null,config:{},tasks:{},viewOff:0,paisOff:0,day:todayIdx(),pin:''};
+const PENALTIES = [
+  {name:'Não arrumou o quarto', mins:-10},
+  {name:'Não ajudou nas refeições', mins:-10},
+  {name:'Não arrumou após refeição individual', mins:-10},
+];
+
+const DAYS = ['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+
+// Default PINs — overridden by config
+const DEFAULT_PINS = {pais:'1234', joao:'1202', bia:'1623'};
+
+let S = {
+  user: null, config: {}, tasks: {},
+  viewOff: 0, paisOff: 0, day: todayIdx(),
+  pin: '', pinTarget: null,
+};
 
 function todayIdx(){const d=new Date().getDay();return d===0?6:d-1;}
 
@@ -508,25 +564,54 @@ function wk(off){
 }
 
 function load(){
-  try{const s=localStorage.getItem('tdc2');if(s){const p=JSON.parse(s);S.tasks=p.tasks||{};}}catch(e){}
-  try{const c=localStorage.getItem('tdc2_c');if(c)S.config=JSON.parse(c);}catch(e){}
+  try{const s=localStorage.getItem('tdc3');if(s){const p=JSON.parse(s);S.tasks=p.tasks||{};}}catch(e){}
+  try{const c=localStorage.getItem('tdc3_c');if(c)S.config=JSON.parse(c);}catch(e){}
 }
-function save(){localStorage.setItem('tdc2',JSON.stringify({tasks:S.tasks}));}
+function save(){localStorage.setItem('tdc3',JSON.stringify({tasks:S.tasks}));}
 
-function showPin(){S.pin='';updDots();document.getElementById('pin-error').textContent='';document.getElementById('pin-overlay').classList.add('show');}
+function getPin(who){
+  if(who==='pais') return S.config.pinPais||DEFAULT_PINS.pais;
+  if(who==='joao') return S.config.pinJoao||DEFAULT_PINS.joao;
+  if(who==='bia') return S.config.pinBia||DEFAULT_PINS.bia;
+  return '0000';
+}
+
+function showPin(target){
+  S.pinTarget=target;S.pin='';
+  updDots();
+  document.getElementById('pin-error').textContent='';
+  const titles={pais:'Área dos Pais 🔐',joao:'Olá João! 🧒',bia:'Olá Bia! 👧'};
+  document.getElementById('pin-title').textContent=titles[target]||'PIN';
+  document.getElementById('pin-overlay').classList.add('show');
+}
 function hidePin(){document.getElementById('pin-overlay').classList.remove('show');S.pin='';}
 function pinKey(k){if(S.pin.length>=4)return;S.pin+=k;updDots();if(S.pin.length===4)setTimeout(checkPin,150);}
 function pinDel(){S.pin=S.pin.slice(0,-1);updDots();}
 function updDots(){for(let i=0;i<4;i++)document.getElementById('pd'+i).classList.toggle('filled',i<S.pin.length);}
 function checkPin(){
-  const ok=S.config.pin||'1234';
-  if(S.pin===ok){hidePin();login('pais');}
+  if(S.pin===getPin(S.pinTarget)){hidePin();login(S.pinTarget);}
   else{document.getElementById('pin-error').textContent='PIN incorreto. Tenta novamente.';S.pin='';updDots();}
 }
 
-function login(u){S.user=u;S.viewOff=0;S.paisOff=0;S.day=todayIdx();document.getElementById('bottom-nav').classList.add('visible');navTo('home');}
-function logout(){S.user=null;document.getElementById('bottom-nav').classList.remove('visible');showScreen('welcome');}
-function showScreen(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-'+n).classList.add('active');}
+function login(u){
+  S.user=u;S.viewOff=0;S.paisOff=0;S.day=todayIdx();
+  const nav=document.getElementById('bottom-nav');
+  nav.classList.add('visible');
+  // config tab only for pais
+  document.getElementById('nav-config').style.display=u==='pais'?'flex':'none';
+  navTo('home');
+}
+
+function logout(){
+  S.user=null;
+  document.getElementById('bottom-nav').classList.remove('visible');
+  showScreen('welcome');
+}
+
+function showScreen(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+n).classList.add('active');
+}
 
 function navTo(tab){
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -541,28 +626,54 @@ function changeWeek(d){const n=S.viewOff+d;if(n>0)return;S.viewOff=n;S.day=n===0
 function changePaisWeek(d){const n=S.paisOff+d;if(n>0)return;S.paisOff=n;renderPais();}
 function goCurrentWeek(){S.viewOff=0;S.day=todayIdx();renderFilho();}
 
-function tk(w,d,i){return w+'_'+d+'_'+i;}
-function getTS(w,d,i){return S.tasks[tk(w,d,i)]||null;}
-function setTS(w,d,i,v){if(v===null)delete S.tasks[tk(w,d,i)];else S.tasks[tk(w,d,i)]=v;save();}
+// Task keys include the user (who) so João and Bia have separate entries
+function tk(who,w,d,i){return who+'_'+w+'_'+d+'_'+i;}
+function getTS(who,w,d,i){return S.tasks[tk(who,w,d,i)]||null;}
+function setTS(who,w,d,i,v){if(v===null)delete S.tasks[tk(who,w,d,i)];else S.tasks[tk(who,w,d,i)]=v;save();}
+
+// Penalty keys
+function penKey(who,w,d,pi){return 'pen_'+who+'_'+w+'_'+d+'_'+pi+'_'+Date.now();}
 
 function allTimeMins(who){
   let tot=0;
   Object.keys(S.tasks).forEach(k=>{
-    const ts=S.tasks[k];if(!ts||!ts.approved||ts.who!==who)return;
-    const i=parseInt(k.split('_')[2]);
-    if(!isNaN(i)&&TASKS[i]&&TASKS[i].mins>0)tot+=TASKS[i].mins;
+    const ts=S.tasks[k];
+    if(!ts||!ts.approved)return;
+    // key format: who_week_day_idx OR pen_who_week_day_pidx_ts
+    if(k.startsWith('pen_'+who)){tot+=ts.mins||0;return;}
+    if(!k.startsWith(who+'_'))return;
+    const parts=k.split('_');
+    const idx=parseInt(parts[3]);
+    if(!isNaN(idx)&&TASKS[idx]&&TASKS[idx].mins>0)tot+=ts.customMins||TASKS[idx].mins;
   });
   return tot;
 }
 
+function weekMinsFor(who, weekKey){
+  let tot=0;
+  Object.keys(S.tasks).forEach(k=>{
+    const ts=S.tasks[k];
+    if(!ts||!ts.approved)return;
+    if(k.startsWith('pen_'+who+'_'+weekKey)){tot+=ts.mins||0;return;}
+    if(!k.startsWith(who+'_'+weekKey+'_'))return;
+    const parts=k.split('_');
+    const idx=parseInt(parts[3]);
+    if(!isNaN(idx)&&TASKS[idx]&&TASKS[idx].mins>0)tot+=ts.customMins||TASKS[idx].mins;
+  });
+  return tot;
+}
+
+// ---- FILHO ----
 function renderFilho(){
-  const isJ=S.user==='joao',name=isJ?'João':'Bia',w=wk(S.viewOff),past=S.viewOff<0;
+  const who=S.user, name=who==='joao'?'João':'Bia';
+  const w=wk(S.viewOff), past=S.viewOff<0;
   document.getElementById('filho-greeting').textContent='Olá, '+name+'! 👋';
   document.getElementById('filho-week-lbl').textContent=w;
   document.getElementById('filho-week-nav').textContent=past?w+' ← anterior':w+' (atual)';
   document.getElementById('filho-hist-banner').style.display=past?'block':'none';
-  const tot=isJ?(S.config.joaoTotal||775):(S.config.biaTotal||780);
-  const paid=allTimeMins(isJ?'joao':'bia')/10;
+
+  const tot=who==='joao'?(S.config.joaoTotal||775):(S.config.biaTotal||780);
+  const paid=allTimeMins(who)/10;
   const rem=Math.max(0,tot-paid);
   const pct=Math.min(100,(paid/tot)*100);
   document.getElementById('filho-debt').textContent='€ '+rem.toFixed(2);
@@ -570,14 +681,14 @@ function renderFilho(){
   document.getElementById('filho-debt-bar').style.width=pct+'%';
   document.getElementById('filho-paid-txt').textContent='Pago: €'+paid.toFixed(2);
   document.getElementById('filho-total-txt').textContent='Total: €'+tot;
-  let wMins=0;
-  for(let d=0;d<7;d++)TASKS.forEach((t,i)=>{const ts=getTS(w,d,i);if(ts&&ts.approved&&t.mins>0)wMins+=t.mins;});
+
+  const wMins=weekMinsFor(who,w);
   const pct2=Math.min(100,Math.round((wMins/210)*100));
-  const off=377-(pct2/100)*377;
-  document.getElementById('filho-ring').style.strokeDashoffset=off;
+  document.getElementById('filho-ring').style.strokeDashoffset=377-(pct2/100)*377;
   document.getElementById('filho-ring-pct').textContent=pct2+'%';
   document.getElementById('filho-ring-min').textContent=wMins+' / 210 min';
   document.getElementById('filho-euros').textContent='€'+(wMins/10).toFixed(2);
+
   renderDays(w);renderFilhoTasks(w,past);
 }
 
@@ -585,145 +696,264 @@ function renderDays(w){
   const wrap=document.getElementById('filho-days');wrap.innerHTML='';
   DAYS.forEach((d,i)=>{
     const c=document.createElement('div');c.className='day-chip'+(i===S.day?' active':'');
-    c.textContent=d;c.onclick=()=>{S.day=i;renderDays(w);renderFilhoTasks(w,S.viewOff<0);};
+    c.textContent=d;
+    c.onclick=()=>{S.day=i;renderDays(w);renderFilhoTasks(w,S.viewOff<0);};
     wrap.appendChild(c);
   });
 }
 
 function renderFilhoTasks(w,ro){
+  const who=S.user;
   const wrap=document.getElementById('filho-tasks');wrap.innerHTML='';
-  [{key:'roupa',lbl:'👕 Roupa'},{key:'refeicoes',lbl:'🍽️ Refeições'},{key:'gerais',lbl:'🏠 Gerais'},{key:'penalizacao',lbl:'⚠️ Penalizações'}].forEach(cat=>{
+  [{key:'roupa',lbl:'👕 Roupa'},{key:'refeicoes',lbl:'🍽️ Refeições'},{key:'gerais',lbl:'🏠 Gerais'}].forEach(cat=>{
     const ct=TASKS.map((t,i)=>({...t,idx:i})).filter(t=>t.cat===cat.key);
     if(!ct.length)return;
     const h=document.createElement('div');h.className='section-hdr';h.textContent=cat.lbl;wrap.appendChild(h);
     ct.forEach(t=>{
-      const ts=getTS(w,S.day,t.idx);
+      const ts=getTS(who,w,S.day,t.idx);
       const el=document.createElement('div');
       el.className='task-item'+(ts?(ts.approved?' done':(ts.rejected?' rejected':' pending-ap')):'');
       const sl=ts?(ts.approved?'Aprovado ✓':(ts.rejected?'Rejeitado ✗':'Aguarda aprovação...')):(ro?'Não registado':'Por fazer');
       const cc=ts?(ts.approved?'checked':(ts.rejected?'rej':'waiting')):'';
       const ci=ts?(ts.approved?'✓':(ts.rejected?'✗':'⏳')):'';
-      const ml=t.mins!==0?t.mins+' min':'—';
-      const pc=t.mins<0?'neg':(ts&&ts.approved?'ok':'');
+      const minsVal=ts&&ts.customMins?ts.customMins:t.mins;
+      const ml=minsVal>0?minsVal+' min':'—';
+      const pc=ts&&ts.approved?'ok':'';
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${t.cat}">${t.icon}</div>
         <div class="task-info"><div class="task-name">${t.name}</div><div class="task-meta">${sl}</div></div>
         <div class="task-pts ${pc}">${ml}</div>
-        ${!ro?`<div class="task-check ${cc}" onclick="toggleTask('${w}',${S.day},${t.idx})">${ci}</div>`:`<div class="task-check ${cc}">${ci}</div>`}
+        ${!ro?`<div class="task-check ${cc}" onclick="toggleTask('${who}','${w}',${S.day},${t.idx})">${ci}</div>`:`<div class="task-check ${cc}">${ci}</div>`}
       </div>`;
       wrap.appendChild(el);
     });
   });
+
+  // Extra task with slider
+  if(!ro){
+    const hdr=document.createElement('div');hdr.className='section-hdr';hdr.textContent='⭐ Extra';wrap.appendChild(hdr);
+    const extraEl=document.createElement('div');extraEl.className='task-item';
+    const extraTs=getTS(who,w,S.day,99);
+    if(extraTs){
+      const sl=extraTs.approved?'Aprovado ✓':(extraTs.rejected?'Rejeitado ✗':'Aguarda aprovação...');
+      const cc=extraTs.approved?'checked':(extraTs.rejected?'rej':'waiting');
+      const ci=extraTs.approved?'✓':(extraTs.rejected?'✗':'⏳');
+      extraEl.className='task-item'+(extraTs.approved?' done':(extraTs.rejected?' rejected':' pending-ap'));
+      extraEl.innerHTML=`<div class="task-hdr">
+        <div class="task-icon ti-extra">⭐</div>
+        <div class="task-info"><div class="task-name">${extraTs.desc||'Tarefa extra'}</div><div class="task-meta">${sl}</div></div>
+        <div class="task-pts ok">${extraTs.customMins} min</div>
+        <div class="task-check ${cc}" onclick="clearExtra('${who}','${w}',${S.day})">${ci}</div>
+      </div>`;
+    } else {
+      extraEl.innerHTML=`<div class="task-hdr">
+        <div class="task-icon ti-extra">⭐</div>
+        <div class="task-info"><div class="task-name">Tarefa extra</div><div class="task-meta">Descreve e escolhe o tempo</div></div>
+      </div>
+      <div class="extra-slider-wrap">
+        <div class="extra-slider-inner">
+          <div class="extra-slider-row">
+            <label>Tempo</label>
+            <input type="range" min="5" max="60" step="5" value="15" id="extra-slider" oninput="document.getElementById('extra-val').textContent=this.value+' min'">
+            <span id="extra-val">15 min</span>
+          </div>
+          <input type="text" class="extra-desc" id="extra-desc" placeholder="O que fizeste? (ex: limpei o meu quarto)">
+          <button class="btn-mark-extra" onclick="markExtra('${who}','${w}',${S.day})">✓ Marcar como feito</button>
+        </div>
+      </div>`;
+    }
+    wrap.appendChild(extraEl);
+  }
 }
 
-function toggleTask(w,day,idx){
-  const ts=getTS(w,day,idx);
+function toggleTask(who,w,day,idx){
+  const ts=getTS(who,w,day,idx);
   if(ts&&ts.approved){showToast('Já aprovado pelos pais 🔒');return;}
-  if(ts&&!ts.approved&&!ts.rejected){setTS(w,day,idx,null);showToast('Tarefa desmarcada');}
-  else{setTS(w,day,idx,{who:S.user,approved:false,rejected:false,ts:Date.now()});showToast('Marcado! Aguarda aprovação 👍');}
+  if(ts&&!ts.approved&&!ts.rejected){setTS(who,w,day,idx,null);showToast('Tarefa desmarcada');}
+  else{setTS(who,w,day,idx,{who,approved:false,rejected:false,ts:Date.now()});showToast('Marcado! Aguarda aprovação 👍');}
   renderFilhoTasks(w,false);
 }
 
+function markExtra(who,w,day){
+  const mins=parseInt(document.getElementById('extra-slider').value)||15;
+  const desc=document.getElementById('extra-desc').value.trim()||'Tarefa extra';
+  setTS(who,w,day,99,{who,approved:false,rejected:false,customMins:mins,desc,ts:Date.now()});
+  showToast('Extra marcado! Aguarda aprovação 👍');
+  renderFilhoTasks(w,false);
+}
+
+function clearExtra(who,w,day){
+  const ts=getTS(who,w,day,99);
+  if(ts&&ts.approved){showToast('Já aprovado pelos pais 🔒');return;}
+  setTS(who,w,day,99,null);
+  renderFilhoTasks(w,false);
+}
+
+// ---- PAIS ----
 function renderPais(){
-  const w=wk(S.paisOff),past=S.paisOff<0;
+  const w=wk(S.paisOff), past=S.paisOff<0;
   document.getElementById('pais-week-lbl').textContent=w;
   document.getElementById('pais-week-nav').textContent=past?w+' ← anterior':w+' (atual)';
-  let jM=0,bM=0,pend=[],appr=[];
-  for(let d=0;d<7;d++)TASKS.forEach((t,i)=>{
-    const ts=getTS(w,d,i);if(!ts)return;
-    const e={task:t,idx:i,day:d,ts};
-    if(ts.approved){if(ts.who==='joao')jM+=Math.max(0,t.mins);else bM+=Math.max(0,t.mins);appr.push(e);}
-    else if(!ts.rejected)pend.push(e);
-  });
+
+  const jM=weekMinsFor('joao',w), bM=weekMinsFor('bia',w);
   document.getElementById('pais-joao-week').textContent=jM+' min';
   document.getElementById('pais-bia-week').textContent=bM+' min';
   document.getElementById('pais-joao-bar').style.width=Math.min(100,(jM/210)*100)+'%';
   document.getElementById('pais-bia-bar').style.width=Math.min(100,(bM/210)*100)+'%';
-  const jTot=S.config.joaoTotal||775,bTot=S.config.biaTotal||780;
+
+  const jTot=S.config.joaoTotal||775, bTot=S.config.biaTotal||780;
   document.getElementById('pais-joao-debt').textContent='€ '+Math.max(0,jTot-allTimeMins('joao')/10).toFixed(2);
   document.getElementById('pais-bia-debt').textContent='€ '+Math.max(0,bTot-allTimeMins('bia')/10).toFixed(2);
+
+  // collect pending and approved for both users
+  let pend=[], appr=[];
+  ['joao','bia'].forEach(who=>{
+    for(let d=0;d<7;d++){
+      // normal tasks
+      TASKS.forEach((t,i)=>{
+        const ts=getTS(who,w,d,i);if(!ts)return;
+        const e={task:t,idx:i,day:d,ts,who,isExtra:false};
+        if(ts.approved)appr.push(e);else if(!ts.rejected)pend.push(e);
+      });
+      // extra
+      const xts=getTS(who,w,d,99);
+      if(xts){
+        const e={task:{cat:'gerais',icon:'⭐',name:xts.desc||'Tarefa extra',mins:xts.customMins||0},idx:99,day:d,ts:xts,who,isExtra:true};
+        if(xts.approved)appr.push(e);else if(!xts.rejected)pend.push(e);
+      }
+      // penalties applied by parents
+      Object.keys(S.tasks).forEach(k=>{
+        if(!k.startsWith('pen_'+who+'_'+w+'_'+d))return;
+        const pts=S.tasks[k];if(!pts)return;
+        const e={task:{cat:'penalizacao',icon:'⚠️',name:pts.name,mins:pts.mins},idx:k,day:d,ts:pts,who,isPenalty:true};
+        appr.push(e);
+      });
+    }
+  });
+
   const badge=document.getElementById('pais-pending-badge');
   badge.textContent=pend.length;badge.style.display=pend.length?'inline-block':'none';
+
   const pList=document.getElementById('pais-pending-list');pList.innerHTML='';
-  if(!pend.length){pList.innerHTML='<div class="empty"><div class="ei">🎉</div><p>Nada para aprovar!</p></div>';}
-  else{
-    if(!past){const d=document.createElement('div');d.style.cssText='padding:0 16px 8px';d.innerHTML=`<button class="btn-primary" onclick="approveAll('${w}')">✓ Aprovar tudo de uma vez</button>`;pList.appendChild(d);}
+  if(!pend.length){
+    pList.innerHTML='<div class="empty"><div class="ei">🎉</div><p>Nada para aprovar!</p></div>';
+  } else {
+    if(!past){
+      const d=document.createElement('div');d.style.cssText='padding:0 16px 8px';
+      d.innerHTML=`<button class="btn-primary" onclick="approveAll('${w}')">✓ Aprovar tudo de uma vez</button>`;
+      pList.appendChild(d);
+    }
     pend.forEach(e=>{
       const el=document.createElement('div');el.className='task-item pending-ap';
-      const wn=e.ts.who==='joao'?'João':'Bia';
+      const wn=e.who==='joao'?'João':'Bia';
+      const minsLabel=e.task.mins>0?e.task.mins+' min':(e.task.mins<0?e.task.mins+' min':'—');
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${e.task.cat}">${e.task.icon}</div>
         <div class="task-info"><div class="task-name">${e.task.name}</div><div class="task-meta">${wn} — ${DAYS[e.day]}</div></div>
-        <div class="task-pts">${e.task.mins} min</div>
+        <div class="task-pts">${minsLabel}</div>
       </div>${!past?`<div class="approve-actions">
-        <button class="btn-app yes" onclick="doApprove('${w}',${e.idx},${e.day},true)">✓ Aprovar</button>
-        <button class="btn-app no" onclick="doApprove('${w}',${e.idx},${e.day},false)">✗ Rejeitar</button>
+        <button class="btn-app yes" onclick="doApprove('${e.who}','${w}',${e.day},'${e.idx}',true)">✓ Aprovar</button>
+        <button class="btn-app no" onclick="doApprove('${e.who}','${w}',${e.day},'${e.idx}',false)">✗ Rejeitar</button>
       </div>`:''}`;
       pList.appendChild(el);
     });
   }
+
   const aList=document.getElementById('pais-approved-list');aList.innerHTML='';
-  if(!appr.length){aList.innerHTML='<div style="padding:16px;color:#888780;font-size:14px;text-align:center">Nenhuma aprovada ainda</div>';}
-  else appr.slice().reverse().forEach(e=>{
-    const el=document.createElement('div');el.className='task-item done';
-    const wn=e.ts.who==='joao'?'João':'Bia';
-    el.innerHTML=`<div class="task-hdr">
-      <div class="task-icon ti-${e.task.cat}">${e.task.icon}</div>
-      <div class="task-info"><div class="task-name">${e.task.name}</div><div class="task-meta">${wn} — ${DAYS[e.day]}</div></div>
-      <div class="task-pts ok">${e.task.mins} min</div>
-      <div class="task-check checked">✓</div>
-    </div>`;
-    aList.appendChild(el);
-  });
+  if(!appr.length){
+    aList.innerHTML='<div style="padding:16px;color:#888780;font-size:14px;text-align:center">Nenhuma aprovada ainda</div>';
+  } else {
+    appr.slice().reverse().forEach(e=>{
+      const el=document.createElement('div');el.className='task-item done';
+      const wn=e.who==='joao'?'João':'Bia';
+      const minsLabel=e.task.mins>0?e.task.mins+' min':(e.task.mins<0?e.task.mins+' min':'—');
+      const pc=e.task.mins<0?'neg':'ok';
+      el.innerHTML=`<div class="task-hdr">
+        <div class="task-icon ti-${e.task.cat}">${e.task.icon}</div>
+        <div class="task-info"><div class="task-name">${e.task.name}</div><div class="task-meta">${wn} — ${DAYS[e.day]}</div></div>
+        <div class="task-pts ${pc}">${minsLabel}</div>
+        <div class="task-check checked">✓</div>
+      </div>`;
+      aList.appendChild(el);
+    });
+  }
 }
 
-function doApprove(w,idx,day,ok){
-  const ts=getTS(w,day,idx);if(!ts)return;
-  if(ok){ts.approved=true;ts.rejected=false;setTS(w,day,idx,ts);showToast('Aprovado ✓');}
-  else{ts.approved=false;ts.rejected=true;setTS(w,day,idx,ts);showToast('Rejeitado ✗');}
+function doApprove(who,w,day,idx,ok){
+  const i=isNaN(idx)?idx:parseInt(idx);
+  const ts=isNaN(idx)?S.tasks[idx]:getTS(who,w,day,i);
+  if(!ts)return;
+  if(ok){ts.approved=true;ts.rejected=false;}
+  else{ts.approved=false;ts.rejected=true;}
+  if(isNaN(idx))S.tasks[idx]=ts;
+  else setTS(who,w,day,i,ts);
+  save();
+  showToast(ok?'Aprovado ✓':'Rejeitado ✗');
   renderPais();
 }
 
 function approveAll(w){
   let n=0;
-  for(let d=0;d<7;d++)TASKS.forEach((t,i)=>{
-    const ts=getTS(w,d,i);
-    if(ts&&!ts.approved&&!ts.rejected){ts.approved=true;setTS(w,d,i,ts);n++;}
+  ['joao','bia'].forEach(who=>{
+    for(let d=0;d<7;d++){
+      TASKS.forEach((t,i)=>{
+        const ts=getTS(who,w,d,i);
+        if(ts&&!ts.approved&&!ts.rejected){ts.approved=true;setTS(who,w,d,i,ts);n++;}
+      });
+      const xts=getTS(who,w,d,99);
+      if(xts&&!xts.approved&&!xts.rejected){xts.approved=true;setTS(who,w,d,99,xts);n++;}
+    }
   });
   showToast(n+' tarefas aprovadas ✓');renderPais();
 }
 
+function applyPenalty(){
+  const who=document.getElementById('pen-who').value;
+  const pi=parseInt(document.getElementById('pen-type').value);
+  const pen=PENALTIES[pi];
+  const w=wk(S.paisOff);
+  const k='pen_'+who+'_'+w+'_'+S.paisOff+'_'+pi+'_'+Date.now();
+  S.tasks[k]={who,approved:true,name:pen.name,mins:pen.mins,ts:Date.now()};
+  save();
+  const wn=who==='joao'?'João':'Bia';
+  showToast('Penalização aplicada ao '+wn+' ✓');
+  renderPais();
+}
+
+// ---- CONFIG ----
 function renderConfig(){
   const c=S.config;
   document.getElementById('cfg-url').value=c.url||'';
   document.getElementById('cfg-sheet-id').value=c.sheetId||'';
-  document.getElementById('cfg-pin').value=c.pin||'1234';
+  document.getElementById('cfg-pin-pais').value=c.pinPais||'1234';
+  document.getElementById('cfg-pin-joao').value=c.pinJoao||'1202';
+  document.getElementById('cfg-pin-bia').value=c.pinBia||'1623';
   document.getElementById('cfg-email').value=c.email||'';
-  document.getElementById('cfg-app-url').value=c.appUrl||window.location.href;
+  document.getElementById('cfg-app-url').value=c.appUrl||'';
   document.getElementById('cfg-joao-total').value=c.joaoTotal||775;
   document.getElementById('cfg-bia-total').value=c.biaTotal||780;
   document.getElementById('script-pre').textContent=SCRIPT;
 }
 
 function saveConfig(){
-  const pin=document.getElementById('cfg-pin').value;
-  if(pin&&(pin.length!==4||isNaN(pin))){showToast('PIN deve ter 4 dígitos');return;}
   S.config={
     url:document.getElementById('cfg-url').value.trim(),
     sheetId:document.getElementById('cfg-sheet-id').value.trim(),
-    pin:pin||'1234',
+    pinPais:document.getElementById('cfg-pin-pais').value||'1234',
+    pinJoao:document.getElementById('cfg-pin-joao').value||'1202',
+    pinBia:document.getElementById('cfg-pin-bia').value||'1623',
     email:document.getElementById('cfg-email').value.trim(),
     appUrl:document.getElementById('cfg-app-url').value.trim(),
     joaoTotal:parseFloat(document.getElementById('cfg-joao-total').value)||775,
     biaTotal:parseFloat(document.getElementById('cfg-bia-total').value)||780,
   };
-  localStorage.setItem('tdc2_c',JSON.stringify(S.config));
+  localStorage.setItem('tdc3_c',JSON.stringify(S.config));
   showToast('Guardado ✓');
 }
 
 async function testConn(){
   const st=document.getElementById('cfg-status');
-  if(!S.config.url){st.innerHTML='<span class="sd-err"></span>Sem URL configurado';return;}
+  if(!S.config.url){st.innerHTML='<span class="sd-err"></span>Sem URL';return;}
   st.textContent='A testar...';
   try{
     const r=await fetch(S.config.url+'?action=test');
@@ -739,24 +969,7 @@ function showToast(msg){
   clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-function checkDeepLink(){
-  const p=new URLSearchParams(window.location.search);
-  const a=p.get('action');
-  if(a==='approveTask'){
-    const w2=p.get('week'),row=parseInt(p.get('row')),day=parseInt(p.get('day')),ok=p.get('approved')==='true';
-    if(w2&&!isNaN(row)&&!isNaN(day)){
-      const ts=getTS(w2,day,row);
-      if(ts){ts.approved=ok;ts.rejected=!ok;setTS(w2,day,row,ts);}
-      showToast(ok?'Aprovado via email ✓':'Rejeitado via email');
-    }
-  } else if(a==='approveAll'){
-    const w2=p.get('week');
-    if(w2){let n=0;for(let d=0;d<7;d++)TASKS.forEach((t,i)=>{const ts=getTS(w2,d,i);if(ts&&!ts.approved&&!ts.rejected){ts.approved=true;setTS(w2,d,i,ts);n++;}});showToast(n+' tarefas aprovadas ✓');}
-  }
-}
-
 load();
-checkDeepLink();
 document.getElementById('script-pre').textContent=SCRIPT;
 </script>
 </body>
