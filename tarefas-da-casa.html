@@ -19,7 +19,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 #screen-welcome{background:#7F77DD;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px}
 .welcome-logo{font-size:72px;margin-bottom:12px}
 .welcome-title{font-size:30px;font-weight:800;color:#fff;text-align:center;margin-bottom:6px}
-.welcome-sub{font-size:15px;color:rgba(255,255,255,.75);text-align:center;margin-bottom:36px}
+.welcome-sub{font-size:15px;color:rgba(255,255,255,.75);text-align:center;margin-bottom:36px;min-height:24px}
 .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:340px}
 .profile-btn{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:20px;padding:24px 12px;cursor:pointer;text-align:center;color:#fff;user-select:none;transition:all .18s}
 .profile-btn:active{background:rgba(255,255,255,.28);transform:scale(.96)}
@@ -43,7 +43,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .pin-cancel{color:rgba(255,255,255,.6);font-size:14px;margin-top:20px;cursor:pointer;padding:8px}
 .loading-overlay{position:fixed;inset:0;background:rgba(255,255,255,.88);display:none;align-items:center;justify-content:center;z-index:500;flex-direction:column;gap:12px}
 .loading-overlay.show{display:flex}
-.spinner{width:40px;height:40px;border:4px solid #EEEDFE;border-top-color:#7F77DD;border-radius:50%;animation:spin .8s linear infinite}
+.spinner{width:36px;height:36px;border:4px solid #EEEDFE;border-top-color:#7F77DD;border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-msg{font-size:14px;color:#888780;font-weight:500}
 .card{background:#fff;border-radius:18px;padding:16px;margin:12px 16px;border:1px solid rgba(0,0,0,.07)}
@@ -70,10 +70,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .day-chip{flex-shrink:0;padding:8px 14px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid #D3D1C7;background:#fff;color:#444441;transition:all .15s;user-select:none}
 .day-chip.active{background:#7F77DD;border-color:#7F77DD;color:#fff}
 .section-hdr{padding:14px 16px 4px;font-size:12px;color:#888780;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
-.task-item{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid rgba(0,0,0,.07);overflow:hidden}
+.task-item{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid rgba(0,0,0,.07);overflow:hidden;transition:opacity .2s}
 .task-item.done{border-color:#9FE1CB;background:#F7FFFC}
 .task-item.pending-ap{border-color:#FAC775;background:#FFFCF3}
 .task-item.rejected{border-color:#F09595;background:#FFF5F5}
+.task-item.penalty-item{border-color:#F09595;background:#FFF5F5}
+.task-item.optimistic{opacity:.6}
 .task-hdr{display:flex;align-items:center;gap:12px;padding:13px 14px}
 .task-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .ti-roupa{background:#EEEDFE}.ti-refeicoes{background:#E1F5EE}.ti-gerais{background:#FAECE7}.ti-penalizacao{background:#FCEBEB}.ti-extra{background:#E1F5EE}
@@ -135,6 +137,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .hist-banner{background:#FAC775;border-radius:12px;margin:8px 16px 0;padding:10px 14px;font-size:13px;color:#412402;font-weight:500;text-align:center}
 .toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#2C2C2A;color:#fff;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:500;z-index:9999;transition:transform .3s;white-space:nowrap;max-width:calc(100vw - 32px);text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0)}
+.pen-banner{background:#FCEBEB;border-radius:12px;margin:8px 16px 4px;padding:10px 14px;font-size:13px;color:#A32D2D;font-weight:600;border:1.5px solid #F09595}
+.pen-banner-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -171,18 +175,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="pin-dot" id="pd2"></div><div class="pin-dot" id="pd3"></div>
   </div>
   <div class="pin-keypad">
-    <div class="pin-key" onclick="pinKey('1')">1</div>
-    <div class="pin-key" onclick="pinKey('2')">2</div>
-    <div class="pin-key" onclick="pinKey('3')">3</div>
-    <div class="pin-key" onclick="pinKey('4')">4</div>
-    <div class="pin-key" onclick="pinKey('5')">5</div>
-    <div class="pin-key" onclick="pinKey('6')">6</div>
-    <div class="pin-key" onclick="pinKey('7')">7</div>
-    <div class="pin-key" onclick="pinKey('8')">8</div>
-    <div class="pin-key" onclick="pinKey('9')">9</div>
-    <div class="pin-key empty"></div>
-    <div class="pin-key" onclick="pinKey('0')">0</div>
-    <div class="pin-key" onclick="pinDel()">⌫</div>
+    <div class="pin-key" onclick="pinKey('1')">1</div><div class="pin-key" onclick="pinKey('2')">2</div><div class="pin-key" onclick="pinKey('3')">3</div>
+    <div class="pin-key" onclick="pinKey('4')">4</div><div class="pin-key" onclick="pinKey('5')">5</div><div class="pin-key" onclick="pinKey('6')">6</div>
+    <div class="pin-key" onclick="pinKey('7')">7</div><div class="pin-key" onclick="pinKey('8')">8</div><div class="pin-key" onclick="pinKey('9')">9</div>
+    <div class="pin-key empty"></div><div class="pin-key" onclick="pinKey('0')">0</div><div class="pin-key" onclick="pinDel()">⌫</div>
   </div>
   <div class="pin-error" id="pin-error"></div>
   <div class="pin-cancel" onclick="hidePin()">Cancelar</div>
@@ -288,7 +284,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="topbar"><h1>Configurações ⚙️</h1><div class="sub">Só visível para os pais</div></div>
   <div style="padding:14px 16px 0">
     <div class="info-box">
-      Configurações guardadas no Google Sheets — disponíveis em todos os dispositivos automaticamente.
+      Configurações guardadas no Google Sheets — disponíveis em todos os dispositivos automaticamente.<br><br>
+      <strong>A dívida é calculada automaticamente</strong> com base em todos os minutos aprovados em todas as semanas — não precisas de atualizar manualmente.
     </div>
   </div>
   <div class="cfg-section">
@@ -299,16 +296,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="cfg-row"><label>URL desta app (para links no email)</label><input type="url" id="cfg-app-url"/></div>
     <div class="cfg-row"><label>Dívida inicial do João (€)</label><input type="number" id="cfg-joao-total"/></div>
     <div class="cfg-row"><label>Dívida inicial da Bia (€)</label><input type="number" id="cfg-bia-total"/></div>
-    <div class="cfg-row"><label>Já pago pelo João (€) — atualiza a dívida</label><input type="number" id="cfg-joao-paid"/></div>
-    <div class="cfg-row"><label>Já pago pela Bia (€) — atualiza a dívida</label><input type="number" id="cfg-bia-paid"/></div>
     <button class="btn-primary" onclick="saveConfig()">💾 Guardar no Sheets</button>
     <button class="btn-secondary" onclick="testConn()">🔌 Testar ligação</button>
     <div id="cfg-status" style="text-align:center;padding:10px;font-size:13px;color:#888780;min-height:28px"></div>
-    <div style="margin-top:8px;background:#F1EFE8;border-radius:14px;padding:14px">
-      <div style="font-size:13px;font-weight:700;color:#444441;margin-bottom:8px">Script do Apps Script:</div>
-      <button onclick="copyScript()" style="font-size:13px;padding:8px 14px;background:#7F77DD;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600">📋 Copiar script</button>
-      <pre id="script-pre" style="margin-top:10px;font-size:9px;color:#444441;overflow-x:auto;white-space:pre-wrap;line-height:1.5;max-height:180px;overflow-y:auto;background:#fff;border-radius:8px;padding:10px"></pre>
-    </div>
   </div>
   <button class="btn-danger" onclick="logout()">← Sair</button>
   <div style="height:20px"></div>
@@ -320,204 +310,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="nav-btn" id="nav-historico" onclick="navTo('historico')"><span class="ni">📅</span><span class="nl">Histórico</span></button>
   <button class="nav-btn" id="nav-config" style="display:none" onclick="navTo('config')"><span class="ni">⚙️</span><span class="nl">Config</span></button>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
-// ============================================================
-// CREDENCIAIS — pré-configuradas, não precisam de ser alteradas
-// ============================================================
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycby0FoRztsjVfI-G4ollX06Ma-hjWZYv091yro1_OPpi0gQa4wLJynYouUzsyxYDwGAyBw/exec';
 const SHEET_ID   = '1CyA8mzbBqW9ksCjB2pwOD4JupQI1zg3IdCl0HPr_aqM';
-
-const SCRIPT = `// ============================================
-// TAREFAS DA CASA — Google Apps Script v4
-// Deploy → Nova implementação → App Web
-// Executar como: Tu | Acesso: Qualquer pessoa
-// ============================================
-
-function doGet(e) { return handle(e); }
-function doPost(e) { return handle(e); }
-
-function handle(e) {
-  var p = e.parameter, res = {};
-  try {
-    var ss = SpreadsheetApp.openById(p.sheetId);
-    if (p.action==='test') res={ok:true,name:ss.getName()};
-    else if (p.action==='getConfig') res=getConfig(ss);
-    else if (p.action==='saveConfig') res=saveConfig(ss,p);
-    else if (p.action==='getWeek') res=getWeek(ss,p.week);
-    else if (p.action==='saveTask') res=saveTask(ss,p);
-    else if (p.action==='approveTask') res=approveTask(ss,p);
-    else if (p.action==='approveAll') res=approveAll(ss,p.week);
-    else if (p.action==='savePenalty') res=savePenalty(ss,p);
-    else res={error:'unknown: '+p.action};
-  } catch(err){ res={error:err.message}; }
-  return ContentService.createTextOutput(JSON.stringify(res))
-    .setMimeType(ContentService.MimeType.JSON);
-}
-
-function getConfigSheet(ss) {
-  var sh = ss.getSheetByName('CONFIG');
-  if (!sh) {
-    sh = ss.insertSheet('CONFIG');
-    sh.appendRow(['chave','valor']);
-    [['pinPais','1234'],['pinJoao','1202'],['pinBia','1623'],
-     ['email','adelino.quintiliano@gmail.com'],['appUrl',''],
-     ['joaoTotal','775'],['biaTotal','780'],
-     ['joaoPaid','0'],['biaPaid','0']
-    ].forEach(function(r){ sh.appendRow(r); });
-  }
-  return sh;
-}
-
-function getConfig(ss) {
-  var sh = getConfigSheet(ss), data = sh.getDataRange().getValues(), cfg = {};
-  for (var i=1;i<data.length;i++) cfg[String(data[i][0])] = String(data[i][1]);
-  return {ok:true, config:cfg};
-}
-
-function saveConfig(ss, p) {
-  var sh = getConfigSheet(ss), data = sh.getDataRange().getValues();
-  var keys = ['pinPais','pinJoao','pinBia','email','appUrl','joaoTotal','biaTotal','joaoPaid','biaPaid'];
-  keys.forEach(function(k){
-    if (p[k] === undefined || p[k] === null) return;
-    for (var i=1;i<data.length;i++) {
-      if (String(data[i][0])===k) { sh.getRange(i+1,2).setValue(String(p[k])); return; }
-    }
-    sh.appendRow([k, String(p[k])]);
-  });
-  return {ok:true};
-}
-
-function getOrCreateWeek(ss, week) {
-  var sh = ss.getSheetByName(week);
-  if (!sh) {
-    sh = ss.insertSheet(week);
-    sh.appendRow(['TaskKey','Who','Day','Status','Mins','Desc','Timestamp']);
-  }
-  return sh;
-}
-
-function getWeek(ss, week) {
-  var sh = getOrCreateWeek(ss, week), data = sh.getDataRange().getValues(), rows = [];
-  for (var i=1;i<data.length;i++) {
-    rows.push({
-      taskKey:String(data[i][0]), who:String(data[i][1]),
-      day:parseInt(data[i][2]), status:String(data[i][3]),
-      mins:parseInt(data[i][4])||0, desc:String(data[i][5]||''),
-      sheetRow:i+1
-    });
-  }
-  return {ok:true, week:week, rows:rows};
-}
-
-function findRow(data, taskKey, who, day) {
-  for (var i=1;i<data.length;i++) {
-    if (String(data[i][0])===taskKey && String(data[i][1])===who && parseInt(data[i][2])===parseInt(day)) return i+1;
-  }
-  return -1;
-}
-
-function saveTask(ss, p) {
-  var sh = getOrCreateWeek(ss, p.week), data = sh.getDataRange().getValues();
-  var row = findRow(data, p.taskKey, p.who, p.day);
-  var status = (p.status && p.status==='desmarcado') ? 'desmarcado' : 'pendente';
-  var vals = [p.taskKey, p.who, parseInt(p.day), status, parseInt(p.mins)||0, p.desc||'', new Date().toISOString()];
-  if (row>0) sh.getRange(row,1,1,7).setValues([vals]);
-  else sh.appendRow(vals);
-  return {ok:true};
-}
-
-function approveTask(ss, p) {
-  var sh = getOrCreateWeek(ss, p.week), data = sh.getDataRange().getValues();
-  var row = findRow(data, p.taskKey, p.who, p.day);
-  if (row<0) return {error:'not found'};
-  sh.getRange(row,4).setValue(p.approved==='true' ? 'aprovado' : 'rejeitado');
-  return {ok:true};
-}
-
-function approveAll(ss, week) {
-  var sh = getOrCreateWeek(ss, week), data = sh.getDataRange().getValues();
-  for (var i=1;i<data.length;i++)
-    if (String(data[i][3])==='pendente') sh.getRange(i+1,4).setValue('aprovado');
-  return {ok:true};
-}
-
-function savePenalty(ss, p) {
-  var sh = getOrCreateWeek(ss, p.week);
-  sh.appendRow([p.taskKey, p.who, parseInt(p.day), 'aprovado', parseInt(p.mins)||0, p.desc||'', new Date().toISOString()]);
-  return {ok:true};
-}
-
-function sendWeeklySummary() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var cfg = getConfig(ss).config;
-  var email = cfg.email||'', appUrl = cfg.appUrl||'';
-  if (!email) return;
-  var week = getCurrentWeek(), weekData = getWeek(ss, week);
-  var jM=0, bM=0, pending=[];
-  var dias=['Seg','Ter','Qua','Qui','Sex','Sab','Dom'];
-  weekData.rows.forEach(function(r){
-    if (r.status==='aprovado' && r.mins>0) {
-      if (r.who==='joao') jM+=r.mins; else bM+=r.mins;
-    }
-    if (r.status==='pendente') pending.push(r);
-  });
-  var aAllUrl = appUrl+'?action=approveAll&week='+week;
-  var pRows = pending.map(function(r){
-    var aUrl=appUrl+'?action=approveTask&week='+week+'&taskKey='+encodeURIComponent(r.taskKey)+'&who='+r.who+'&day='+r.day+'&approved=true';
-    var rUrl=appUrl+'?action=approveTask&week='+week+'&taskKey='+encodeURIComponent(r.taskKey)+'&who='+r.who+'&day='+r.day+'&approved=false';
-    var wn=r.who==='joao'?'João':'Bia';
-    return '<tr><td style="padding:8px;border-bottom:1px solid #eee">'+wn+'</td>'+
-      '<td style="padding:8px;border-bottom:1px solid #eee">'+(r.desc||r.taskKey)+'</td>'+
-      '<td style="padding:8px;border-bottom:1px solid #eee">'+dias[r.day]+'</td>'+
-      '<td style="padding:8px;border-bottom:1px solid #eee">'+r.mins+' min</td>'+
-      '<td style="padding:8px;border-bottom:1px solid #eee">'+
-      '<a href="'+aUrl+'" style="background:#1D9E75;color:#fff;padding:4px 8px;border-radius:6px;text-decoration:none;font-size:12px;margin-right:4px">Aprovar</a>'+
-      '<a href="'+rUrl+'" style="background:#E24B4A;color:#fff;padding:4px 8px;border-radius:6px;text-decoration:none;font-size:12px">Rejeitar</a>'+
-      '</td></tr>';
-  }).join('');
-  var html='<div style="font-family:sans-serif;max-width:600px;margin:0 auto">'+
-    '<div style="background:#7F77DD;padding:20px;border-radius:16px 16px 0 0;text-align:center">'+
-    '<h1 style="color:#fff;margin:0;font-size:22px">Tarefas da Casa</h1>'+
-    '<p style="color:rgba(255,255,255,.8);margin:4px 0 0">Semana '+week+'</p></div>'+
-    '<div style="background:#fff;padding:20px;border:1px solid #eee;border-top:none;border-radius:0 0 16px 16px">'+
-    '<div style="display:flex;gap:10px;margin-bottom:16px">'+
-    '<div style="flex:1;background:#EEEDFE;border-radius:10px;padding:14px;text-align:center">'+
-    '<p style="margin:0;font-size:11px;color:#534AB7;font-weight:700">JOÃO</p>'+
-    '<p style="margin:4px 0;font-size:26px;font-weight:800;color:#3C3489">'+jM+' min</p>'+
-    '<p style="margin:0;font-size:12px;color:#1D9E75;font-weight:600">€'+(jM/10).toFixed(2)+' ganhos</p>'+
-    (jM<210?'<p style="margin:2px 0 0;font-size:11px;color:#A32D2D">Abaixo do mínimo</p>':'<p style="margin:2px 0 0;font-size:11px;color:#1D9E75">Mínimo atingido ✓</p>')+
-    '</div><div style="flex:1;background:#E1F5EE;border-radius:10px;padding:14px;text-align:center">'+
-    '<p style="margin:0;font-size:11px;color:#0F6E56;font-weight:700">BIA</p>'+
-    '<p style="margin:4px 0;font-size:26px;font-weight:800;color:#085041">'+bM+' min</p>'+
-    '<p style="margin:0;font-size:12px;color:#1D9E75;font-weight:600">€'+(bM/10).toFixed(2)+' ganhos</p>'+
-    (bM<210?'<p style="margin:2px 0 0;font-size:11px;color:#A32D2D">Abaixo do mínimo</p>':'<p style="margin:2px 0 0;font-size:11px;color:#1D9E75">Mínimo atingido ✓</p>')+
-    '</div></div>';
-  if(pending.length){
-    html+='<h2 style="font-size:15px;margin:0 0 10px">Pendentes ('+pending.length+')</h2>'+
-    '<div style="text-align:center;margin-bottom:12px"><a href="'+aAllUrl+'" style="background:#7F77DD;color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;display:inline-block">Aprovar tudo de uma vez</a></div>'+
-    '<table style="width:100%;border-collapse:collapse;font-size:13px">'+
-    '<tr><th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Quem</th>'+
-    '<th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Tarefa</th>'+
-    '<th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Dia</th>'+
-    '<th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Min</th>'+
-    '<th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Ação</th></tr>'+
-    pRows+'</table>';
-  } else {
-    html+='<div style="text-align:center;padding:16px;background:#E1F5EE;border-radius:10px">'+
-    '<p style="color:#0F6E56;font-weight:600;margin:0">Tudo aprovado esta semana! 🎉</p></div>';
-  }
-  html+='<div style="text-align:center;margin-top:16px"><a href="'+appUrl+'" style="background:#EEEDFE;color:#534AB7;padding:8px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:13px">Abrir app</a></div></div></div>';
-  MailApp.sendEmail({to:email, subject:'Tarefas da Casa — Semana '+week+' ('+pending.length+' pendentes)', htmlBody:html});
-}
-
-function getCurrentWeek(){
-  var now=new Date(), jan1=new Date(now.getFullYear(),0,1);
-  var w=Math.ceil(((now-jan1)/86400000+jan1.getDay()+1)/7);
-  return 'W'+String(w).padStart(2,'0')+now.getFullYear();
-}`;
 
 const TASKS = [
   {key:'roupa_1',cat:'roupa',icon:'👕',name:'Colocar roupa a lavar',mins:10},
@@ -545,7 +342,7 @@ const PENALTIES=[
 ];
 const DAYS=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
 
-let S={user:null,config:{},weekData:{},viewOff:0,paisOff:0,day:todayIdx(),pin:'',pinTarget:null};
+let S={user:null,config:{},weekData:{},totalMins:{},viewOff:0,paisOff:0,day:todayIdx(),pin:'',pinTarget:null};
 
 function todayIdx(){const d=new Date().getDay();return d===0?6:d-1;}
 function wk(off){
@@ -555,7 +352,6 @@ function wk(off){
   return 'W'+String(w).padStart(2,'0')+n.getFullYear();
 }
 
-// ---- API — always uses hardcoded credentials ----
 async function api(params){
   const qs=new URLSearchParams({...params,sheetId:SHEET_ID});
   const r=await fetch(SHEETS_URL+'?'+qs.toString());
@@ -586,18 +382,18 @@ async function init(){
   }
 }
 
-// ---- PIN — fix: always compare as strings ----
+// ---- PIN ----
 function getPin(who){
   if(who==='pais')return String(S.config.pinPais||'1234').trim();
   if(who==='joao')return String(S.config.pinJoao||'1202').trim();
   if(who==='bia')return String(S.config.pinBia||'1623').trim();
   return '0000';
 }
-function showPin(target){
-  S.pinTarget=target;S.pin='';updDots();
+function showPin(t){
+  S.pinTarget=t;S.pin='';updDots();
   document.getElementById('pin-error').textContent='';
-  const t={pais:'Área dos Pais 🔐',joao:'Olá João! 🧒',bia:'Olá Bia! 👧'};
-  document.getElementById('pin-title').textContent=t[target]||'PIN';
+  const titles={pais:'Área dos Pais 🔐',joao:'Olá João! 🧒',bia:'Olá Bia! 👧'};
+  document.getElementById('pin-title').textContent=titles[t]||'PIN';
   document.getElementById('pin-overlay').classList.add('show');
 }
 function hidePin(){document.getElementById('pin-overlay').classList.remove('show');S.pin='';}
@@ -605,7 +401,6 @@ function pinKey(k){if(S.pin.length>=4)return;S.pin+=k;updDots();if(S.pin.length=
 function pinDel(){S.pin=S.pin.slice(0,-1);updDots();}
 function updDots(){for(let i=0;i<4;i++)document.getElementById('pd'+i).classList.toggle('filled',i<S.pin.length);}
 function checkPin(){
-  // always compare as strings to avoid number/string mismatch
   if(S.pin===getPin(S.pinTarget)){hidePin();login(S.pinTarget);}
   else{document.getElementById('pin-error').textContent='PIN incorreto. Tenta novamente.';S.pin='';updDots();}
 }
@@ -618,7 +413,7 @@ function login(u){
   navTo('home');
 }
 function logout(){
-  S.user=null;S.weekData={};
+  S.user=null;S.weekData={};S.totalMins={};
   document.getElementById('bottom-nav').classList.remove('visible');
   showScreen('welcome');
 }
@@ -638,7 +433,7 @@ function changeWeek(d){const n=S.viewOff+d;if(n>0)return;S.viewOff=n;S.day=n===0
 function changePaisWeek(d){const n=S.paisOff+d;if(n>0)return;S.paisOff=n;loadAndRenderPais();}
 function goCurrentWeek(){S.viewOff=0;S.day=todayIdx();loadAndRenderFilho();}
 
-// ---- WEEK DATA ----
+// ---- DATA ----
 async function loadWeek(weekKey){
   if(S.weekData[weekKey])return S.weekData[weekKey];
   const r=await api({action:'getWeek',week:weekKey});
@@ -646,27 +441,56 @@ async function loadWeek(weekKey){
   return S.weekData[weekKey];
 }
 function invalidate(weekKey){delete S.weekData[weekKey];}
+
+// Total mins across all weeks (for debt) — cached
+async function getTotalMins(who){
+  if(S.totalMins[who]!==undefined)return S.totalMins[who];
+  const r=await api({action:'getAllWeeks',who});
+  S.totalMins[who]=r.totalMins||0;
+  return S.totalMins[who];
+}
+function invalidateTotals(){S.totalMins={};}
+
 function getEntry(rows,taskKey,who,day){
   return rows.find(r=>r.taskKey===taskKey&&r.who===who&&r.day===day&&r.status!=='desmarcado')||null;
+}
+
+// Net mins for a user in a week (approved tasks minus penalties)
+function calcWeekMins(rows,who){
+  let tot=0;
+  rows.forEach(r=>{if(r.who===who&&r.status==='aprovado')tot+=r.mins;});
+  return tot;
 }
 
 // ---- FILHO ----
 async function loadAndRenderFilho(){
   const weekKey=wk(S.viewOff);
-  loading(true,'A carregar tarefas...');
-  try{const rows=await loadWeek(weekKey);loading(false);renderFilho(rows,weekKey);}
-  catch(e){loading(false);showToast('Erro: '+e.message);}
+  loading(true,'A carregar...');
+  try{
+    const [rows,totalMins]=await Promise.all([loadWeek(weekKey),getTotalMins(S.user)]);
+    loading(false);
+    renderFilho(rows,weekKey,totalMins);
+  }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
-function renderFilho(rows,weekKey){
+
+function renderFilho(rows,weekKey,totalMins){
   const who=S.user,name=who==='joao'?'João':'Bia',past=S.viewOff<0;
   document.getElementById('filho-greeting').textContent='Olá, '+name+'! 👋';
   document.getElementById('filho-week-lbl').textContent=weekKey;
   document.getElementById('filho-week-nav').textContent=past?weekKey+' ← anterior':weekKey+' (atual)';
   document.getElementById('filho-hist-banner').style.display=past?'block':'none';
-  let wMins=0;
-  rows.forEach(r=>{if(r.who===who&&r.status==='aprovado'&&r.mins>0)wMins+=r.mins;});
+
+  // Week mins (net: tasks - penalties)
+  const wMins=Math.max(0,calcWeekMins(rows,who));
+  const pct2=Math.min(100,Math.round((wMins/210)*100));
+  document.getElementById('filho-ring').style.strokeDashoffset=377-(pct2/100)*377;
+  document.getElementById('filho-ring-pct').textContent=pct2+'%';
+  document.getElementById('filho-ring-min').textContent=wMins+' / 210 min';
+  document.getElementById('filho-euros').textContent='€'+(Math.max(0,wMins)/10).toFixed(2);
+
+  // Debt — calculated from all-time approved mins
   const tot=parseFloat(who==='joao'?(S.config.joaoTotal||775):(S.config.biaTotal||780));
-  const paid=parseFloat(who==='joao'?(S.config.joaoPaid||0):(S.config.biaPaid||0));
+  const paid=Math.max(0,totalMins)/10;
   const rem=Math.max(0,tot-paid);
   const pct=Math.min(100,(paid/tot)*100);
   document.getElementById('filho-debt').textContent='€ '+rem.toFixed(2);
@@ -674,13 +498,11 @@ function renderFilho(rows,weekKey){
   document.getElementById('filho-debt-bar').style.width=pct+'%';
   document.getElementById('filho-paid-txt').textContent='Pago: €'+paid.toFixed(2);
   document.getElementById('filho-total-txt').textContent='Total: €'+tot;
-  const pct2=Math.min(100,Math.round((wMins/210)*100));
-  document.getElementById('filho-ring').style.strokeDashoffset=377-(pct2/100)*377;
-  document.getElementById('filho-ring-pct').textContent=pct2+'%';
-  document.getElementById('filho-ring-min').textContent=wMins+' / 210 min';
-  document.getElementById('filho-euros').textContent='€'+(wMins/10).toFixed(2);
-  renderDays(weekKey,rows);renderFilhoTasks(rows,weekKey,past,who);
+
+  renderDays(weekKey,rows);
+  renderFilhoTasks(rows,weekKey,past,who);
 }
+
 function renderDays(weekKey,rows){
   const wrap=document.getElementById('filho-days');wrap.innerHTML='';
   DAYS.forEach((d,i)=>{
@@ -690,8 +512,21 @@ function renderDays(weekKey,rows){
     wrap.appendChild(c);
   });
 }
+
 function renderFilhoTasks(rows,weekKey,ro,who){
   const wrap=document.getElementById('filho-tasks');wrap.innerHTML='';
+
+  // Show penalties received today (if any)
+  const todayPenalties=rows.filter(r=>r.who===who&&r.day===S.day&&r.mins<0&&r.status==='aprovado');
+  if(todayPenalties.length){
+    const banner=document.createElement('div');
+    banner.className='pen-banner';
+    banner.innerHTML='<div class="pen-banner-title">⚠️ Penalizações de hoje</div>'+
+      todayPenalties.map(p=>'<div style="font-size:13px">'+p.desc+' <strong>('+p.mins+' min)</strong></div>').join('');
+    wrap.appendChild(banner);
+  }
+
+  // Tasks by category
   [{key:'roupa',lbl:'👕 Roupa'},{key:'refeicoes',lbl:'🍽️ Refeições'},{key:'gerais',lbl:'🏠 Gerais'}].forEach(cat=>{
     const ct=TASKS.filter(t=>t.cat===cat.key);if(!ct.length)return;
     const h=document.createElement('div');h.className='section-hdr';h.textContent=cat.lbl;wrap.appendChild(h);
@@ -711,7 +546,8 @@ function renderFilhoTasks(rows,weekKey,ro,who){
       wrap.appendChild(el);
     });
   });
-  // Extra
+
+  // Extra task
   const hdr=document.createElement('div');hdr.className='section-hdr';hdr.textContent='⭐ Extra';wrap.appendChild(hdr);
   const xEl=document.createElement('div');xEl.className='task-item';
   const xe=getEntry(rows,'extra',who,S.day);
@@ -743,73 +579,114 @@ function renderFilhoTasks(rows,weekKey,ro,who){
   }
   wrap.appendChild(xEl);
 }
+
+// Optimistic toggle — updates UI immediately, then syncs
 async function toggleTask(weekKey,taskKey,who,day,mins,name){
   const rows=S.weekData[weekKey]||[];
   const e=getEntry(rows,taskKey,who,day);
   if(e&&e.status==='aprovado'){showToast('Já aprovado pelos pais 🔒');return;}
-  loading(true,'A guardar...');
+
+  // Optimistic update
+  if(e&&e.status==='pendente'){
+    e.status='desmarcado';
+    renderFilhoTasks(rows,weekKey,false,who);
+    showToast('Tarefa desmarcada');
+  } else {
+    const newEntry={taskKey,who,day,status:'pendente',mins,desc:name};
+    rows.push(newEntry);
+    S.weekData[weekKey]=rows;
+    renderFilhoTasks(rows,weekKey,false,who);
+    showToast('Marcado! Aguarda aprovação 👍');
+  }
+
   try{
-    if(e&&e.status==='pendente'){
+    if(e&&e.status==='desmarcado'){
       await api({action:'saveTask',week:weekKey,taskKey,who,day,mins:0,desc:'',status:'desmarcado'});
-      showToast('Tarefa desmarcada');
     } else {
       await api({action:'saveTask',week:weekKey,taskKey,who,day,mins,desc:name});
-      showToast('Marcado! Aguarda aprovação 👍');
     }
     invalidate(weekKey);
-    const rows2=await loadWeek(weekKey);loading(false);renderFilho(rows2,weekKey);
-  }catch(err){loading(false);showToast('Erro: '+err.message);}
+    const rows2=await loadWeek(weekKey);
+    renderFilhoTasks(rows2,weekKey,false,who);
+  }catch(err){
+    invalidate(weekKey);
+    showToast('Erro ao guardar: '+err.message);
+    loadAndRenderFilho();
+  }
 }
+
 async function markExtra(weekKey,who,day){
   const mins=parseInt(document.getElementById('extra-slider').value)||15;
   const desc=document.getElementById('extra-desc').value.trim()||'Tarefa extra';
-  loading(true,'A guardar...');
+  // Optimistic
+  const rows=S.weekData[weekKey]||[];
+  rows.push({taskKey:'extra',who,day,status:'pendente',mins,desc});
+  S.weekData[weekKey]=rows;
+  renderFilhoTasks(rows,weekKey,false,who);
+  showToast('Extra marcado! Aguarda aprovação 👍');
   try{
     await api({action:'saveTask',week:weekKey,taskKey:'extra',who,day,mins,desc});
-    showToast('Extra marcado! Aguarda aprovação 👍');
-    invalidate(weekKey);const rows=await loadWeek(weekKey);loading(false);renderFilho(rows,weekKey);
-  }catch(e){loading(false);showToast('Erro: '+e.message);}
+    invalidate(weekKey);
+    const rows2=await loadWeek(weekKey);
+    renderFilhoTasks(rows2,weekKey,false,who);
+  }catch(e){invalidate(weekKey);showToast('Erro: '+e.message);loadAndRenderFilho();}
 }
+
 async function clearExtra(weekKey,who,day){
   const rows=S.weekData[weekKey]||[];
   const e=getEntry(rows,'extra',who,day);
   if(e&&e.status==='aprovado'){showToast('Já aprovado pelos pais 🔒');return;}
-  loading(true,'A remover...');
+  if(e)e.status='desmarcado';
+  renderFilhoTasks(rows,weekKey,false,who);
   try{
     await api({action:'saveTask',week:weekKey,taskKey:'extra',who,day,mins:0,desc:'',status:'desmarcado'});
-    invalidate(weekKey);const rows2=await loadWeek(weekKey);loading(false);renderFilho(rows2,weekKey);
-  }catch(err){loading(false);showToast('Erro: '+err.message);}
+    invalidate(weekKey);
+    const rows2=await loadWeek(weekKey);
+    renderFilhoTasks(rows2,weekKey,false,who);
+  }catch(err){invalidate(weekKey);showToast('Erro: '+err.message);}
 }
 
 // ---- PAIS ----
 async function loadAndRenderPais(){
   const weekKey=wk(S.paisOff);
   loading(true,'A carregar...');
-  try{const rows=await loadWeek(weekKey);loading(false);renderPais(rows,weekKey);}
-  catch(e){loading(false);showToast('Erro: '+e.message);}
+  try{
+    const [rows,jTotal,bTotal]=await Promise.all([
+      loadWeek(weekKey),
+      getTotalMins('joao'),
+      getTotalMins('bia')
+    ]);
+    loading(false);
+    renderPais(rows,weekKey,jTotal,bTotal);
+  }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
-function renderPais(rows,weekKey){
+
+function renderPais(rows,weekKey,jTotal,bTotal){
   const past=S.paisOff<0;
   document.getElementById('pais-week-lbl').textContent=weekKey;
   document.getElementById('pais-week-nav').textContent=past?weekKey+' ← anterior':weekKey+' (atual)';
-  let jM=0,bM=0,pend=[],appr=[];
+
+  const jNet=Math.max(0,calcWeekMins(rows,'joao'));
+  const bNet=Math.max(0,calcWeekMins(rows,'bia'));
+  document.getElementById('pais-joao-week').textContent=jNet+' min';
+  document.getElementById('pais-bia-week').textContent=bNet+' min';
+  document.getElementById('pais-joao-bar').style.width=Math.min(100,(jNet/210)*100)+'%';
+  document.getElementById('pais-bia-bar').style.width=Math.min(100,(bNet/210)*100)+'%';
+
+  const jTot=parseFloat(S.config.joaoTotal||775),bTot=parseFloat(S.config.biaTotal||780);
+  document.getElementById('pais-joao-debt').textContent='€ '+Math.max(0,jTot-jTotal/10).toFixed(2);
+  document.getElementById('pais-bia-debt').textContent='€ '+Math.max(0,bTot-bTotal/10).toFixed(2);
+
+  let pend=[],appr=[];
   rows.forEach(r=>{
     if(r.status==='desmarcado')return;
-    if(r.status==='aprovado'){
-      if(r.who==='joao')jM+=Math.max(0,r.mins);else bM+=Math.max(0,r.mins);
-      appr.push(r);
-    } else if(r.status==='pendente') pend.push(r);
+    if(r.status==='aprovado')appr.push(r);
+    else if(r.status==='pendente')pend.push(r);
   });
-  document.getElementById('pais-joao-week').textContent=jM+' min';
-  document.getElementById('pais-bia-week').textContent=bM+' min';
-  document.getElementById('pais-joao-bar').style.width=Math.min(100,(jM/210)*100)+'%';
-  document.getElementById('pais-bia-bar').style.width=Math.min(100,(bM/210)*100)+'%';
-  const jTot=parseFloat(S.config.joaoTotal||775),bTot=parseFloat(S.config.biaTotal||780);
-  const jPaid=parseFloat(S.config.joaoPaid||0),bPaid=parseFloat(S.config.biaPaid||0);
-  document.getElementById('pais-joao-debt').textContent='€ '+Math.max(0,jTot-jPaid).toFixed(2);
-  document.getElementById('pais-bia-debt').textContent='€ '+Math.max(0,bTot-bPaid).toFixed(2);
+
   const badge=document.getElementById('pais-pending-badge');
   badge.textContent=pend.length;badge.style.display=pend.length?'inline-block':'none';
+
   const pList=document.getElementById('pais-pending-list');pList.innerHTML='';
   if(!pend.length){
     pList.innerHTML='<div class="empty"><div class="ei">🎉</div><p>Nada para aprovar!</p></div>';
@@ -834,41 +711,50 @@ function renderPais(rows,weekKey){
       pList.appendChild(el);
     });
   }
+
   const aList=document.getElementById('pais-approved-list');aList.innerHTML='';
   if(!appr.length){
     aList.innerHTML='<div style="padding:16px;color:#888780;font-size:14px;text-align:center">Nenhuma aprovada ainda</div>';
   } else {
     appr.slice().reverse().forEach(r=>{
-      const el=document.createElement('div');el.className='task-item done';
+      const el=document.createElement('div');
+      const isPen=r.mins<0;
+      el.className='task-item'+(isPen?' penalty-item':' done');
       const wn=r.who==='joao'?'João':'Bia';
-      const task=TASKS.find(t=>t.key===r.taskKey)||{icon:'⭐',cat:'gerais'};
-      const pc=r.mins<0?'neg':'ok';
+      const task=TASKS.find(t=>t.key===r.taskKey)||{icon:isPen?'⚠️':'⭐',cat:isPen?'penalizacao':'gerais'};
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${task.cat||'gerais'}">${task.icon||'⭐'}</div>
         <div class="task-info"><div class="task-name">${r.desc||task.name||r.taskKey}</div><div class="task-meta">${wn} — ${DAYS[r.day]}</div></div>
-        <div class="task-pts ${pc}">${r.mins} min</div>
-        <div class="task-check checked">✓</div>
+        <div class="task-pts ${isPen?'neg':'ok'}">${r.mins} min</div>
+        <div class="task-check ${isPen?'rej':'checked'}">${isPen?'✗':'✓'}</div>
       </div>`;
       aList.appendChild(el);
     });
   }
 }
+
 async function doApprove(weekKey,taskKey,who,day,ok){
   loading(true,'A guardar...');
   try{
     await api({action:'approveTask',week:weekKey,taskKey,who,day,approved:ok?'true':'false'});
     showToast(ok?'Aprovado ✓':'Rejeitado ✗');
-    invalidate(weekKey);const rows=await loadWeek(weekKey);loading(false);renderPais(rows,weekKey);
+    invalidate(weekKey);invalidateTotals();
+    const [rows,jT,bT]=await Promise.all([loadWeek(weekKey),getTotalMins('joao'),getTotalMins('bia')]);
+    loading(false);renderPais(rows,weekKey,jT,bT);
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
+
 async function doApproveAll(weekKey){
   loading(true,'A aprovar tudo...');
   try{
     await api({action:'approveAll',week:weekKey});
     showToast('Tudo aprovado ✓');
-    invalidate(weekKey);const rows=await loadWeek(weekKey);loading(false);renderPais(rows,weekKey);
+    invalidate(weekKey);invalidateTotals();
+    const [rows,jT,bT]=await Promise.all([loadWeek(weekKey),getTotalMins('joao'),getTotalMins('bia')]);
+    loading(false);renderPais(rows,weekKey,jT,bT);
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
+
 async function applyPenalty(){
   const who=document.getElementById('pen-who').value;
   const pi=parseInt(document.getElementById('pen-type').value);
@@ -878,8 +764,10 @@ async function applyPenalty(){
   try{
     await api({action:'savePenalty',week:weekKey,taskKey:pen.key+'_'+Date.now(),who,day:todayIdx(),mins:pen.mins,desc:pen.name});
     const wn=who==='joao'?'João':'Bia';
-    showToast('Penalização aplicada ao '+wn);
-    invalidate(weekKey);const rows=await loadWeek(weekKey);loading(false);renderPais(rows,weekKey);
+    showToast('Penalização aplicada ao '+wn+' ⚠️');
+    invalidate(weekKey);invalidateTotals();
+    const [rows,jT,bT]=await Promise.all([loadWeek(weekKey),getTotalMins('joao'),getTotalMins('bia')]);
+    loading(false);renderPais(rows,weekKey,jT,bT);
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
 
@@ -893,14 +781,12 @@ function renderConfig(){
   document.getElementById('cfg-app-url').value=c.appUrl||'';
   document.getElementById('cfg-joao-total').value=c.joaoTotal||775;
   document.getElementById('cfg-bia-total').value=c.biaTotal||780;
-  document.getElementById('cfg-joao-paid').value=c.joaoPaid||0;
-  document.getElementById('cfg-bia-paid').value=c.biaPaid||0;
-  document.getElementById('script-pre').textContent=SCRIPT;
 }
+
 async function saveConfig(){
-  loading(true,'A guardar no Sheets...');
+  loading(true,'A guardar...');
   try{
-    const params={
+    await api({
       action:'saveConfig',
       pinPais:String(document.getElementById('cfg-pin-pais').value||'1234'),
       pinJoao:String(document.getElementById('cfg-pin-joao').value||'1202'),
@@ -909,15 +795,13 @@ async function saveConfig(){
       appUrl:document.getElementById('cfg-app-url').value.trim(),
       joaoTotal:document.getElementById('cfg-joao-total').value||'775',
       biaTotal:document.getElementById('cfg-bia-total').value||'780',
-      joaoPaid:document.getElementById('cfg-joao-paid').value||'0',
-      biaPaid:document.getElementById('cfg-bia-paid').value||'0',
-    };
-    await api(params);
+    });
     const r=await api({action:'getConfig'});
     S.config=r.config||{};
     loading(false);showToast('Configuração guardada ✓');
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
+
 async function testConn(){
   const st=document.getElementById('cfg-status');st.textContent='A testar...';
   try{
@@ -927,14 +811,12 @@ async function testConn(){
     st.innerHTML='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;margin-right:6px"></span>Erro: '+e.message;
   }
 }
-function copyScript(){navigator.clipboard.writeText(SCRIPT).then(()=>showToast('Script copiado ✓'));}
+
 function showToast(msg){
   const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-// ---- START ----
-document.getElementById('script-pre').textContent=SCRIPT;
 init();
 </script>
 </body>
