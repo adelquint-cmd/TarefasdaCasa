@@ -18,7 +18,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .topbar-row{display:flex;align-items:center;justify-content:space-between}
 
 /* WELCOME */
-#screen-welcome{background:#7F77DD;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px;padding-bottom:40px}
+#screen-welcome{background:#7F77DD;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px}
 .welcome-logo{font-size:72px;margin-bottom:12px}
 .welcome-title{font-size:30px;font-weight:800;color:#fff;text-align:center;margin-bottom:6px}
 .welcome-sub{font-size:15px;color:rgba(255,255,255,.75);text-align:center;margin-bottom:36px}
@@ -30,6 +30,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .profile-btn .rl{font-size:12px;opacity:.75;margin-top:2px}
 .profile-btn.pais{grid-column:1/-1;padding:16px 20px;display:flex;align-items:center;gap:16px;text-align:left}
 .profile-btn.pais .av{font-size:36px;margin-bottom:0}
+
+/* SETUP SCREEN */
+#screen-setup{display:flex;flex-direction:column;min-height:100vh;padding-bottom:40px}
+.setup-hero{background:#7F77DD;padding:40px 24px 32px;text-align:center}
+.setup-hero h2{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
+.setup-hero p{font-size:14px;color:rgba(255,255,255,.8)}
+.setup-body{padding:20px 16px}
+.setup-row{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:10px;border:1px solid rgba(0,0,0,.07)}
+.setup-row label{font-size:13px;color:#444441;font-weight:600;display:block;margin-bottom:6px}
+.setup-row input{width:100%;padding:10px 12px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:15px;outline:none;background:#fff}
+.setup-row input:focus{border-color:#7F77DD}
+.setup-info{background:#EEEDFE;border-radius:12px;padding:12px 14px;margin-bottom:16px;font-size:13px;color:#3C3489;line-height:1.6}
 
 /* PIN */
 .pin-overlay{position:fixed;inset:0;background:rgba(83,74,183,.97);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:32px}
@@ -45,6 +57,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .pin-key.empty{background:transparent;border-color:transparent;cursor:default}
 .pin-error{color:#F0997B;font-size:14px;margin-top:16px;min-height:20px;text-align:center}
 .pin-cancel{color:rgba(255,255,255,.6);font-size:14px;margin-top:20px;cursor:pointer;padding:8px}
+
+/* LOADING */
+.loading-overlay{position:fixed;inset:0;background:rgba(255,255,255,.85);display:none;align-items:center;justify-content:center;z-index:500;flex-direction:column;gap:12px}
+.loading-overlay.show{display:flex}
+.spinner{width:40px;height:40px;border:4px solid #EEEDFE;border-top-color:#7F77DD;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-msg{font-size:14px;color:#888780;font-weight:500}
 
 /* CARDS */
 .card{background:#fff;border-radius:18px;padding:16px;margin:12px 16px;border:1px solid rgba(0,0,0,.07)}
@@ -101,11 +120,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .extra-slider-inner{background:#F1EFE8;border-radius:12px;padding:12px 14px}
 .extra-slider-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .extra-slider-row label{font-size:13px;color:#444441;font-weight:500;flex:1}
-.extra-slider-row span{font-size:15px;font-weight:700;color:#534AB7;min-width:48px;text-align:right}
-.extra-slider-row input[type=range]{flex:2}
-.extra-desc{width:100%;padding:8px 10px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:14px;outline:none}
+.extra-slider-row span{font-size:15px;font-weight:700;color:#534AB7;min-width:52px;text-align:right}
+.extra-desc{width:100%;padding:8px 10px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:14px;outline:none;margin-bottom:8px}
 .extra-desc:focus{border-color:#7F77DD}
-.btn-mark-extra{width:100%;padding:10px;background:#7F77DD;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px}
+.btn-mark-extra{width:100%;padding:10px;background:#7F77DD;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer}
 .btn-mark-extra:active{background:#534AB7}
 
 /* APPROVE */
@@ -126,10 +144,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .target-lbl{padding:6px 16px 0;font-size:11px;color:#888780;font-weight:600}
 
 /* PENALTY FORM */
-.penalty-form{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid #F09595;overflow:hidden;padding:14px}
-.penalty-form .pf-title{font-size:14px;font-weight:700;color:#A32D2D;margin-bottom:12px}
+.penalty-form{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid #F09595;padding:14px}
+.pf-title{font-size:14px;font-weight:700;color:#A32D2D;margin-bottom:12px}
 .penalty-form select{width:100%;padding:10px 12px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:14px;outline:none;margin-bottom:8px;background:#fff}
-.penalty-form select:focus{border-color:#E24B4A}
 .btn-penalty{width:100%;padding:10px;background:#E24B4A;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer}
 .btn-penalty:active{background:#A32D2D}
 
@@ -146,15 +163,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .cfg-section{padding:4px 16px 8px}
 .cfg-row{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:8px;border:1px solid rgba(0,0,0,.07)}
 .cfg-row label{font-size:13px;color:#444441;font-weight:500;display:block;margin-bottom:6px}
-.cfg-row input{width:100%;padding:10px 12px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:15px;outline:none;transition:border-color .2s;background:#fff}
+.cfg-row input{width:100%;padding:10px 12px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:15px;outline:none;background:#fff}
 .cfg-row input:focus{border-color:#7F77DD}
 .btn-primary{width:100%;padding:14px;background:#7F77DD;color:#fff;border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;margin-top:4px}
 .btn-primary:active{background:#534AB7;transform:scale(.98)}
 .btn-secondary{width:100%;padding:12px;background:#EEEDFE;color:#534AB7;border:none;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer;margin-top:8px}
 .btn-danger{width:calc(100% - 32px);margin:8px 16px;padding:12px;background:#FCEBEB;color:#A32D2D;border:none;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer}
 .info-box{background:#EEEDFE;border-radius:14px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:#3C3489;line-height:1.7}
-.sd-ok{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1D9E75;margin-right:6px}
-.sd-err{display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;margin-right:6px}
 
 /* MISC */
 .empty{text-align:center;padding:40px 24px;color:#888780}
@@ -162,12 +177,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .hist-banner{background:#FAC775;border-radius:12px;margin:8px 16px 0;padding:10px 14px;font-size:13px;color:#412402;font-weight:500;text-align:center}
 .toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#2C2C2A;color:#fff;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:500;z-index:9999;transition:transform .3s;white-space:nowrap;max-width:calc(100vw - 32px);text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0)}
+.error-banner{background:#FCEBEB;border-radius:12px;margin:8px 16px;padding:12px 14px;font-size:13px;color:#A32D2D;font-weight:500;text-align:center}
 </style>
 </head>
 <body>
 
+<!-- SETUP (first time) -->
+<div id="screen-setup" class="screen active">
+  <div class="setup-hero">
+    <div style="font-size:56px;margin-bottom:12px">🏠</div>
+    <h2>Tarefas da Casa</h2>
+    <p>Primeira configuração — só precisas de fazer isto uma vez</p>
+  </div>
+  <div class="setup-body">
+    <div class="setup-info">
+      Introduz o URL do teu Google Apps Script e o ID da folha. Depois disso qualquer telemóvel da família que abra esta app vai sincronizar automaticamente.
+    </div>
+    <div class="setup-row">
+      <label>URL do Google Apps Script</label>
+      <input type="url" id="setup-url" placeholder="https://script.google.com/macros/s/…/exec"/>
+    </div>
+    <div class="setup-row">
+      <label>ID do Google Sheet</label>
+      <input type="text" id="setup-sheet-id" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms"/>
+    </div>
+    <button class="btn-primary" style="margin-top:8px" onclick="setupConnect()">Ligar e começar →</button>
+    <div id="setup-status" style="text-align:center;padding:10px;font-size:13px;color:#888780;min-height:28px"></div>
+  </div>
+</div>
+
 <!-- WELCOME -->
-<div id="screen-welcome" class="screen active">
+<div id="screen-welcome" class="screen">
   <div class="welcome-logo">🏠</div>
   <div class="welcome-title">Tarefas da Casa</div>
   <div class="welcome-sub">Quem és tu hoje?</div>
@@ -209,6 +249,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
   <div class="pin-error" id="pin-error"></div>
   <div class="pin-cancel" onclick="hidePin()">Cancelar</div>
+</div>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loading">
+  <div class="spinner"></div>
+  <div class="loading-msg" id="loading-msg">A carregar...</div>
 </div>
 
 <!-- FILHO -->
@@ -281,15 +327,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="week-label" id="pais-week-nav">—</div>
     <div class="week-arrow" onclick="changePaisWeek(1)">›</div>
   </div>
-
-  <!-- PENALIZAÇÕES -->
   <div style="padding:14px 16px 4px;font-size:15px;font-weight:700;color:#2C2C2A">Aplicar penalização ⚠️</div>
   <div class="penalty-form">
     <div class="pf-title">Seleciona filho e penalização</div>
-    <select id="pen-who">
-      <option value="joao">João</option>
-      <option value="bia">Bia</option>
-    </select>
+    <select id="pen-who"><option value="joao">João</option><option value="bia">Bia</option></select>
     <select id="pen-type">
       <option value="0">Não arrumou o quarto (-10 min)</option>
       <option value="1">Não ajudou nas refeições (-10 min)</option>
@@ -297,7 +338,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </select>
     <button class="btn-penalty" onclick="applyPenalty()">Aplicar penalização</button>
   </div>
-
   <div style="padding:14px 16px 4px;font-size:15px;font-weight:700;color:#2C2C2A">
     Para aprovar <span class="nav-badge" id="pais-pending-badge" style="display:none">0</span>
   </div>
@@ -306,82 +346,53 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div id="pais-approved-list"></div>
 </div>
 
-<!-- CONFIG (só pais) -->
+<!-- CONFIG -->
 <div id="screen-config" class="screen">
   <div class="topbar"><h1>Configurações ⚙️</h1><div class="sub">Só visível para os pais</div></div>
   <div style="padding:14px 16px 0">
     <div class="info-box">
-      <strong>Google Apps Script:</strong><br>
-      1. Abre o Sheet → Extensões → Apps Script<br>
-      2. Cola o script → Implementar → Nova implementação<br>
-      3. App Web · Executar como: Tu · Acesso: Qualquer pessoa<br>
-      4. Copia o URL e cola aqui<br><br>
-      <strong>Email automático:</strong> no Apps Script vai a Triggers → Adicionar → <em>sendWeeklySummary</em> → Semanal → Domingo → 20h
+      Estas configurações são guardadas no Google Sheets e ficam disponíveis em todos os dispositivos automaticamente.
     </div>
   </div>
   <div class="cfg-section">
     <div class="cfg-row"><label>URL do Google Apps Script</label><input type="url" id="cfg-url" placeholder="https://script.google.com/macros/s/…/exec"/></div>
-    <div class="cfg-row"><label>ID do Google Sheet</label><input type="text" id="cfg-sheet-id" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms"/></div>
-    <div class="cfg-row"><label>PIN dos pais (4 dígitos)</label><input type="number" id="cfg-pin-pais" placeholder="1234"/></div>
-    <div class="cfg-row"><label>PIN do João (4 dígitos)</label><input type="number" id="cfg-pin-joao" placeholder="1202"/></div>
-    <div class="cfg-row"><label>PIN da Bia (4 dígitos)</label><input type="number" id="cfg-pin-bia" placeholder="1623"/></div>
-    <div class="cfg-row"><label>Email para resumo semanal</label><input type="email" id="cfg-email" placeholder="email@gmail.com"/></div>
-    <div class="cfg-row"><label>URL desta app (para links no email)</label><input type="url" id="cfg-app-url" placeholder="https://…"/></div>
-    <div class="cfg-row"><label>Dívida inicial do João (€)</label><input type="number" id="cfg-joao-total" placeholder="775"/></div>
-    <div class="cfg-row"><label>Dívida inicial da Bia (€)</label><input type="number" id="cfg-bia-total" placeholder="780"/></div>
-    <button class="btn-primary" onclick="saveConfig()">💾 Guardar configuração</button>
-    <button class="btn-secondary" onclick="testConn()">🔌 Testar ligação ao Sheets</button>
+    <div class="cfg-row"><label>ID do Google Sheet</label><input type="text" id="cfg-sheet-id"/></div>
+    <div class="cfg-row"><label>PIN dos pais</label><input type="number" id="cfg-pin-pais" placeholder="1234"/></div>
+    <div class="cfg-row"><label>PIN do João</label><input type="number" id="cfg-pin-joao" placeholder="1202"/></div>
+    <div class="cfg-row"><label>PIN da Bia</label><input type="number" id="cfg-pin-bia" placeholder="1623"/></div>
+    <div class="cfg-row"><label>Email para resumo semanal</label><input type="email" id="cfg-email"/></div>
+    <div class="cfg-row"><label>URL desta app</label><input type="url" id="cfg-app-url"/></div>
+    <div class="cfg-row"><label>Dívida inicial do João (€)</label><input type="number" id="cfg-joao-total"/></div>
+    <div class="cfg-row"><label>Dívida inicial da Bia (€)</label><input type="number" id="cfg-bia-total"/></div>
+    <button class="btn-primary" onclick="saveConfig()">💾 Guardar no Sheets</button>
+    <button class="btn-secondary" onclick="testConn()">🔌 Testar ligação</button>
     <div id="cfg-status" style="text-align:center;padding:10px;font-size:13px;color:#888780;min-height:28px"></div>
     <div style="margin-top:8px;background:#F1EFE8;border-radius:14px;padding:14px">
-      <div style="font-size:13px;font-weight:700;color:#444441;margin-bottom:8px">Script para o Apps Script:</div>
+      <div style="font-size:13px;font-weight:700;color:#444441;margin-bottom:8px">Script do Apps Script:</div>
       <button onclick="copyScript()" style="font-size:13px;padding:8px 14px;background:#7F77DD;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600">📋 Copiar script</button>
       <pre id="script-pre" style="margin-top:10px;font-size:9px;color:#444441;overflow-x:auto;white-space:pre-wrap;line-height:1.5;max-height:180px;overflow-y:auto;background:#fff;border-radius:8px;padding:10px"></pre>
     </div>
   </div>
+  <button class="btn-danger" onclick="resetSetup()">🔄 Reconfigurar ligação</button>
   <button class="btn-danger" onclick="logout()">← Sair</button>
   <div style="height:20px"></div>
 </div>
 
-<!-- BOTTOM NAV -->
 <div class="bottom-nav" id="bottom-nav">
   <button class="nav-btn active" id="nav-home" onclick="navTo('home')"><span class="ni">🏠</span><span class="nl">Início</span></button>
   <button class="nav-btn" id="nav-tarefas" onclick="navTo('tarefas')"><span class="ni">✅</span><span class="nl">Tarefas</span></button>
   <button class="nav-btn" id="nav-historico" onclick="navTo('historico')"><span class="ni">📅</span><span class="nl">Histórico</span></button>
-  <button class="nav-btn pais-only" id="nav-config" onclick="navTo('config')" style="display:none"><span class="ni">⚙️</span><span class="nl">Config</span></button>
+  <button class="nav-btn" id="nav-config" style="display:none" onclick="navTo('config')"><span class="ni">⚙️</span><span class="nl">Config</span></button>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
 const SCRIPT = `// ============================================
-// TAREFAS DA CASA — Google Apps Script
-// Cola este código no Apps Script do teu Sheet
+// TAREFAS DA CASA — Google Apps Script v4
 // Deploy → Nova implementação → App Web
 // Executar como: Tu | Acesso: Qualquer pessoa
 // ============================================
-
-const TASKS = [
-  {cat:'roupa', name:'Colocar roupa a lavar', mins:10},
-  {cat:'roupa', name:'Estender a roupa (1 maquina)', mins:20},
-  {cat:'roupa', name:'Recolher e dobrar roupa estendida', mins:15},
-  {cat:'roupa', name:'Passar a ferro (1 maquina)', mins:60},
-  {cat:'roupa', name:'Dobrar meias e cuecas', mins:15},
-  {cat:'refeicoes', name:'Por a mesa (almoco)', mins:5},
-  {cat:'refeicoes', name:'Por a mesa (jantar)', mins:5},
-  {cat:'refeicoes', name:'Levantar a mesa e arrumar', mins:15},
-  {cat:'refeicoes', name:'Tirar a loica da maquina (almoco)', mins:5},
-  {cat:'refeicoes', name:'Tirar a loica da maquina (jantar)', mins:5},
-  {cat:'refeicoes', name:'Lavar a loica a mao', mins:15},
-  {cat:'refeicoes', name:'Limpar bancadas e arrumar escorredor', mins:10},
-  {cat:'gerais', name:'Levar o lixo e reciclagem', mins:5},
-  {cat:'gerais', name:'Fechar as portadas a noite', mins:5},
-  {cat:'gerais', name:'Fazer compras no Continente', mins:30},
-  {cat:'gerais', name:'Varrer a cozinha apos jantar', mins:10},
-  {cat:'gerais', name:'Aspirar um piso completo', mins:30},
-];
-
-var CONFIG_EMAIL = 'adelino.quintiliano@gmail.com';
-var APP_URL = '';
 
 function doGet(e) { return handle(e); }
 function doPost(e) { return handle(e); }
@@ -389,125 +400,226 @@ function doPost(e) { return handle(e); }
 function handle(e) {
   var p = e.parameter, res = {};
   try {
-    if (p.action==='test') res={ok:true,name:'Ligado: '+SpreadsheetApp.getActiveSpreadsheet().getName()};
-    else if (p.action==='getWeek') res=getWeek(p.week);
-    else if (p.action==='saveTask') res=saveTask(p);
-    else if (p.action==='approveTask') res=approveTask(p);
-    else if (p.action==='approveAll') res=approveAll(p.week);
-    else res={error:'unknown'};
+    var ss = SpreadsheetApp.openById(p.sheetId);
+    if (p.action==='test') res={ok:true,name:ss.getName()};
+    else if (p.action==='getConfig') res=getConfig(ss);
+    else if (p.action==='saveConfig') res=saveConfig(ss,p);
+    else if (p.action==='getWeek') res=getWeek(ss,p.week);
+    else if (p.action==='saveTask') res=saveTask(ss,p);
+    else if (p.action==='approveTask') res=approveTask(ss,p);
+    else if (p.action==='approveAll') res=approveAll(ss,p.week);
+    else if (p.action==='savePenalty') res=savePenalty(ss,p);
+    else if (p.action==='getDebt') res=getDebt(ss);
+    else res={error:'unknown action: '+p.action};
   } catch(err){ res={error:err.message}; }
-  return ContentService.createTextOutput(JSON.stringify(res)).setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify(res))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
-function getOrCreate(week) {
-  var ss=SpreadsheetApp.getActiveSpreadsheet(), sh=ss.getSheetByName(week);
-  if(!sh){
-    sh=ss.insertSheet(week);
-    var h=['Tarefa','Mins','Quem'];
-    ['Seg','Ter','Qua','Qui','Sex','Sab','Dom'].forEach(function(d){h.push(d+' Status',d+' Min');});
-    sh.appendRow(h);
-    TASKS.forEach(function(t){sh.appendRow([t.name,t.mins,'']);});
+// ---- CONFIG ----
+function getConfigSheet(ss) {
+  var sh = ss.getSheetByName('CONFIG');
+  if (!sh) {
+    sh = ss.insertSheet('CONFIG');
+    sh.appendRow(['chave','valor']);
+    var defaults = [
+      ['pinPais','1234'],['pinJoao','1202'],['pinBia','1623'],
+      ['email',''],['appUrl',''],
+      ['joaoTotal','775'],['biaTotal','780'],
+      ['joaoPaid','0'],['biaPaid','0'],
+    ];
+    defaults.forEach(function(r){ sh.appendRow(r); });
   }
   return sh;
 }
 
-function getWeek(week) {
-  var sh=getOrCreate(week), data=sh.getDataRange().getValues(), rows=[];
-  for(var r=1;r<data.length;r++){
-    var row=data[r], days=[];
-    for(var d=0;d<7;d++){var b=3+d*2;days.push({status:row[b]||'',mins:row[b+1]||0});}
-    rows.push({name:row[0],mins:row[1],who:row[2],days:days});
-  }
-  return {week:week,rows:rows};
+function getConfig(ss) {
+  var sh = getConfigSheet(ss), data = sh.getDataRange().getValues();
+  var cfg = {};
+  for (var i=1;i<data.length;i++) cfg[data[i][0]] = data[i][1];
+  return {ok:true, config:cfg};
 }
 
-function saveTask(p) {
-  var sh=getOrCreate(p.week), row=parseInt(p.row)+1, b=3+parseInt(p.day)*2;
-  sh.getRange(row,3).setValue(p.who);
-  sh.getRange(row,b+1).setValue('pendente');
-  sh.getRange(row,b+2).setValue(0);
-  return {ok:true};
-}
-
-function approveTask(p) {
-  var sh=getOrCreate(p.week), row=parseInt(p.row)+1, b=3+parseInt(p.day)*2;
-  if(p.approved==='true'){
-    sh.getRange(row,b+1).setValue('aprovado');
-    sh.getRange(row,b+2).setValue(sh.getRange(row,2).getValue());
-  } else {
-    sh.getRange(row,b+1).setValue('');
-    sh.getRange(row,b+2).setValue(0);
-  }
-  return {ok:true};
-}
-
-function approveAll(week) {
-  var sh=getOrCreate(week), data=sh.getDataRange().getValues();
-  for(var r=1;r<data.length;r++)
-    for(var d=0;d<7;d++){
-      var b=3+d*2;
-      if(data[r][b]==='pendente'){sh.getRange(r+1,b+1).setValue('aprovado');sh.getRange(r+1,b+2).setValue(data[r][1]);}
+function saveConfig(ss, p) {
+  var sh = getConfigSheet(ss), data = sh.getDataRange().getValues();
+  var keys = ['pinPais','pinJoao','pinBia','email','appUrl','joaoTotal','biaTotal','joaoPaid','biaPaid'];
+  keys.forEach(function(k){
+    if (p[k] === undefined) return;
+    for (var i=1;i<data.length;i++) {
+      if (data[i][0]===k) { sh.getRange(i+1,2).setValue(p[k]); return; }
     }
+    sh.appendRow([k, p[k]]);
+  });
   return {ok:true};
 }
+
+// ---- WEEK DATA ----
+function getOrCreateWeek(ss, week) {
+  var sh = ss.getSheetByName(week);
+  if (!sh) {
+    sh = ss.insertSheet(week);
+    // columns: TaskKey | Who | Day | Status | Mins | Desc | Timestamp
+    sh.appendRow(['TaskKey','Who','Day','Status','Mins','Desc','Timestamp']);
+  }
+  return sh;
+}
+
+function getWeek(ss, week) {
+  var sh = getOrCreateWeek(ss, week);
+  var data = sh.getDataRange().getValues();
+  var rows = [];
+  for (var i=1;i<data.length;i++) {
+    rows.push({
+      taskKey: data[i][0]+'',
+      who: data[i][1]+'',
+      day: parseInt(data[i][2]),
+      status: data[i][3]+'',
+      mins: parseInt(data[i][4])||0,
+      desc: data[i][5]+'',
+      ts: data[i][6]+'',
+      sheetRow: i+1
+    });
+  }
+  return {ok:true, week:week, rows:rows};
+}
+
+function findRow(sh, data, taskKey, who, day) {
+  for (var i=1;i<data.length;i++) {
+    if (data[i][0]==taskKey && data[i][1]==who && parseInt(data[i][2])==day) return i+1;
+  }
+  return -1;
+}
+
+function saveTask(ss, p) {
+  var sh = getOrCreateWeek(ss, p.week);
+  var data = sh.getDataRange().getValues();
+  var row = findRow(sh, data, p.taskKey, p.who, p.day);
+  var vals = [p.taskKey, p.who, parseInt(p.day), 'pendente', parseInt(p.mins)||0, p.desc||'', new Date().toISOString()];
+  if (row>0) sh.getRange(row,1,1,7).setValues([vals]);
+  else sh.appendRow(vals);
+  return {ok:true};
+}
+
+function approveTask(ss, p) {
+  var sh = getOrCreateWeek(ss, p.week);
+  var data = sh.getDataRange().getValues();
+  var row = findRow(sh, data, p.taskKey, p.who, p.day);
+  if (row<0) return {error:'row not found'};
+  if (p.approved==='true') sh.getRange(row,4).setValue('aprovado');
+  else sh.getRange(row,4).setValue('rejeitado');
+  return {ok:true};
+}
+
+function approveAll(ss, week) {
+  var sh = getOrCreateWeek(ss, week);
+  var data = sh.getDataRange().getValues();
+  for (var i=1;i<data.length;i++) {
+    if (data[i][3]==='pendente') sh.getRange(i+1,4).setValue('aprovado');
+  }
+  return {ok:true};
+}
+
+function savePenalty(ss, p) {
+  var sh = getOrCreateWeek(ss, p.week);
+  // penalties use taskKey like 'pen_0', 'pen_1', 'pen_2'
+  var data = sh.getDataRange().getValues();
+  var row = findRow(sh, data, p.taskKey, p.who, p.day);
+  var vals = [p.taskKey, p.who, parseInt(p.day), 'aprovado', parseInt(p.mins)||0, p.desc||'', new Date().toISOString()];
+  if (row>0) sh.getRange(row,1,1,7).setValues([vals]);
+  else sh.appendRow(vals);
+  return {ok:true};
+}
+
+function getDebt(ss) {
+  var capa = ss.getSheetByName('CAPA');
+  if (!capa) return {joao:0, bia:0};
+  var data = capa.getDataRange().getValues();
+  return {joao: data[8]?data[8][4]||0:0, bia: data[8]?data[8][9]||0:0};
+}
+
+// ---- EMAIL ----
+// Triggers → Adicionar → sendWeeklySummary → Semanal → Domingo → 20h
 
 function sendWeeklySummary() {
-  var week=getCurrentWeek(), data=getWeek(week);
-  var joaoM=0,biaM=0,pending=[];
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var cfg = getConfig(ss).config;
+  var email = cfg.email || '';
+  var appUrl = cfg.appUrl || '';
+  if (!email) return;
+
+  var week = getCurrentWeek();
+  var weekData = getWeek(ss, week);
+  var joaoM=0, biaM=0, pending=[];
   var dias=['Seg','Ter','Qua','Qui','Sex','Sab','Dom'];
-  data.rows.forEach(function(row,ri){
-    row.days.forEach(function(d,di){
-      if(d.status==='aprovado'){
-        if(row.who==='joao') joaoM+=Math.max(0,parseInt(row.mins)||0);
-        else biaM+=Math.max(0,parseInt(row.mins)||0);
-      }
-      if(d.status==='pendente') pending.push({name:row.name,who:row.who,day:dias[di],row:ri,dayIdx:di});
-    });
+
+  weekData.rows.forEach(function(r){
+    var m = Math.max(0, r.mins);
+    if (r.status==='aprovado') {
+      if (r.who==='joao') joaoM+=m;
+      else biaM+=m;
+    }
+    if (r.status==='pendente') pending.push(r);
   });
-  var approveAllUrl=APP_URL+'?action=approveAll&week='+week;
-  var pendRows=pending.map(function(p){
-    var aUrl=APP_URL+'?action=approveTask&week='+week+'&row='+p.row+'&day='+p.dayIdx+'&approved=true';
-    var rUrl=APP_URL+'?action=approveTask&week='+week+'&row='+p.row+'&day='+p.dayIdx+'&approved=false';
-    return '<tr><td style="padding:8px 12px;border-bottom:1px solid #eee">'+(p.who==='joao'?'Joao':'Bia')+'</td>'+
-      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+p.name+'</td>'+
-      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+p.day+'</td>'+
+
+  var approveAllUrl = appUrl+'?action=approveAll&week='+week;
+  var pendRows = pending.map(function(r){
+    var aUrl = appUrl+'?action=approveTask&week='+week+'&taskKey='+encodeURIComponent(r.taskKey)+'&who='+r.who+'&day='+r.day+'&approved=true';
+    var rUrl = appUrl+'?action=approveTask&week='+week+'&taskKey='+encodeURIComponent(r.taskKey)+'&who='+r.who+'&day='+r.day+'&approved=false';
+    var wn = r.who==='joao'?'João':'Bia';
+    return '<tr><td style="padding:8px 12px;border-bottom:1px solid #eee">'+wn+'</td>'+
+      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+(r.desc||r.taskKey)+'</td>'+
+      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+dias[r.day]+'</td>'+
+      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+r.mins+' min</td>'+
       '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+
       '<a href="'+aUrl+'" style="background:#1D9E75;color:#fff;padding:5px 10px;border-radius:6px;text-decoration:none;font-size:12px;margin-right:6px">Aprovar</a>'+
       '<a href="'+rUrl+'" style="background:#E24B4A;color:#fff;padding:5px 10px;border-radius:6px;text-decoration:none;font-size:12px">Rejeitar</a>'+
       '</td></tr>';
   }).join('');
-  var html='<div style="font-family:sans-serif;max-width:600px;margin:0 auto">'+
+
+  var html = '<div style="font-family:sans-serif;max-width:600px;margin:0 auto">'+
     '<div style="background:#7F77DD;padding:24px;border-radius:16px 16px 0 0;text-align:center">'+
     '<h1 style="color:#fff;margin:0;font-size:24px">Tarefas da Casa</h1>'+
     '<p style="color:rgba(255,255,255,.8);margin:6px 0 0">Semana '+week+'</p></div>'+
     '<div style="background:#fff;padding:24px;border:1px solid #eee;border-top:none;border-radius:0 0 16px 16px">'+
     '<div style="display:flex;gap:12px;margin-bottom:20px">'+
     '<div style="flex:1;background:#EEEDFE;border-radius:12px;padding:16px;text-align:center">'+
-    '<p style="margin:0;font-size:11px;color:#534AB7;font-weight:700">JOAO</p>'+
+    '<p style="margin:0;font-size:11px;color:#534AB7;font-weight:700">JOÃO</p>'+
     '<p style="margin:4px 0;font-size:28px;font-weight:800;color:#3C3489">'+joaoM+' min</p>'+
     '<p style="margin:0;font-size:13px;color:#1D9E75;font-weight:600">€'+(joaoM/10).toFixed(2)+' ganhos</p>'+
-    (joaoM<210?'<p style="margin:4px 0 0;font-size:12px;color:#A32D2D">Abaixo do minimo</p>':'<p style="margin:4px 0 0;font-size:12px;color:#1D9E75">Minimo atingido</p>')+
+    (joaoM<210?'<p style="margin:4px 0 0;font-size:12px;color:#A32D2D">Abaixo do mínimo</p>':'<p style="margin:4px 0 0;font-size:12px;color:#1D9E75">Mínimo atingido ✓</p>')+
     '</div>'+
     '<div style="flex:1;background:#E1F5EE;border-radius:12px;padding:16px;text-align:center">'+
     '<p style="margin:0;font-size:11px;color:#0F6E56;font-weight:700">BIA</p>'+
     '<p style="margin:4px 0;font-size:28px;font-weight:800;color:#085041">'+biaM+' min</p>'+
     '<p style="margin:0;font-size:13px;color:#1D9E75;font-weight:600">€'+(biaM/10).toFixed(2)+' ganhos</p>'+
-    (biaM<210?'<p style="margin:4px 0 0;font-size:12px;color:#A32D2D">Abaixo do minimo</p>':'<p style="margin:4px 0 0;font-size:12px;color:#1D9E75">Minimo atingido</p>')+
+    (biaM<210?'<p style="margin:4px 0 0;font-size:12px;color:#A32D2D">Abaixo do mínimo</p>':'<p style="margin:4px 0 0;font-size:12px;color:#1D9E75">Mínimo atingido ✓</p>')+
     '</div></div>';
-  if(pending.length){
-    html+='<h2 style="font-size:16px;margin:0 0 12px">Pendentes ('+pending.length+')</h2>'+
-      '<div style="text-align:center;margin-bottom:16px"><a href="'+approveAllUrl+'" style="background:#7F77DD;color:#fff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;display:inline-block">Aprovar tudo de uma vez</a></div>'+
-      '<table style="width:100%;border-collapse:collapse;font-size:14px">'+
+
+  if (pending.length) {
+    html += '<h2 style="font-size:16px;margin:0 0 12px">Pendentes ('+pending.length+')</h2>'+
+      '<div style="text-align:center;margin-bottom:16px">'+
+      '<a href="'+approveAllUrl+'" style="background:#7F77DD;color:#fff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;display:inline-block">Aprovar tudo de uma vez</a></div>'+
+      '<table style="width:100%;border-collapse:collapse;font-size:13px">'+
       '<tr><th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Quem</th>'+
       '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Tarefa</th>'+
       '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Dia</th>'+
-      '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Acao</th></tr>'+
+      '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Min</th>'+
+      '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Ação</th></tr>'+
       pendRows+'</table>';
   } else {
-    html+='<div style="text-align:center;padding:20px;background:#E1F5EE;border-radius:12px"><p style="color:#0F6E56;font-weight:600;margin:0">Tudo aprovado!</p></div>';
+    html += '<div style="text-align:center;padding:20px;background:#E1F5EE;border-radius:12px">'+
+      '<p style="color:#0F6E56;font-weight:600;margin:0">Tudo aprovado esta semana! 🎉</p></div>';
   }
-  html+='<div style="text-align:center;margin-top:20px"><a href="'+APP_URL+'" style="background:#EEEDFE;color:#534AB7;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px">Abrir app</a></div></div></div>';
-  MailApp.sendEmail({to:CONFIG_EMAIL,subject:'Tarefas da Casa - Semana '+week+' ('+pending.length+' pendentes)',htmlBody:html});
+
+  html += '<div style="text-align:center;margin-top:20px">'+
+    '<a href="'+appUrl+'" style="background:#EEEDFE;color:#534AB7;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px">Abrir app</a>'+
+    '</div></div></div>';
+
+  MailApp.sendEmail({
+    to: email,
+    subject: 'Tarefas da Casa — Semana '+week+' ('+pending.length+' pendentes)',
+    htmlBody: html
+  });
 }
 
 function getCurrentWeek(){
@@ -516,41 +628,42 @@ function getCurrentWeek(){
   return 'W'+String(w).padStart(2,'0')+now.getFullYear();
 }`;
 
+// ---- TASK DEFINITIONS ----
 const TASKS = [
-  {cat:'roupa', icon:'👕', name:'Colocar roupa a lavar', mins:10},
-  {cat:'roupa', icon:'👕', name:'Estender a roupa (1 máquina)', mins:20},
-  {cat:'roupa', icon:'👕', name:'Recolher e dobrar roupa estendida', mins:15},
-  {cat:'roupa', icon:'🔥', name:'Passar a ferro (1 máquina)', mins:60},
-  {cat:'roupa', icon:'🧦', name:'Dobrar meias e cuecas', mins:15},
-  {cat:'refeicoes', icon:'🍽️', name:'Pôr a mesa (almoço)', mins:5},
-  {cat:'refeicoes', icon:'🍽️', name:'Pôr a mesa (jantar)', mins:5},
-  {cat:'refeicoes', icon:'🧹', name:'Levantar a mesa e arrumar', mins:15},
-  {cat:'refeicoes', icon:'🫙', name:'Tirar a loiça da máquina (almoço)', mins:5},
-  {cat:'refeicoes', icon:'🫙', name:'Tirar a loiça da máquina (jantar)', mins:5},
-  {cat:'refeicoes', icon:'🧼', name:'Lavar a loiça à mão', mins:15},
-  {cat:'refeicoes', icon:'✨', name:'Limpar bancadas e arrumar escorredor', mins:10},
-  {cat:'gerais', icon:'🗑️', name:'Levar o lixo e reciclagem', mins:5},
-  {cat:'gerais', icon:'🪟', name:'Fechar as portadas à noite', mins:5},
-  {cat:'gerais', icon:'🛒', name:'Fazer compras no Continente', mins:30},
-  {cat:'gerais', icon:'🧹', name:'Varrer a cozinha após jantar', mins:10},
-  {cat:'gerais', icon:'🌀', name:'Aspirar um piso completo', mins:30},
+  {key:'roupa_1', cat:'roupa', icon:'👕', name:'Colocar roupa a lavar', mins:10},
+  {key:'roupa_2', cat:'roupa', icon:'👕', name:'Estender a roupa (1 máquina)', mins:20},
+  {key:'roupa_3', cat:'roupa', icon:'👕', name:'Recolher e dobrar roupa estendida', mins:15},
+  {key:'roupa_4', cat:'roupa', icon:'🔥', name:'Passar a ferro (1 máquina)', mins:60},
+  {key:'roupa_5', cat:'roupa', icon:'🧦', name:'Dobrar meias e cuecas', mins:15},
+  {key:'ref_1', cat:'refeicoes', icon:'🍽️', name:'Pôr a mesa (almoço)', mins:5},
+  {key:'ref_2', cat:'refeicoes', icon:'🍽️', name:'Pôr a mesa (jantar)', mins:5},
+  {key:'ref_3', cat:'refeicoes', icon:'🧹', name:'Levantar a mesa e arrumar', mins:15},
+  {key:'ref_4', cat:'refeicoes', icon:'🫙', name:'Tirar a loiça da máquina (almoço)', mins:5},
+  {key:'ref_5', cat:'refeicoes', icon:'🫙', name:'Tirar a loiça da máquina (jantar)', mins:5},
+  {key:'ref_6', cat:'refeicoes', icon:'🧼', name:'Lavar a loiça à mão', mins:15},
+  {key:'ref_7', cat:'refeicoes', icon:'✨', name:'Limpar bancadas e arrumar escorredor', mins:10},
+  {key:'ger_1', cat:'gerais', icon:'🗑️', name:'Levar o lixo e reciclagem', mins:5},
+  {key:'ger_2', cat:'gerais', icon:'🪟', name:'Fechar as portadas à noite', mins:5},
+  {key:'ger_3', cat:'gerais', icon:'🛒', name:'Fazer compras no Continente', mins:30},
+  {key:'ger_4', cat:'gerais', icon:'🧹', name:'Varrer a cozinha após jantar', mins:10},
+  {key:'ger_5', cat:'gerais', icon:'🌀', name:'Aspirar um piso completo', mins:30},
 ];
-
 const PENALTIES = [
-  {name:'Não arrumou o quarto', mins:-10},
-  {name:'Não ajudou nas refeições', mins:-10},
-  {name:'Não arrumou após refeição individual', mins:-10},
+  {key:'pen_0', name:'Não arrumou o quarto', mins:-10},
+  {key:'pen_1', name:'Não ajudou nas refeições', mins:-10},
+  {key:'pen_2', name:'Não arrumou após refeição individual', mins:-10},
 ];
-
 const DAYS = ['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
 
-// Default PINs — overridden by config
-const DEFAULT_PINS = {pais:'1234', joao:'1202', bia:'1623'};
-
+// ---- STATE ----
 let S = {
-  user: null, config: {}, tasks: {},
-  viewOff: 0, paisOff: 0, day: todayIdx(),
+  user: null,
+  config: {},
+  weekData: {}, // cache: week -> rows[]
+  viewOff: 0, paisOff: 0,
+  day: todayIdx(),
   pin: '', pinTarget: null,
+  conn: {url:'', sheetId:''},
 };
 
 function todayIdx(){const d=new Date().getDay();return d===0?6:d-1;}
@@ -563,25 +676,72 @@ function wk(off){
   return 'W'+String(w).padStart(2,'0')+n.getFullYear();
 }
 
-function load(){
-  try{const s=localStorage.getItem('tdc3');if(s){const p=JSON.parse(s);S.tasks=p.tasks||{};}}catch(e){}
-  try{const c=localStorage.getItem('tdc3_c');if(c)S.config=JSON.parse(c);}catch(e){}
+function loadLocal(){
+  try{const c=localStorage.getItem('tdc_conn');if(c)S.conn=JSON.parse(c);}catch(e){}
 }
-function save(){localStorage.setItem('tdc3',JSON.stringify({tasks:S.tasks}));}
+function saveConn(){localStorage.setItem('tdc_conn',JSON.stringify(S.conn));}
 
+// ---- API ----
+async function api(params){
+  const url=S.conn.url;
+  if(!url)throw new Error('Sem URL configurado');
+  const qs=new URLSearchParams({...params, sheetId:S.conn.sheetId});
+  const r=await fetch(url+'?'+qs.toString());
+  const d=await r.json();
+  if(d.error)throw new Error(d.error);
+  return d;
+}
+
+function loading(show,msg){
+  document.getElementById('loading').classList.toggle('show',show);
+  if(msg)document.getElementById('loading-msg').textContent=msg;
+}
+
+// ---- SETUP ----
+async function setupConnect(){
+  const url=document.getElementById('setup-url').value.trim();
+  const sheetId=document.getElementById('setup-sheet-id').value.trim();
+  if(!url||!sheetId){showToast('Preenche os dois campos');return;}
+  const st=document.getElementById('setup-status');
+  st.textContent='A testar ligação...';
+  S.conn={url,sheetId};
+  try{
+    const r=await api({action:'test'});
+    st.textContent='Ligado: '+r.name+' ✓';
+    saveConn();
+    // load config from sheets
+    loading(true,'A carregar configurações...');
+    const cfg=await api({action:'getConfig'});
+    S.config=cfg.config||{};
+    loading(false);
+    showScreen('welcome');
+  }catch(e){
+    st.textContent='Erro: '+e.message;
+    S.conn={url:'',sheetId:''};
+    loading(false);
+  }
+}
+
+function resetSetup(){
+  S.conn={url:'',sheetId:''};
+  localStorage.removeItem('tdc_conn');
+  logout();
+  showScreen('setup');
+}
+
+// ---- PIN ----
 function getPin(who){
-  if(who==='pais') return S.config.pinPais||DEFAULT_PINS.pais;
-  if(who==='joao') return S.config.pinJoao||DEFAULT_PINS.joao;
-  if(who==='bia') return S.config.pinBia||DEFAULT_PINS.bia;
+  if(who==='pais')return S.config.pinPais||'1234';
+  if(who==='joao')return S.config.pinJoao||'1202';
+  if(who==='bia')return S.config.pinBia||'1623';
   return '0000';
 }
 
 function showPin(target){
-  S.pinTarget=target;S.pin='';
-  updDots();
+  S.pinTarget=target;S.pin='';updDots();
   document.getElementById('pin-error').textContent='';
-  const titles={pais:'Área dos Pais 🔐',joao:'Olá João! 🧒',bia:'Olá Bia! 👧'};
-  document.getElementById('pin-title').textContent=titles[target]||'PIN';
+  const t={pais:'Área dos Pais 🔐',joao:'Olá João! 🧒',bia:'Olá Bia! 👧'};
+  document.getElementById('pin-title').textContent=t[target]||'PIN';
   document.getElementById('pin-overlay').classList.add('show');
 }
 function hidePin(){document.getElementById('pin-overlay').classList.remove('show');S.pin='';}
@@ -593,87 +753,82 @@ function checkPin(){
   else{document.getElementById('pin-error').textContent='PIN incorreto. Tenta novamente.';S.pin='';updDots();}
 }
 
+// ---- LOGIN ----
 function login(u){
   S.user=u;S.viewOff=0;S.paisOff=0;S.day=todayIdx();
-  const nav=document.getElementById('bottom-nav');
-  nav.classList.add('visible');
-  // config tab only for pais
+  document.getElementById('bottom-nav').classList.add('visible');
   document.getElementById('nav-config').style.display=u==='pais'?'flex':'none';
   navTo('home');
 }
-
 function logout(){
-  S.user=null;
+  S.user=null;S.weekData={};
   document.getElementById('bottom-nav').classList.remove('visible');
   showScreen('welcome');
 }
-
 function showScreen(n){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-'+n).classList.add('active');
 }
 
+// ---- NAV ----
 function navTo(tab){
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   const b=document.getElementById('nav-'+tab);if(b)b.classList.add('active');
   if(tab==='config'){showScreen('config');renderConfig();return;}
   if(tab==='historico'){S.viewOff=-1;S.paisOff=-1;}
-  if(S.user==='pais'){showScreen('pais');renderPais();}
-  else{showScreen('filho');renderFilho();}
+  if(S.user==='pais'){showScreen('pais');loadAndRenderPais();}
+  else{showScreen('filho');loadAndRenderFilho();}
 }
 
-function changeWeek(d){const n=S.viewOff+d;if(n>0)return;S.viewOff=n;S.day=n===0?todayIdx():0;renderFilho();}
-function changePaisWeek(d){const n=S.paisOff+d;if(n>0)return;S.paisOff=n;renderPais();}
-function goCurrentWeek(){S.viewOff=0;S.day=todayIdx();renderFilho();}
+function changeWeek(d){const n=S.viewOff+d;if(n>0)return;S.viewOff=n;S.day=n===0?todayIdx():0;loadAndRenderFilho();}
+function changePaisWeek(d){const n=S.paisOff+d;if(n>0)return;S.paisOff=n;loadAndRenderPais();}
+function goCurrentWeek(){S.viewOff=0;S.day=todayIdx();loadAndRenderFilho();}
 
-// Task keys include the user (who) so João and Bia have separate entries
-function tk(who,w,d,i){return who+'_'+w+'_'+d+'_'+i;}
-function getTS(who,w,d,i){return S.tasks[tk(who,w,d,i)]||null;}
-function setTS(who,w,d,i,v){if(v===null)delete S.tasks[tk(who,w,d,i)];else S.tasks[tk(who,w,d,i)]=v;save();}
+// ---- WEEK DATA ----
+async function loadWeek(weekKey){
+  if(S.weekData[weekKey])return S.weekData[weekKey]; // cache
+  const r=await api({action:'getWeek',week:weekKey});
+  S.weekData[weekKey]=r.rows||[];
+  return S.weekData[weekKey];
+}
+function invalidateWeek(weekKey){delete S.weekData[weekKey];}
 
-// Penalty keys
-function penKey(who,w,d,pi){return 'pen_'+who+'_'+w+'_'+d+'_'+pi+'_'+Date.now();}
-
-function allTimeMins(who){
-  let tot=0;
-  Object.keys(S.tasks).forEach(k=>{
-    const ts=S.tasks[k];
-    if(!ts||!ts.approved)return;
-    // key format: who_week_day_idx OR pen_who_week_day_pidx_ts
-    if(k.startsWith('pen_'+who)){tot+=ts.mins||0;return;}
-    if(!k.startsWith(who+'_'))return;
-    const parts=k.split('_');
-    const idx=parseInt(parts[3]);
-    if(!isNaN(idx)&&TASKS[idx]&&TASKS[idx].mins>0)tot+=ts.customMins||TASKS[idx].mins;
-  });
-  return tot;
+// Helper: get task entry from rows
+function getEntry(rows, taskKey, who, day){
+  return rows.find(r=>r.taskKey===taskKey&&r.who===who&&r.day===day)||null;
 }
 
-function weekMinsFor(who, weekKey){
-  let tot=0;
-  Object.keys(S.tasks).forEach(k=>{
-    const ts=S.tasks[k];
-    if(!ts||!ts.approved)return;
-    if(k.startsWith('pen_'+who+'_'+weekKey)){tot+=ts.mins||0;return;}
-    if(!k.startsWith(who+'_'+weekKey+'_'))return;
-    const parts=k.split('_');
-    const idx=parseInt(parts[3]);
-    if(!isNaN(idx)&&TASKS[idx]&&TASKS[idx].mins>0)tot+=ts.customMins||TASKS[idx].mins;
-  });
-  return tot;
+// ---- FILHO LOAD & RENDER ----
+async function loadAndRenderFilho(){
+  const weekKey=wk(S.viewOff);
+  loading(true,'A carregar tarefas...');
+  try{
+    const rows=await loadWeek(weekKey);
+    loading(false);
+    renderFilho(rows,weekKey);
+  }catch(e){
+    loading(false);
+    showToast('Erro: '+e.message);
+  }
 }
 
-// ---- FILHO ----
-function renderFilho(){
+function renderFilho(rows, weekKey){
   const who=S.user, name=who==='joao'?'João':'Bia';
-  const w=wk(S.viewOff), past=S.viewOff<0;
+  const past=S.viewOff<0;
   document.getElementById('filho-greeting').textContent='Olá, '+name+'! 👋';
-  document.getElementById('filho-week-lbl').textContent=w;
-  document.getElementById('filho-week-nav').textContent=past?w+' ← anterior':w+' (atual)';
+  document.getElementById('filho-week-lbl').textContent=weekKey;
+  document.getElementById('filho-week-nav').textContent=past?weekKey+' ← anterior':weekKey+' (atual)';
   document.getElementById('filho-hist-banner').style.display=past?'block':'none';
 
-  const tot=who==='joao'?(S.config.joaoTotal||775):(S.config.biaTotal||780);
-  const paid=allTimeMins(who)/10;
+  // calc week mins for this user from rows
+  let wMins=0;
+  rows.forEach(r=>{
+    if(r.who===who&&r.status==='aprovado'&&r.mins>0)wMins+=r.mins;
+  });
+
+  // calc total paid (all weeks) — approximate from config
+  const tot=who==='joao'?(parseFloat(S.config.joaoTotal)||775):(parseFloat(S.config.biaTotal)||780);
+  const paid=parseFloat(who==='joao'?(S.config.joaoPaid||0):(S.config.biaPaid||0));
   const rem=Math.max(0,tot-paid);
   const pct=Math.min(100,(paid/tot)*100);
   document.getElementById('filho-debt').textContent='€ '+rem.toFixed(2);
@@ -682,154 +837,176 @@ function renderFilho(){
   document.getElementById('filho-paid-txt').textContent='Pago: €'+paid.toFixed(2);
   document.getElementById('filho-total-txt').textContent='Total: €'+tot;
 
-  const wMins=weekMinsFor(who,w);
   const pct2=Math.min(100,Math.round((wMins/210)*100));
   document.getElementById('filho-ring').style.strokeDashoffset=377-(pct2/100)*377;
   document.getElementById('filho-ring-pct').textContent=pct2+'%';
   document.getElementById('filho-ring-min').textContent=wMins+' / 210 min';
   document.getElementById('filho-euros').textContent='€'+(wMins/10).toFixed(2);
 
-  renderDays(w);renderFilhoTasks(w,past);
+  renderDays(weekKey,rows);
+  renderFilhoTasks(rows,weekKey,past,who);
 }
 
-function renderDays(w){
+function renderDays(weekKey,rows){
   const wrap=document.getElementById('filho-days');wrap.innerHTML='';
   DAYS.forEach((d,i)=>{
     const c=document.createElement('div');c.className='day-chip'+(i===S.day?' active':'');
     c.textContent=d;
-    c.onclick=()=>{S.day=i;renderDays(w);renderFilhoTasks(w,S.viewOff<0);};
+    c.onclick=()=>{S.day=i;renderDays(weekKey,rows);renderFilhoTasks(rows,weekKey,S.viewOff<0,S.user);};
     wrap.appendChild(c);
   });
 }
 
-function renderFilhoTasks(w,ro){
-  const who=S.user;
+function renderFilhoTasks(rows,weekKey,ro,who){
   const wrap=document.getElementById('filho-tasks');wrap.innerHTML='';
   [{key:'roupa',lbl:'👕 Roupa'},{key:'refeicoes',lbl:'🍽️ Refeições'},{key:'gerais',lbl:'🏠 Gerais'}].forEach(cat=>{
-    const ct=TASKS.map((t,i)=>({...t,idx:i})).filter(t=>t.cat===cat.key);
-    if(!ct.length)return;
+    const ct=TASKS.filter(t=>t.cat===cat.key);if(!ct.length)return;
     const h=document.createElement('div');h.className='section-hdr';h.textContent=cat.lbl;wrap.appendChild(h);
     ct.forEach(t=>{
-      const ts=getTS(who,w,S.day,t.idx);
+      const e=getEntry(rows,t.key,who,S.day);
       const el=document.createElement('div');
-      el.className='task-item'+(ts?(ts.approved?' done':(ts.rejected?' rejected':' pending-ap')):'');
-      const sl=ts?(ts.approved?'Aprovado ✓':(ts.rejected?'Rejeitado ✗':'Aguarda aprovação...')):(ro?'Não registado':'Por fazer');
-      const cc=ts?(ts.approved?'checked':(ts.rejected?'rej':'waiting')):'';
-      const ci=ts?(ts.approved?'✓':(ts.rejected?'✗':'⏳')):'';
-      const minsVal=ts&&ts.customMins?ts.customMins:t.mins;
-      const ml=minsVal>0?minsVal+' min':'—';
-      const pc=ts&&ts.approved?'ok':'';
+      el.className='task-item'+(e?(e.status==='aprovado'?' done':(e.status==='rejeitado'?' rejected':' pending-ap')):'');
+      const sl=e?(e.status==='aprovado'?'Aprovado ✓':(e.status==='rejeitado'?'Rejeitado ✗':'Aguarda aprovação...')):(ro?'Não registado':'Por fazer');
+      const cc=e?(e.status==='aprovado'?'checked':(e.status==='rejeitado'?'rej':'waiting')):'';
+      const ci=e?(e.status==='aprovado'?'✓':(e.status==='rejeitado'?'✗':'⏳')):'';
+      const pc=e&&e.status==='aprovado'?'ok':'';
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${t.cat}">${t.icon}</div>
         <div class="task-info"><div class="task-name">${t.name}</div><div class="task-meta">${sl}</div></div>
-        <div class="task-pts ${pc}">${ml}</div>
-        ${!ro?`<div class="task-check ${cc}" onclick="toggleTask('${who}','${w}',${S.day},${t.idx})">${ci}</div>`:`<div class="task-check ${cc}">${ci}</div>`}
+        <div class="task-pts ${pc}">${t.mins} min</div>
+        ${!ro?`<div class="task-check ${cc}" onclick="toggleTask('${weekKey}','${t.key}','${who}',${S.day},${t.mins},'${t.name}')">${ci}</div>`:`<div class="task-check ${cc}">${ci}</div>`}
       </div>`;
       wrap.appendChild(el);
     });
   });
 
-  // Extra task with slider
-  if(!ro){
-    const hdr=document.createElement('div');hdr.className='section-hdr';hdr.textContent='⭐ Extra';wrap.appendChild(hdr);
-    const extraEl=document.createElement('div');extraEl.className='task-item';
-    const extraTs=getTS(who,w,S.day,99);
-    if(extraTs){
-      const sl=extraTs.approved?'Aprovado ✓':(extraTs.rejected?'Rejeitado ✗':'Aguarda aprovação...');
-      const cc=extraTs.approved?'checked':(extraTs.rejected?'rej':'waiting');
-      const ci=extraTs.approved?'✓':(extraTs.rejected?'✗':'⏳');
-      extraEl.className='task-item'+(extraTs.approved?' done':(extraTs.rejected?' rejected':' pending-ap'));
-      extraEl.innerHTML=`<div class="task-hdr">
-        <div class="task-icon ti-extra">⭐</div>
-        <div class="task-info"><div class="task-name">${extraTs.desc||'Tarefa extra'}</div><div class="task-meta">${sl}</div></div>
-        <div class="task-pts ok">${extraTs.customMins} min</div>
-        <div class="task-check ${cc}" onclick="clearExtra('${who}','${w}',${S.day})">${ci}</div>
-      </div>`;
-    } else {
-      extraEl.innerHTML=`<div class="task-hdr">
-        <div class="task-icon ti-extra">⭐</div>
-        <div class="task-info"><div class="task-name">Tarefa extra</div><div class="task-meta">Descreve e escolhe o tempo</div></div>
-      </div>
-      <div class="extra-slider-wrap">
-        <div class="extra-slider-inner">
-          <div class="extra-slider-row">
-            <label>Tempo</label>
-            <input type="range" min="5" max="60" step="5" value="15" id="extra-slider" oninput="document.getElementById('extra-val').textContent=this.value+' min'">
-            <span id="extra-val">15 min</span>
-          </div>
-          <input type="text" class="extra-desc" id="extra-desc" placeholder="O que fizeste? (ex: limpei o meu quarto)">
-          <button class="btn-mark-extra" onclick="markExtra('${who}','${w}',${S.day})">✓ Marcar como feito</button>
+  // Extra
+  const hdr=document.createElement('div');hdr.className='section-hdr';hdr.textContent='⭐ Extra';wrap.appendChild(hdr);
+  const extraEl=document.createElement('div');extraEl.className='task-item';
+  const xe=getEntry(rows,'extra',who,S.day);
+  if(xe){
+    const sl=xe.status==='aprovado'?'Aprovado ✓':(xe.status==='rejeitado'?'Rejeitado ✗':'Aguarda aprovação...');
+    const cc=xe.status==='aprovado'?'checked':(xe.status==='rejeitado'?'rej':'waiting');
+    const ci=xe.status==='aprovado'?'✓':(xe.status==='rejeitado'?'✗':'⏳');
+    extraEl.className='task-item'+(xe.status==='aprovado'?' done':(xe.status==='rejeitado'?' rejected':' pending-ap'));
+    extraEl.innerHTML=`<div class="task-hdr">
+      <div class="task-icon ti-extra">⭐</div>
+      <div class="task-info"><div class="task-name">${xe.desc||'Tarefa extra'}</div><div class="task-meta">${sl}</div></div>
+      <div class="task-pts ok">${xe.mins} min</div>
+      ${!ro?`<div class="task-check ${cc}" onclick="clearExtra('${weekKey}','${who}',${S.day})">${ci}</div>`:`<div class="task-check ${cc}">${ci}</div>`}
+    </div>`;
+  } else if(!ro){
+    extraEl.innerHTML=`<div class="task-hdr">
+      <div class="task-icon ti-extra">⭐</div>
+      <div class="task-info"><div class="task-name">Tarefa extra</div><div class="task-meta">Descreve e escolhe o tempo</div></div>
+    </div>
+    <div class="extra-slider-wrap">
+      <div class="extra-slider-inner">
+        <div class="extra-slider-row">
+          <label>Tempo</label>
+          <input type="range" min="5" max="60" step="5" value="15" id="extra-slider" oninput="document.getElementById('extra-val').textContent=this.value+' min'">
+          <span id="extra-val">15 min</span>
         </div>
-      </div>`;
+        <input type="text" class="extra-desc" id="extra-desc" placeholder="O que fizeste? (ex: limpei o meu quarto)">
+        <button class="btn-mark-extra" onclick="markExtra('${weekKey}','${who}',${S.day})">✓ Marcar como feito</button>
+      </div>
+    </div>`;
+  }
+  wrap.appendChild(extraEl);
+}
+
+async function toggleTask(weekKey,taskKey,who,day,mins,name){
+  const rows=S.weekData[weekKey]||[];
+  const e=getEntry(rows,taskKey,who,day);
+  if(e&&e.status==='aprovado'){showToast('Já aprovado pelos pais 🔒');return;}
+  loading(true,'A guardar...');
+  try{
+    if(e&&e.status==='pendente'){
+      // unmark — send with empty status to remove (use a delete action approach: save with status 'desmarcado' and filter out)
+      await api({action:'saveTask',week:weekKey,taskKey,who,day,mins:0,desc:'',status:'desmarcado'});
+      showToast('Tarefa desmarcada');
+    } else {
+      await api({action:'saveTask',week:weekKey,taskKey,who,day,mins,desc:name});
+      showToast('Marcado! Aguarda aprovação 👍');
     }
-    wrap.appendChild(extraEl);
+    invalidateWeek(weekKey);
+    const rows2=await loadWeek(weekKey);
+    loading(false);
+    renderFilho(rows2,weekKey);
+  }catch(err){loading(false);showToast('Erro: '+err.message);}
+}
+
+async function markExtra(weekKey,who,day){
+  const mins=parseInt(document.getElementById('extra-slider').value)||15;
+  const desc=document.getElementById('extra-desc').value.trim()||'Tarefa extra';
+  loading(true,'A guardar...');
+  try{
+    await api({action:'saveTask',week:weekKey,taskKey:'extra',who,day,mins,desc});
+    showToast('Extra marcado! Aguarda aprovação 👍');
+    invalidateWeek(weekKey);
+    const rows=await loadWeek(weekKey);
+    loading(false);
+    renderFilho(rows,weekKey);
+  }catch(e){loading(false);showToast('Erro: '+e.message);}
+}
+
+async function clearExtra(weekKey,who,day){
+  const rows=S.weekData[weekKey]||[];
+  const e=getEntry(rows,'extra',who,day);
+  if(e&&e.status==='aprovado'){showToast('Já aprovado pelos pais 🔒');return;}
+  loading(true,'A remover...');
+  try{
+    await api({action:'saveTask',week:weekKey,taskKey:'extra',who,day,mins:0,desc:'',status:'desmarcado'});
+    invalidateWeek(weekKey);
+    const rows2=await loadWeek(weekKey);
+    loading(false);
+    renderFilho(rows2,weekKey);
+  }catch(err){loading(false);showToast('Erro: '+err.message);}
+}
+
+// ---- PAIS LOAD & RENDER ----
+async function loadAndRenderPais(){
+  const weekKey=wk(S.paisOff);
+  loading(true,'A carregar...');
+  try{
+    const rows=await loadWeek(weekKey);
+    loading(false);
+    renderPais(rows,weekKey);
+  }catch(e){
+    loading(false);
+    showToast('Erro: '+e.message);
   }
 }
 
-function toggleTask(who,w,day,idx){
-  const ts=getTS(who,w,day,idx);
-  if(ts&&ts.approved){showToast('Já aprovado pelos pais 🔒');return;}
-  if(ts&&!ts.approved&&!ts.rejected){setTS(who,w,day,idx,null);showToast('Tarefa desmarcada');}
-  else{setTS(who,w,day,idx,{who,approved:false,rejected:false,ts:Date.now()});showToast('Marcado! Aguarda aprovação 👍');}
-  renderFilhoTasks(w,false);
-}
+function renderPais(rows,weekKey){
+  const past=S.paisOff<0;
+  document.getElementById('pais-week-lbl').textContent=weekKey;
+  document.getElementById('pais-week-nav').textContent=past?weekKey+' ← anterior':weekKey+' (atual)';
 
-function markExtra(who,w,day){
-  const mins=parseInt(document.getElementById('extra-slider').value)||15;
-  const desc=document.getElementById('extra-desc').value.trim()||'Tarefa extra';
-  setTS(who,w,day,99,{who,approved:false,rejected:false,customMins:mins,desc,ts:Date.now()});
-  showToast('Extra marcado! Aguarda aprovação 👍');
-  renderFilhoTasks(w,false);
-}
+  let jM=0,bM=0,pend=[],appr=[];
+  rows.forEach(r=>{
+    if(r.status==='desmarcado')return;
+    const m=r.mins||0;
+    if(r.status==='aprovado'){
+      if(r.who==='joao')jM+=Math.max(0,m);
+      else bM+=Math.max(0,m);
+      appr.push(r);
+    } else if(r.status==='pendente'){
+      pend.push(r);
+    }
+  });
 
-function clearExtra(who,w,day){
-  const ts=getTS(who,w,day,99);
-  if(ts&&ts.approved){showToast('Já aprovado pelos pais 🔒');return;}
-  setTS(who,w,day,99,null);
-  renderFilhoTasks(w,false);
-}
-
-// ---- PAIS ----
-function renderPais(){
-  const w=wk(S.paisOff), past=S.paisOff<0;
-  document.getElementById('pais-week-lbl').textContent=w;
-  document.getElementById('pais-week-nav').textContent=past?w+' ← anterior':w+' (atual)';
-
-  const jM=weekMinsFor('joao',w), bM=weekMinsFor('bia',w);
   document.getElementById('pais-joao-week').textContent=jM+' min';
   document.getElementById('pais-bia-week').textContent=bM+' min';
   document.getElementById('pais-joao-bar').style.width=Math.min(100,(jM/210)*100)+'%';
   document.getElementById('pais-bia-bar').style.width=Math.min(100,(bM/210)*100)+'%';
 
-  const jTot=S.config.joaoTotal||775, bTot=S.config.biaTotal||780;
-  document.getElementById('pais-joao-debt').textContent='€ '+Math.max(0,jTot-allTimeMins('joao')/10).toFixed(2);
-  document.getElementById('pais-bia-debt').textContent='€ '+Math.max(0,bTot-allTimeMins('bia')/10).toFixed(2);
-
-  // collect pending and approved for both users
-  let pend=[], appr=[];
-  ['joao','bia'].forEach(who=>{
-    for(let d=0;d<7;d++){
-      // normal tasks
-      TASKS.forEach((t,i)=>{
-        const ts=getTS(who,w,d,i);if(!ts)return;
-        const e={task:t,idx:i,day:d,ts,who,isExtra:false};
-        if(ts.approved)appr.push(e);else if(!ts.rejected)pend.push(e);
-      });
-      // extra
-      const xts=getTS(who,w,d,99);
-      if(xts){
-        const e={task:{cat:'gerais',icon:'⭐',name:xts.desc||'Tarefa extra',mins:xts.customMins||0},idx:99,day:d,ts:xts,who,isExtra:true};
-        if(xts.approved)appr.push(e);else if(!xts.rejected)pend.push(e);
-      }
-      // penalties applied by parents
-      Object.keys(S.tasks).forEach(k=>{
-        if(!k.startsWith('pen_'+who+'_'+w+'_'+d))return;
-        const pts=S.tasks[k];if(!pts)return;
-        const e={task:{cat:'penalizacao',icon:'⚠️',name:pts.name,mins:pts.mins},idx:k,day:d,ts:pts,who,isPenalty:true};
-        appr.push(e);
-      });
-    }
-  });
+  const jTot=parseFloat(S.config.joaoTotal)||775;
+  const bTot=parseFloat(S.config.biaTotal)||780;
+  const jPaid=parseFloat(S.config.joaoPaid)||0;
+  const bPaid=parseFloat(S.config.biaPaid)||0;
+  document.getElementById('pais-joao-debt').textContent='€ '+Math.max(0,jTot-jPaid).toFixed(2);
+  document.getElementById('pais-bia-debt').textContent='€ '+Math.max(0,bTot-bPaid).toFixed(2);
 
   const badge=document.getElementById('pais-pending-badge');
   badge.textContent=pend.length;badge.style.display=pend.length?'inline-block':'none';
@@ -840,20 +1017,21 @@ function renderPais(){
   } else {
     if(!past){
       const d=document.createElement('div');d.style.cssText='padding:0 16px 8px';
-      d.innerHTML=`<button class="btn-primary" onclick="approveAll('${w}')">✓ Aprovar tudo de uma vez</button>`;
+      d.innerHTML=`<button class="btn-primary" onclick="doApproveAll('${weekKey}')">✓ Aprovar tudo de uma vez</button>`;
       pList.appendChild(d);
     }
-    pend.forEach(e=>{
+    pend.forEach(r=>{
       const el=document.createElement('div');el.className='task-item pending-ap';
-      const wn=e.who==='joao'?'João':'Bia';
-      const minsLabel=e.task.mins>0?e.task.mins+' min':(e.task.mins<0?e.task.mins+' min':'—');
+      const wn=r.who==='joao'?'João':'Bia';
+      const task=TASKS.find(t=>t.key===r.taskKey)||{icon:'⭐',cat:'gerais'};
+      const mLabel=r.mins>0?r.mins+' min':(r.mins<0?r.mins+' min':'—');
       el.innerHTML=`<div class="task-hdr">
-        <div class="task-icon ti-${e.task.cat}">${e.task.icon}</div>
-        <div class="task-info"><div class="task-name">${e.task.name}</div><div class="task-meta">${wn} — ${DAYS[e.day]}</div></div>
-        <div class="task-pts">${minsLabel}</div>
+        <div class="task-icon ti-${task.cat||'gerais'}">${task.icon||'⭐'}</div>
+        <div class="task-info"><div class="task-name">${r.desc||task.name||r.taskKey}</div><div class="task-meta">${wn} — ${DAYS[r.day]}</div></div>
+        <div class="task-pts">${mLabel}</div>
       </div>${!past?`<div class="approve-actions">
-        <button class="btn-app yes" onclick="doApprove('${e.who}','${w}',${e.day},'${e.idx}',true)">✓ Aprovar</button>
-        <button class="btn-app no" onclick="doApprove('${e.who}','${w}',${e.day},'${e.idx}',false)">✗ Rejeitar</button>
+        <button class="btn-app yes" onclick="doApprove('${weekKey}','${r.taskKey}','${r.who}',${r.day},true)">✓ Aprovar</button>
+        <button class="btn-app no" onclick="doApprove('${weekKey}','${r.taskKey}','${r.who}',${r.day},false)">✗ Rejeitar</button>
       </div>`:''}`;
       pList.appendChild(el);
     });
@@ -863,15 +1041,16 @@ function renderPais(){
   if(!appr.length){
     aList.innerHTML='<div style="padding:16px;color:#888780;font-size:14px;text-align:center">Nenhuma aprovada ainda</div>';
   } else {
-    appr.slice().reverse().forEach(e=>{
+    appr.slice().reverse().forEach(r=>{
       const el=document.createElement('div');el.className='task-item done';
-      const wn=e.who==='joao'?'João':'Bia';
-      const minsLabel=e.task.mins>0?e.task.mins+' min':(e.task.mins<0?e.task.mins+' min':'—');
-      const pc=e.task.mins<0?'neg':'ok';
+      const wn=r.who==='joao'?'João':'Bia';
+      const task=TASKS.find(t=>t.key===r.taskKey)||{icon:'⭐',cat:'gerais'};
+      const mLabel=r.mins>0?r.mins+' min':(r.mins<0?r.mins+' min':'—');
+      const pc=r.mins<0?'neg':'ok';
       el.innerHTML=`<div class="task-hdr">
-        <div class="task-icon ti-${e.task.cat}">${e.task.icon}</div>
-        <div class="task-info"><div class="task-name">${e.task.name}</div><div class="task-meta">${wn} — ${DAYS[e.day]}</div></div>
-        <div class="task-pts ${pc}">${minsLabel}</div>
+        <div class="task-icon ti-${task.cat||'gerais'}">${task.icon||'⭐'}</div>
+        <div class="task-info"><div class="task-name">${r.desc||task.name||r.taskKey}</div><div class="task-meta">${wn} — ${DAYS[r.day]}</div></div>
+        <div class="task-pts ${pc}">${mLabel}</div>
         <div class="task-check checked">✓</div>
       </div>`;
       aList.appendChild(el);
@@ -879,52 +1058,52 @@ function renderPais(){
   }
 }
 
-function doApprove(who,w,day,idx,ok){
-  const i=isNaN(idx)?idx:parseInt(idx);
-  const ts=isNaN(idx)?S.tasks[idx]:getTS(who,w,day,i);
-  if(!ts)return;
-  if(ok){ts.approved=true;ts.rejected=false;}
-  else{ts.approved=false;ts.rejected=true;}
-  if(isNaN(idx))S.tasks[idx]=ts;
-  else setTS(who,w,day,i,ts);
-  save();
-  showToast(ok?'Aprovado ✓':'Rejeitado ✗');
-  renderPais();
+async function doApprove(weekKey,taskKey,who,day,ok){
+  loading(true,'A guardar...');
+  try{
+    await api({action:'approveTask',week:weekKey,taskKey,who,day,approved:ok?'true':'false'});
+    showToast(ok?'Aprovado ✓':'Rejeitado ✗');
+    invalidateWeek(weekKey);
+    const rows=await loadWeek(weekKey);
+    loading(false);
+    renderPais(rows,weekKey);
+  }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
 
-function approveAll(w){
-  let n=0;
-  ['joao','bia'].forEach(who=>{
-    for(let d=0;d<7;d++){
-      TASKS.forEach((t,i)=>{
-        const ts=getTS(who,w,d,i);
-        if(ts&&!ts.approved&&!ts.rejected){ts.approved=true;setTS(who,w,d,i,ts);n++;}
-      });
-      const xts=getTS(who,w,d,99);
-      if(xts&&!xts.approved&&!xts.rejected){xts.approved=true;setTS(who,w,d,99,xts);n++;}
-    }
-  });
-  showToast(n+' tarefas aprovadas ✓');renderPais();
+async function doApproveAll(weekKey){
+  loading(true,'A aprovar tudo...');
+  try{
+    await api({action:'approveAll',week:weekKey});
+    showToast('Tudo aprovado ✓');
+    invalidateWeek(weekKey);
+    const rows=await loadWeek(weekKey);
+    loading(false);
+    renderPais(rows,weekKey);
+  }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
 
-function applyPenalty(){
+async function applyPenalty(){
   const who=document.getElementById('pen-who').value;
   const pi=parseInt(document.getElementById('pen-type').value);
   const pen=PENALTIES[pi];
-  const w=wk(S.paisOff);
-  const k='pen_'+who+'_'+w+'_'+S.paisOff+'_'+pi+'_'+Date.now();
-  S.tasks[k]={who,approved:true,name:pen.name,mins:pen.mins,ts:Date.now()};
-  save();
-  const wn=who==='joao'?'João':'Bia';
-  showToast('Penalização aplicada ao '+wn+' ✓');
-  renderPais();
+  const weekKey=wk(S.paisOff);
+  loading(true,'A aplicar...');
+  try{
+    await api({action:'savePenalty',week:weekKey,taskKey:pen.key+'_'+Date.now(),who,day:todayIdx(),mins:pen.mins,desc:pen.name});
+    const wn=who==='joao'?'João':'Bia';
+    showToast('Penalização aplicada ao '+wn);
+    invalidateWeek(weekKey);
+    const rows=await loadWeek(weekKey);
+    loading(false);
+    renderPais(rows,weekKey);
+  }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
 
 // ---- CONFIG ----
 function renderConfig(){
   const c=S.config;
-  document.getElementById('cfg-url').value=c.url||'';
-  document.getElementById('cfg-sheet-id').value=c.sheetId||'';
+  document.getElementById('cfg-url').value=S.conn.url||'';
+  document.getElementById('cfg-sheet-id').value=S.conn.sheetId||'';
   document.getElementById('cfg-pin-pais').value=c.pinPais||'1234';
   document.getElementById('cfg-pin-joao').value=c.pinJoao||'1202';
   document.getElementById('cfg-pin-bia').value=c.pinBia||'1623';
@@ -935,31 +1114,43 @@ function renderConfig(){
   document.getElementById('script-pre').textContent=SCRIPT;
 }
 
-function saveConfig(){
-  S.config={
-    url:document.getElementById('cfg-url').value.trim(),
-    sheetId:document.getElementById('cfg-sheet-id').value.trim(),
-    pinPais:document.getElementById('cfg-pin-pais').value||'1234',
-    pinJoao:document.getElementById('cfg-pin-joao').value||'1202',
-    pinBia:document.getElementById('cfg-pin-bia').value||'1623',
-    email:document.getElementById('cfg-email').value.trim(),
-    appUrl:document.getElementById('cfg-app-url').value.trim(),
-    joaoTotal:parseFloat(document.getElementById('cfg-joao-total').value)||775,
-    biaTotal:parseFloat(document.getElementById('cfg-bia-total').value)||780,
-  };
-  localStorage.setItem('tdc3_c',JSON.stringify(S.config));
-  showToast('Guardado ✓');
+async function saveConfig(){
+  loading(true,'A guardar no Sheets...');
+  try{
+    const params={
+      action:'saveConfig',
+      pinPais:document.getElementById('cfg-pin-pais').value||'1234',
+      pinJoao:document.getElementById('cfg-pin-joao').value||'1202',
+      pinBia:document.getElementById('cfg-pin-bia').value||'1623',
+      email:document.getElementById('cfg-email').value.trim(),
+      appUrl:document.getElementById('cfg-app-url').value.trim(),
+      joaoTotal:document.getElementById('cfg-joao-total').value||775,
+      biaTotal:document.getElementById('cfg-bia-total').value||780,
+    };
+    // update conn if URL changed
+    const newUrl=document.getElementById('cfg-url').value.trim();
+    const newId=document.getElementById('cfg-sheet-id').value.trim();
+    if(newUrl)S.conn.url=newUrl;
+    if(newId)S.conn.sheetId=newId;
+    saveConn();
+    await api(params);
+    // reload config
+    const r=await api({action:'getConfig'});
+    S.config=r.config||{};
+    loading(false);
+    showToast('Configuração guardada no Sheets ✓');
+  }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
 
 async function testConn(){
   const st=document.getElementById('cfg-status');
-  if(!S.config.url){st.innerHTML='<span class="sd-err"></span>Sem URL';return;}
   st.textContent='A testar...';
   try{
-    const r=await fetch(S.config.url+'?action=test');
-    const d=await r.json();
-    st.innerHTML='<span class="sd-ok"></span>'+d.name;
-  }catch(e){st.innerHTML='<span class="sd-err"></span>Erro de ligação';}
+    const r=await api({action:'test'});
+    st.innerHTML='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1D9E75;margin-right:6px"></span>'+r.name;
+  }catch(e){
+    st.innerHTML='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;margin-right:6px"></span>Erro: '+e.message;
+  }
 }
 
 function copyScript(){navigator.clipboard.writeText(SCRIPT).then(()=>showToast('Script copiado ✓'));}
@@ -969,8 +1160,24 @@ function showToast(msg){
   clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-load();
+// ---- INIT ----
+loadLocal();
 document.getElementById('script-pre').textContent=SCRIPT;
+
+// If already configured, go to welcome
+if(S.conn.url&&S.conn.sheetId){
+  loading(true,'A carregar...');
+  api({action:'getConfig'}).then(r=>{
+    S.config=r.config||{};
+    loading(false);
+    showScreen('welcome');
+  }).catch(()=>{
+    loading(false);
+    showScreen('setup');
+  });
+} else {
+  showScreen('setup');
+}
 </script>
 </body>
 </html>
