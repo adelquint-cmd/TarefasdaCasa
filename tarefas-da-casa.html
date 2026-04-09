@@ -16,8 +16,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .topbar h1{font-size:20px;font-weight:700}
 .topbar .sub{font-size:13px;opacity:.8;margin-top:2px}
 .topbar-row{display:flex;align-items:center;justify-content:space-between}
-
-/* WELCOME */
 #screen-welcome{background:#7F77DD;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px}
 .welcome-logo{font-size:72px;margin-bottom:12px}
 .welcome-title{font-size:30px;font-weight:800;color:#fff;text-align:center;margin-bottom:6px}
@@ -30,20 +28,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .profile-btn .rl{font-size:12px;opacity:.75;margin-top:2px}
 .profile-btn.pais{grid-column:1/-1;padding:16px 20px;display:flex;align-items:center;gap:16px;text-align:left}
 .profile-btn.pais .av{font-size:36px;margin-bottom:0}
-
-/* SETUP SCREEN */
-#screen-setup{display:flex;flex-direction:column;min-height:100vh;padding-bottom:40px}
-.setup-hero{background:#7F77DD;padding:40px 24px 32px;text-align:center}
-.setup-hero h2{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
-.setup-hero p{font-size:14px;color:rgba(255,255,255,.8)}
-.setup-body{padding:20px 16px}
-.setup-row{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:10px;border:1px solid rgba(0,0,0,.07)}
-.setup-row label{font-size:13px;color:#444441;font-weight:600;display:block;margin-bottom:6px}
-.setup-row input{width:100%;padding:10px 12px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:15px;outline:none;background:#fff}
-.setup-row input:focus{border-color:#7F77DD}
-.setup-info{background:#EEEDFE;border-radius:12px;padding:12px 14px;margin-bottom:16px;font-size:13px;color:#3C3489;line-height:1.6}
-
-/* PIN */
 .pin-overlay{position:fixed;inset:0;background:rgba(83,74,183,.97);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:32px}
 .pin-overlay.show{display:flex}
 .pin-title{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
@@ -57,19 +41,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .pin-key.empty{background:transparent;border-color:transparent;cursor:default}
 .pin-error{color:#F0997B;font-size:14px;margin-top:16px;min-height:20px;text-align:center}
 .pin-cancel{color:rgba(255,255,255,.6);font-size:14px;margin-top:20px;cursor:pointer;padding:8px}
-
-/* LOADING */
-.loading-overlay{position:fixed;inset:0;background:rgba(255,255,255,.85);display:none;align-items:center;justify-content:center;z-index:500;flex-direction:column;gap:12px}
+.loading-overlay{position:fixed;inset:0;background:rgba(255,255,255,.88);display:none;align-items:center;justify-content:center;z-index:500;flex-direction:column;gap:12px}
 .loading-overlay.show{display:flex}
 .spinner{width:40px;height:40px;border:4px solid #EEEDFE;border-top-color:#7F77DD;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-msg{font-size:14px;color:#888780;font-weight:500}
-
-/* CARDS */
 .card{background:#fff;border-radius:18px;padding:16px;margin:12px 16px;border:1px solid rgba(0,0,0,.07)}
 .card-title{font-size:12px;color:#888780;font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
-
-/* RING */
 .ring-wrap{display:flex;justify-content:center;padding:6px 0 4px}
 .ring-inner{position:relative;width:140px;height:140px}
 .ring-inner svg{transform:rotate(-90deg)}
@@ -78,15 +56,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .ring-pct{font-size:28px;font-weight:800;color:#534AB7}
 .ring-lbl{font-size:11px;color:#888780;margin-top:2px}
-
-/* DEBT */
 .debt-bar-bg{background:#EEEDFE;border-radius:8px;height:12px;overflow:hidden;margin-top:8px}
 .debt-bar-fill{background:#7F77DD;height:100%;border-radius:8px;transition:width .8s}
 .debt-nums{display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:#888780}
 .debt-big{font-size:26px;font-weight:800;color:#3C3489;margin:4px 0}
 .debt-sub{font-size:13px;color:#1D9E75;font-weight:600}
-
-/* WEEK / DAY */
 .week-row{display:flex;align-items:center;gap:8px;padding:10px 16px 0}
 .week-arrow{width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid #D3D1C7;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;user-select:none}
 .week-arrow:active{background:#EEEDFE}
@@ -95,8 +69,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .day-scroll::-webkit-scrollbar{display:none}
 .day-chip{flex-shrink:0;padding:8px 14px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid #D3D1C7;background:#fff;color:#444441;transition:all .15s;user-select:none}
 .day-chip.active{background:#7F77DD;border-color:#7F77DD;color:#fff}
-
-/* TASKS */
 .section-hdr{padding:14px 16px 4px;font-size:12px;color:#888780;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
 .task-item{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid rgba(0,0,0,.07);overflow:hidden}
 .task-item.done{border-color:#9FE1CB;background:#F7FFFC}
@@ -114,26 +86,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .task-check.checked{background:#1D9E75;border-color:#1D9E75;color:#fff}
 .task-check.waiting{background:#EF9F27;border-color:#EF9F27;color:#fff}
 .task-check.rej{background:#E24B4A;border-color:#E24B4A;color:#fff}
-
-/* EXTRA SLIDER */
 .extra-slider-wrap{padding:0 14px 14px}
 .extra-slider-inner{background:#F1EFE8;border-radius:12px;padding:12px 14px}
 .extra-slider-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .extra-slider-row label{font-size:13px;color:#444441;font-weight:500;flex:1}
 .extra-slider-row span{font-size:15px;font-weight:700;color:#534AB7;min-width:52px;text-align:right}
-.extra-desc{width:100%;padding:8px 10px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:14px;outline:none;margin-bottom:8px}
+.extra-desc{width:100%;padding:8px 10px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:14px;outline:none;margin-bottom:8px;background:#fff}
 .extra-desc:focus{border-color:#7F77DD}
 .btn-mark-extra{width:100%;padding:10px;background:#7F77DD;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer}
 .btn-mark-extra:active{background:#534AB7}
-
-/* APPROVE */
 .approve-actions{padding:0 14px 14px;display:flex;gap:8px}
 .btn-app{flex:1;padding:11px;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;transition:all .15s}
 .btn-app.yes{background:#1D9E75;color:#fff}
 .btn-app.no{background:#FCEBEB;color:#A32D2D;border:1.5px solid #F09595}
 .btn-app:active{transform:scale(.96)}
-
-/* STATS */
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px;margin-top:4px}
 .stat-card{background:#fff;border-radius:16px;padding:14px;border:1px solid rgba(0,0,0,.07)}
 .stat-lbl{font-size:11px;color:#888780;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
@@ -142,15 +108,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .target-bar{margin:6px 16px 0;background:#EEEDFE;border-radius:8px;height:8px;overflow:hidden}
 .target-fill{background:#7F77DD;height:100%;border-radius:8px;transition:width .8s}
 .target-lbl{padding:6px 16px 0;font-size:11px;color:#888780;font-weight:600}
-
-/* PENALTY FORM */
 .penalty-form{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid #F09595;padding:14px}
 .pf-title{font-size:14px;font-weight:700;color:#A32D2D;margin-bottom:12px}
 .penalty-form select{width:100%;padding:10px 12px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:14px;outline:none;margin-bottom:8px;background:#fff}
 .btn-penalty{width:100%;padding:10px;background:#E24B4A;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer}
 .btn-penalty:active{background:#A32D2D}
-
-/* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid rgba(0,0,0,.1);display:none;z-index:200;padding:6px 0 max(10px,env(safe-area-inset-bottom))}
 .bottom-nav.visible{display:flex}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px;cursor:pointer;border:none;background:none}
@@ -158,8 +120,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .nav-btn .nl{font-size:10px;color:#888780;font-weight:600}
 .nav-btn.active .nl{color:#534AB7}
 .nav-badge{background:#E24B4A;color:#fff;border-radius:20px;font-size:10px;font-weight:700;padding:1px 6px;margin-left:2px;display:inline-block}
-
-/* CONFIG */
 .cfg-section{padding:4px 16px 8px}
 .cfg-row{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:8px;border:1px solid rgba(0,0,0,.07)}
 .cfg-row label{font-size:13px;color:#444441;font-weight:500;display:block;margin-bottom:6px}
@@ -170,48 +130,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .btn-secondary{width:100%;padding:12px;background:#EEEDFE;color:#534AB7;border:none;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer;margin-top:8px}
 .btn-danger{width:calc(100% - 32px);margin:8px 16px;padding:12px;background:#FCEBEB;color:#A32D2D;border:none;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer}
 .info-box{background:#EEEDFE;border-radius:14px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:#3C3489;line-height:1.7}
-
-/* MISC */
 .empty{text-align:center;padding:40px 24px;color:#888780}
 .empty .ei{font-size:48px;margin-bottom:10px}
 .hist-banner{background:#FAC775;border-radius:12px;margin:8px 16px 0;padding:10px 14px;font-size:13px;color:#412402;font-weight:500;text-align:center}
 .toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#2C2C2A;color:#fff;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:500;z-index:9999;transition:transform .3s;white-space:nowrap;max-width:calc(100vw - 32px);text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0)}
-.error-banner{background:#FCEBEB;border-radius:12px;margin:8px 16px;padding:12px 14px;font-size:13px;color:#A32D2D;font-weight:500;text-align:center}
 </style>
 </head>
 <body>
 
-<!-- SETUP (first time) -->
-<div id="screen-setup" class="screen active">
-  <div class="setup-hero">
-    <div style="font-size:56px;margin-bottom:12px">🏠</div>
-    <h2>Tarefas da Casa</h2>
-    <p>Primeira configuração — só precisas de fazer isto uma vez</p>
-  </div>
-  <div class="setup-body">
-    <div class="setup-info">
-      Introduz o URL do teu Google Apps Script e o ID da folha. Depois disso qualquer telemóvel da família que abra esta app vai sincronizar automaticamente.
-    </div>
-    <div class="setup-row">
-      <label>URL do Google Apps Script</label>
-      <input type="url" id="setup-url" placeholder="https://script.google.com/macros/s/…/exec"/>
-    </div>
-    <div class="setup-row">
-      <label>ID do Google Sheet</label>
-      <input type="text" id="setup-sheet-id" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms"/>
-    </div>
-    <button class="btn-primary" style="margin-top:8px" onclick="setupConnect()">Ligar e começar →</button>
-    <div id="setup-status" style="text-align:center;padding:10px;font-size:13px;color:#888780;min-height:28px"></div>
-  </div>
-</div>
-
 <!-- WELCOME -->
-<div id="screen-welcome" class="screen">
+<div id="screen-welcome" class="screen active">
   <div class="welcome-logo">🏠</div>
   <div class="welcome-title">Tarefas da Casa</div>
-  <div class="welcome-sub">Quem és tu hoje?</div>
-  <div class="profile-grid">
+  <div class="welcome-sub" id="welcome-sub">A ligar...</div>
+  <div class="profile-grid" id="profile-grid" style="display:none">
     <div class="profile-btn" onclick="showPin('joao')">
       <div class="av">🧒</div><div class="nm">João</div><div class="rl">as minhas tarefas</div>
     </div>
@@ -222,6 +155,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="av">👨‍👩‍👧‍👦</div>
       <div style="text-align:left"><div class="nm">Pais</div><div class="rl">aprovar · resumo · histórico</div></div>
     </div>
+  </div>
+  <div id="welcome-error" style="color:rgba(255,255,255,.9);font-size:14px;text-align:center;margin-top:16px;display:none">
+    Sem ligação ao Sheets.<br>Verifica a internet e tenta novamente.<br>
+    <button onclick="init()" style="margin-top:12px;padding:10px 20px;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.4);border-radius:12px;color:#fff;font-size:14px;font-weight:600;cursor:pointer">Tentar novamente</button>
   </div>
 </div>
 
@@ -351,19 +288,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="topbar"><h1>Configurações ⚙️</h1><div class="sub">Só visível para os pais</div></div>
   <div style="padding:14px 16px 0">
     <div class="info-box">
-      Estas configurações são guardadas no Google Sheets e ficam disponíveis em todos os dispositivos automaticamente.
+      Configurações guardadas no Google Sheets — disponíveis em todos os dispositivos automaticamente.
     </div>
   </div>
   <div class="cfg-section">
-    <div class="cfg-row"><label>URL do Google Apps Script</label><input type="url" id="cfg-url" placeholder="https://script.google.com/macros/s/…/exec"/></div>
-    <div class="cfg-row"><label>ID do Google Sheet</label><input type="text" id="cfg-sheet-id"/></div>
-    <div class="cfg-row"><label>PIN dos pais</label><input type="number" id="cfg-pin-pais" placeholder="1234"/></div>
-    <div class="cfg-row"><label>PIN do João</label><input type="number" id="cfg-pin-joao" placeholder="1202"/></div>
-    <div class="cfg-row"><label>PIN da Bia</label><input type="number" id="cfg-pin-bia" placeholder="1623"/></div>
+    <div class="cfg-row"><label>PIN dos pais</label><input type="number" id="cfg-pin-pais"/></div>
+    <div class="cfg-row"><label>PIN do João</label><input type="number" id="cfg-pin-joao"/></div>
+    <div class="cfg-row"><label>PIN da Bia</label><input type="number" id="cfg-pin-bia"/></div>
     <div class="cfg-row"><label>Email para resumo semanal</label><input type="email" id="cfg-email"/></div>
-    <div class="cfg-row"><label>URL desta app</label><input type="url" id="cfg-app-url"/></div>
+    <div class="cfg-row"><label>URL desta app (para links no email)</label><input type="url" id="cfg-app-url"/></div>
     <div class="cfg-row"><label>Dívida inicial do João (€)</label><input type="number" id="cfg-joao-total"/></div>
     <div class="cfg-row"><label>Dívida inicial da Bia (€)</label><input type="number" id="cfg-bia-total"/></div>
+    <div class="cfg-row"><label>Já pago pelo João (€) — atualiza a dívida</label><input type="number" id="cfg-joao-paid"/></div>
+    <div class="cfg-row"><label>Já pago pela Bia (€) — atualiza a dívida</label><input type="number" id="cfg-bia-paid"/></div>
     <button class="btn-primary" onclick="saveConfig()">💾 Guardar no Sheets</button>
     <button class="btn-secondary" onclick="testConn()">🔌 Testar ligação</button>
     <div id="cfg-status" style="text-align:center;padding:10px;font-size:13px;color:#888780;min-height:28px"></div>
@@ -373,7 +310,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <pre id="script-pre" style="margin-top:10px;font-size:9px;color:#444441;overflow-x:auto;white-space:pre-wrap;line-height:1.5;max-height:180px;overflow-y:auto;background:#fff;border-radius:8px;padding:10px"></pre>
     </div>
   </div>
-  <button class="btn-danger" onclick="resetSetup()">🔄 Reconfigurar ligação</button>
   <button class="btn-danger" onclick="logout()">← Sair</button>
   <div style="height:20px"></div>
 </div>
@@ -388,6 +324,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="toast" id="toast"></div>
 
 <script>
+// ============================================================
+// CREDENCIAIS — pré-configuradas, não precisam de ser alteradas
+// ============================================================
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyCGxQZn0od8iMFImUVfIfe6RPsh6IHdLHXkGWuSoYSy0BMpU1REqgxRRn6opsdT_foaQ/exec';
+const SHEET_ID   = '1CyA8mzbBqW9ksCjB2pwOD4JupQI1zg3IdCl0HPr_aqM';
+
 const SCRIPT = `// ============================================
 // TAREFAS DA CASA — Google Apps Script v4
 // Deploy → Nova implementação → App Web
@@ -409,34 +351,29 @@ function handle(e) {
     else if (p.action==='approveTask') res=approveTask(ss,p);
     else if (p.action==='approveAll') res=approveAll(ss,p.week);
     else if (p.action==='savePenalty') res=savePenalty(ss,p);
-    else if (p.action==='getDebt') res=getDebt(ss);
-    else res={error:'unknown action: '+p.action};
+    else res={error:'unknown: '+p.action};
   } catch(err){ res={error:err.message}; }
   return ContentService.createTextOutput(JSON.stringify(res))
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-// ---- CONFIG ----
 function getConfigSheet(ss) {
   var sh = ss.getSheetByName('CONFIG');
   if (!sh) {
     sh = ss.insertSheet('CONFIG');
     sh.appendRow(['chave','valor']);
-    var defaults = [
-      ['pinPais','1234'],['pinJoao','1202'],['pinBia','1623'],
-      ['email',''],['appUrl',''],
-      ['joaoTotal','775'],['biaTotal','780'],
-      ['joaoPaid','0'],['biaPaid','0'],
-    ];
-    defaults.forEach(function(r){ sh.appendRow(r); });
+    [['pinPais','1234'],['pinJoao','1202'],['pinBia','1623'],
+     ['email','adelino.quintiliano@gmail.com'],['appUrl',''],
+     ['joaoTotal','775'],['biaTotal','780'],
+     ['joaoPaid','0'],['biaPaid','0']
+    ].forEach(function(r){ sh.appendRow(r); });
   }
   return sh;
 }
 
 function getConfig(ss) {
-  var sh = getConfigSheet(ss), data = sh.getDataRange().getValues();
-  var cfg = {};
-  for (var i=1;i<data.length;i++) cfg[data[i][0]] = data[i][1];
+  var sh = getConfigSheet(ss), data = sh.getDataRange().getValues(), cfg = {};
+  for (var i=1;i<data.length;i++) cfg[String(data[i][0])] = String(data[i][1]);
   return {ok:true, config:cfg};
 }
 
@@ -444,182 +381,136 @@ function saveConfig(ss, p) {
   var sh = getConfigSheet(ss), data = sh.getDataRange().getValues();
   var keys = ['pinPais','pinJoao','pinBia','email','appUrl','joaoTotal','biaTotal','joaoPaid','biaPaid'];
   keys.forEach(function(k){
-    if (p[k] === undefined) return;
+    if (p[k] === undefined || p[k] === null) return;
     for (var i=1;i<data.length;i++) {
-      if (data[i][0]===k) { sh.getRange(i+1,2).setValue(p[k]); return; }
+      if (String(data[i][0])===k) { sh.getRange(i+1,2).setValue(String(p[k])); return; }
     }
-    sh.appendRow([k, p[k]]);
+    sh.appendRow([k, String(p[k])]);
   });
   return {ok:true};
 }
 
-// ---- WEEK DATA ----
 function getOrCreateWeek(ss, week) {
   var sh = ss.getSheetByName(week);
   if (!sh) {
     sh = ss.insertSheet(week);
-    // columns: TaskKey | Who | Day | Status | Mins | Desc | Timestamp
     sh.appendRow(['TaskKey','Who','Day','Status','Mins','Desc','Timestamp']);
   }
   return sh;
 }
 
 function getWeek(ss, week) {
-  var sh = getOrCreateWeek(ss, week);
-  var data = sh.getDataRange().getValues();
-  var rows = [];
+  var sh = getOrCreateWeek(ss, week), data = sh.getDataRange().getValues(), rows = [];
   for (var i=1;i<data.length;i++) {
     rows.push({
-      taskKey: data[i][0]+'',
-      who: data[i][1]+'',
-      day: parseInt(data[i][2]),
-      status: data[i][3]+'',
-      mins: parseInt(data[i][4])||0,
-      desc: data[i][5]+'',
-      ts: data[i][6]+'',
-      sheetRow: i+1
+      taskKey:String(data[i][0]), who:String(data[i][1]),
+      day:parseInt(data[i][2]), status:String(data[i][3]),
+      mins:parseInt(data[i][4])||0, desc:String(data[i][5]||''),
+      sheetRow:i+1
     });
   }
   return {ok:true, week:week, rows:rows};
 }
 
-function findRow(sh, data, taskKey, who, day) {
+function findRow(data, taskKey, who, day) {
   for (var i=1;i<data.length;i++) {
-    if (data[i][0]==taskKey && data[i][1]==who && parseInt(data[i][2])==day) return i+1;
+    if (String(data[i][0])===taskKey && String(data[i][1])===who && parseInt(data[i][2])===parseInt(day)) return i+1;
   }
   return -1;
 }
 
 function saveTask(ss, p) {
-  var sh = getOrCreateWeek(ss, p.week);
-  var data = sh.getDataRange().getValues();
-  var row = findRow(sh, data, p.taskKey, p.who, p.day);
-  var vals = [p.taskKey, p.who, parseInt(p.day), 'pendente', parseInt(p.mins)||0, p.desc||'', new Date().toISOString()];
+  var sh = getOrCreateWeek(ss, p.week), data = sh.getDataRange().getValues();
+  var row = findRow(data, p.taskKey, p.who, p.day);
+  var status = (p.status && p.status==='desmarcado') ? 'desmarcado' : 'pendente';
+  var vals = [p.taskKey, p.who, parseInt(p.day), status, parseInt(p.mins)||0, p.desc||'', new Date().toISOString()];
   if (row>0) sh.getRange(row,1,1,7).setValues([vals]);
   else sh.appendRow(vals);
   return {ok:true};
 }
 
 function approveTask(ss, p) {
-  var sh = getOrCreateWeek(ss, p.week);
-  var data = sh.getDataRange().getValues();
-  var row = findRow(sh, data, p.taskKey, p.who, p.day);
-  if (row<0) return {error:'row not found'};
-  if (p.approved==='true') sh.getRange(row,4).setValue('aprovado');
-  else sh.getRange(row,4).setValue('rejeitado');
+  var sh = getOrCreateWeek(ss, p.week), data = sh.getDataRange().getValues();
+  var row = findRow(data, p.taskKey, p.who, p.day);
+  if (row<0) return {error:'not found'};
+  sh.getRange(row,4).setValue(p.approved==='true' ? 'aprovado' : 'rejeitado');
   return {ok:true};
 }
 
 function approveAll(ss, week) {
-  var sh = getOrCreateWeek(ss, week);
-  var data = sh.getDataRange().getValues();
-  for (var i=1;i<data.length;i++) {
-    if (data[i][3]==='pendente') sh.getRange(i+1,4).setValue('aprovado');
-  }
+  var sh = getOrCreateWeek(ss, week), data = sh.getDataRange().getValues();
+  for (var i=1;i<data.length;i++)
+    if (String(data[i][3])==='pendente') sh.getRange(i+1,4).setValue('aprovado');
   return {ok:true};
 }
 
 function savePenalty(ss, p) {
   var sh = getOrCreateWeek(ss, p.week);
-  // penalties use taskKey like 'pen_0', 'pen_1', 'pen_2'
-  var data = sh.getDataRange().getValues();
-  var row = findRow(sh, data, p.taskKey, p.who, p.day);
-  var vals = [p.taskKey, p.who, parseInt(p.day), 'aprovado', parseInt(p.mins)||0, p.desc||'', new Date().toISOString()];
-  if (row>0) sh.getRange(row,1,1,7).setValues([vals]);
-  else sh.appendRow(vals);
+  sh.appendRow([p.taskKey, p.who, parseInt(p.day), 'aprovado', parseInt(p.mins)||0, p.desc||'', new Date().toISOString()]);
   return {ok:true};
 }
-
-function getDebt(ss) {
-  var capa = ss.getSheetByName('CAPA');
-  if (!capa) return {joao:0, bia:0};
-  var data = capa.getDataRange().getValues();
-  return {joao: data[8]?data[8][4]||0:0, bia: data[8]?data[8][9]||0:0};
-}
-
-// ---- EMAIL ----
-// Triggers → Adicionar → sendWeeklySummary → Semanal → Domingo → 20h
 
 function sendWeeklySummary() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var cfg = getConfig(ss).config;
-  var email = cfg.email || '';
-  var appUrl = cfg.appUrl || '';
+  var email = cfg.email||'', appUrl = cfg.appUrl||'';
   if (!email) return;
-
-  var week = getCurrentWeek();
-  var weekData = getWeek(ss, week);
-  var joaoM=0, biaM=0, pending=[];
+  var week = getCurrentWeek(), weekData = getWeek(ss, week);
+  var jM=0, bM=0, pending=[];
   var dias=['Seg','Ter','Qua','Qui','Sex','Sab','Dom'];
-
   weekData.rows.forEach(function(r){
-    var m = Math.max(0, r.mins);
-    if (r.status==='aprovado') {
-      if (r.who==='joao') joaoM+=m;
-      else biaM+=m;
+    if (r.status==='aprovado' && r.mins>0) {
+      if (r.who==='joao') jM+=r.mins; else bM+=r.mins;
     }
     if (r.status==='pendente') pending.push(r);
   });
-
-  var approveAllUrl = appUrl+'?action=approveAll&week='+week;
-  var pendRows = pending.map(function(r){
-    var aUrl = appUrl+'?action=approveTask&week='+week+'&taskKey='+encodeURIComponent(r.taskKey)+'&who='+r.who+'&day='+r.day+'&approved=true';
-    var rUrl = appUrl+'?action=approveTask&week='+week+'&taskKey='+encodeURIComponent(r.taskKey)+'&who='+r.who+'&day='+r.day+'&approved=false';
-    var wn = r.who==='joao'?'João':'Bia';
-    return '<tr><td style="padding:8px 12px;border-bottom:1px solid #eee">'+wn+'</td>'+
-      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+(r.desc||r.taskKey)+'</td>'+
-      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+dias[r.day]+'</td>'+
-      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+r.mins+' min</td>'+
-      '<td style="padding:8px 12px;border-bottom:1px solid #eee">'+
-      '<a href="'+aUrl+'" style="background:#1D9E75;color:#fff;padding:5px 10px;border-radius:6px;text-decoration:none;font-size:12px;margin-right:6px">Aprovar</a>'+
-      '<a href="'+rUrl+'" style="background:#E24B4A;color:#fff;padding:5px 10px;border-radius:6px;text-decoration:none;font-size:12px">Rejeitar</a>'+
+  var aAllUrl = appUrl+'?action=approveAll&week='+week;
+  var pRows = pending.map(function(r){
+    var aUrl=appUrl+'?action=approveTask&week='+week+'&taskKey='+encodeURIComponent(r.taskKey)+'&who='+r.who+'&day='+r.day+'&approved=true';
+    var rUrl=appUrl+'?action=approveTask&week='+week+'&taskKey='+encodeURIComponent(r.taskKey)+'&who='+r.who+'&day='+r.day+'&approved=false';
+    var wn=r.who==='joao'?'João':'Bia';
+    return '<tr><td style="padding:8px;border-bottom:1px solid #eee">'+wn+'</td>'+
+      '<td style="padding:8px;border-bottom:1px solid #eee">'+(r.desc||r.taskKey)+'</td>'+
+      '<td style="padding:8px;border-bottom:1px solid #eee">'+dias[r.day]+'</td>'+
+      '<td style="padding:8px;border-bottom:1px solid #eee">'+r.mins+' min</td>'+
+      '<td style="padding:8px;border-bottom:1px solid #eee">'+
+      '<a href="'+aUrl+'" style="background:#1D9E75;color:#fff;padding:4px 8px;border-radius:6px;text-decoration:none;font-size:12px;margin-right:4px">Aprovar</a>'+
+      '<a href="'+rUrl+'" style="background:#E24B4A;color:#fff;padding:4px 8px;border-radius:6px;text-decoration:none;font-size:12px">Rejeitar</a>'+
       '</td></tr>';
   }).join('');
-
-  var html = '<div style="font-family:sans-serif;max-width:600px;margin:0 auto">'+
-    '<div style="background:#7F77DD;padding:24px;border-radius:16px 16px 0 0;text-align:center">'+
-    '<h1 style="color:#fff;margin:0;font-size:24px">Tarefas da Casa</h1>'+
-    '<p style="color:rgba(255,255,255,.8);margin:6px 0 0">Semana '+week+'</p></div>'+
-    '<div style="background:#fff;padding:24px;border:1px solid #eee;border-top:none;border-radius:0 0 16px 16px">'+
-    '<div style="display:flex;gap:12px;margin-bottom:20px">'+
-    '<div style="flex:1;background:#EEEDFE;border-radius:12px;padding:16px;text-align:center">'+
+  var html='<div style="font-family:sans-serif;max-width:600px;margin:0 auto">'+
+    '<div style="background:#7F77DD;padding:20px;border-radius:16px 16px 0 0;text-align:center">'+
+    '<h1 style="color:#fff;margin:0;font-size:22px">Tarefas da Casa</h1>'+
+    '<p style="color:rgba(255,255,255,.8);margin:4px 0 0">Semana '+week+'</p></div>'+
+    '<div style="background:#fff;padding:20px;border:1px solid #eee;border-top:none;border-radius:0 0 16px 16px">'+
+    '<div style="display:flex;gap:10px;margin-bottom:16px">'+
+    '<div style="flex:1;background:#EEEDFE;border-radius:10px;padding:14px;text-align:center">'+
     '<p style="margin:0;font-size:11px;color:#534AB7;font-weight:700">JOÃO</p>'+
-    '<p style="margin:4px 0;font-size:28px;font-weight:800;color:#3C3489">'+joaoM+' min</p>'+
-    '<p style="margin:0;font-size:13px;color:#1D9E75;font-weight:600">€'+(joaoM/10).toFixed(2)+' ganhos</p>'+
-    (joaoM<210?'<p style="margin:4px 0 0;font-size:12px;color:#A32D2D">Abaixo do mínimo</p>':'<p style="margin:4px 0 0;font-size:12px;color:#1D9E75">Mínimo atingido ✓</p>')+
-    '</div>'+
-    '<div style="flex:1;background:#E1F5EE;border-radius:12px;padding:16px;text-align:center">'+
+    '<p style="margin:4px 0;font-size:26px;font-weight:800;color:#3C3489">'+jM+' min</p>'+
+    '<p style="margin:0;font-size:12px;color:#1D9E75;font-weight:600">€'+(jM/10).toFixed(2)+' ganhos</p>'+
+    (jM<210?'<p style="margin:2px 0 0;font-size:11px;color:#A32D2D">Abaixo do mínimo</p>':'<p style="margin:2px 0 0;font-size:11px;color:#1D9E75">Mínimo atingido ✓</p>')+
+    '</div><div style="flex:1;background:#E1F5EE;border-radius:10px;padding:14px;text-align:center">'+
     '<p style="margin:0;font-size:11px;color:#0F6E56;font-weight:700">BIA</p>'+
-    '<p style="margin:4px 0;font-size:28px;font-weight:800;color:#085041">'+biaM+' min</p>'+
-    '<p style="margin:0;font-size:13px;color:#1D9E75;font-weight:600">€'+(biaM/10).toFixed(2)+' ganhos</p>'+
-    (biaM<210?'<p style="margin:4px 0 0;font-size:12px;color:#A32D2D">Abaixo do mínimo</p>':'<p style="margin:4px 0 0;font-size:12px;color:#1D9E75">Mínimo atingido ✓</p>')+
+    '<p style="margin:4px 0;font-size:26px;font-weight:800;color:#085041">'+bM+' min</p>'+
+    '<p style="margin:0;font-size:12px;color:#1D9E75;font-weight:600">€'+(bM/10).toFixed(2)+' ganhos</p>'+
+    (bM<210?'<p style="margin:2px 0 0;font-size:11px;color:#A32D2D">Abaixo do mínimo</p>':'<p style="margin:2px 0 0;font-size:11px;color:#1D9E75">Mínimo atingido ✓</p>')+
     '</div></div>';
-
-  if (pending.length) {
-    html += '<h2 style="font-size:16px;margin:0 0 12px">Pendentes ('+pending.length+')</h2>'+
-      '<div style="text-align:center;margin-bottom:16px">'+
-      '<a href="'+approveAllUrl+'" style="background:#7F77DD;color:#fff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;display:inline-block">Aprovar tudo de uma vez</a></div>'+
-      '<table style="width:100%;border-collapse:collapse;font-size:13px">'+
-      '<tr><th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Quem</th>'+
-      '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Tarefa</th>'+
-      '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Dia</th>'+
-      '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Min</th>'+
-      '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #eee;color:#888">Ação</th></tr>'+
-      pendRows+'</table>';
+  if(pending.length){
+    html+='<h2 style="font-size:15px;margin:0 0 10px">Pendentes ('+pending.length+')</h2>'+
+    '<div style="text-align:center;margin-bottom:12px"><a href="'+aAllUrl+'" style="background:#7F77DD;color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;display:inline-block">Aprovar tudo de uma vez</a></div>'+
+    '<table style="width:100%;border-collapse:collapse;font-size:13px">'+
+    '<tr><th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Quem</th>'+
+    '<th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Tarefa</th>'+
+    '<th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Dia</th>'+
+    '<th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Min</th>'+
+    '<th style="padding:8px;text-align:left;border-bottom:2px solid #eee;color:#888">Ação</th></tr>'+
+    pRows+'</table>';
   } else {
-    html += '<div style="text-align:center;padding:20px;background:#E1F5EE;border-radius:12px">'+
-      '<p style="color:#0F6E56;font-weight:600;margin:0">Tudo aprovado esta semana! 🎉</p></div>';
+    html+='<div style="text-align:center;padding:16px;background:#E1F5EE;border-radius:10px">'+
+    '<p style="color:#0F6E56;font-weight:600;margin:0">Tudo aprovado esta semana! 🎉</p></div>';
   }
-
-  html += '<div style="text-align:center;margin-top:20px">'+
-    '<a href="'+appUrl+'" style="background:#EEEDFE;color:#534AB7;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px">Abrir app</a>'+
-    '</div></div></div>';
-
-  MailApp.sendEmail({
-    to: email,
-    subject: 'Tarefas da Casa — Semana '+week+' ('+pending.length+' pendentes)',
-    htmlBody: html
-  });
+  html+='<div style="text-align:center;margin-top:16px"><a href="'+appUrl+'" style="background:#EEEDFE;color:#534AB7;padding:8px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:13px">Abrir app</a></div></div></div>';
+  MailApp.sendEmail({to:email, subject:'Tarefas da Casa — Semana '+week+' ('+pending.length+' pendentes)', htmlBody:html});
 }
 
 function getCurrentWeek(){
@@ -628,115 +519,80 @@ function getCurrentWeek(){
   return 'W'+String(w).padStart(2,'0')+now.getFullYear();
 }`;
 
-// ---- TASK DEFINITIONS ----
 const TASKS = [
-  {key:'roupa_1', cat:'roupa', icon:'👕', name:'Colocar roupa a lavar', mins:10},
-  {key:'roupa_2', cat:'roupa', icon:'👕', name:'Estender a roupa (1 máquina)', mins:20},
-  {key:'roupa_3', cat:'roupa', icon:'👕', name:'Recolher e dobrar roupa estendida', mins:15},
-  {key:'roupa_4', cat:'roupa', icon:'🔥', name:'Passar a ferro (1 máquina)', mins:60},
-  {key:'roupa_5', cat:'roupa', icon:'🧦', name:'Dobrar meias e cuecas', mins:15},
-  {key:'ref_1', cat:'refeicoes', icon:'🍽️', name:'Pôr a mesa (almoço)', mins:5},
-  {key:'ref_2', cat:'refeicoes', icon:'🍽️', name:'Pôr a mesa (jantar)', mins:5},
-  {key:'ref_3', cat:'refeicoes', icon:'🧹', name:'Levantar a mesa e arrumar', mins:15},
-  {key:'ref_4', cat:'refeicoes', icon:'🫙', name:'Tirar a loiça da máquina (almoço)', mins:5},
-  {key:'ref_5', cat:'refeicoes', icon:'🫙', name:'Tirar a loiça da máquina (jantar)', mins:5},
-  {key:'ref_6', cat:'refeicoes', icon:'🧼', name:'Lavar a loiça à mão', mins:15},
-  {key:'ref_7', cat:'refeicoes', icon:'✨', name:'Limpar bancadas e arrumar escorredor', mins:10},
-  {key:'ger_1', cat:'gerais', icon:'🗑️', name:'Levar o lixo e reciclagem', mins:5},
-  {key:'ger_2', cat:'gerais', icon:'🪟', name:'Fechar as portadas à noite', mins:5},
-  {key:'ger_3', cat:'gerais', icon:'🛒', name:'Fazer compras no Continente', mins:30},
-  {key:'ger_4', cat:'gerais', icon:'🧹', name:'Varrer a cozinha após jantar', mins:10},
-  {key:'ger_5', cat:'gerais', icon:'🌀', name:'Aspirar um piso completo', mins:30},
+  {key:'roupa_1',cat:'roupa',icon:'👕',name:'Colocar roupa a lavar',mins:10},
+  {key:'roupa_2',cat:'roupa',icon:'👕',name:'Estender a roupa (1 máquina)',mins:20},
+  {key:'roupa_3',cat:'roupa',icon:'👕',name:'Recolher e dobrar roupa estendida',mins:15},
+  {key:'roupa_4',cat:'roupa',icon:'🔥',name:'Passar a ferro (1 máquina)',mins:60},
+  {key:'roupa_5',cat:'roupa',icon:'🧦',name:'Dobrar meias e cuecas',mins:15},
+  {key:'ref_1',cat:'refeicoes',icon:'🍽️',name:'Pôr a mesa (almoço)',mins:5},
+  {key:'ref_2',cat:'refeicoes',icon:'🍽️',name:'Pôr a mesa (jantar)',mins:5},
+  {key:'ref_3',cat:'refeicoes',icon:'🧹',name:'Levantar a mesa e arrumar',mins:15},
+  {key:'ref_4',cat:'refeicoes',icon:'🫙',name:'Tirar a loiça da máquina (almoço)',mins:5},
+  {key:'ref_5',cat:'refeicoes',icon:'🫙',name:'Tirar a loiça da máquina (jantar)',mins:5},
+  {key:'ref_6',cat:'refeicoes',icon:'🧼',name:'Lavar a loiça à mão',mins:15},
+  {key:'ref_7',cat:'refeicoes',icon:'✨',name:'Limpar bancadas e arrumar escorredor',mins:10},
+  {key:'ger_1',cat:'gerais',icon:'🗑️',name:'Levar o lixo e reciclagem',mins:5},
+  {key:'ger_2',cat:'gerais',icon:'🪟',name:'Fechar as portadas à noite',mins:5},
+  {key:'ger_3',cat:'gerais',icon:'🛒',name:'Fazer compras no Continente',mins:30},
+  {key:'ger_4',cat:'gerais',icon:'🧹',name:'Varrer a cozinha após jantar',mins:10},
+  {key:'ger_5',cat:'gerais',icon:'🌀',name:'Aspirar um piso completo',mins:30},
 ];
-const PENALTIES = [
-  {key:'pen_0', name:'Não arrumou o quarto', mins:-10},
-  {key:'pen_1', name:'Não ajudou nas refeições', mins:-10},
-  {key:'pen_2', name:'Não arrumou após refeição individual', mins:-10},
+const PENALTIES=[
+  {key:'pen_0',name:'Não arrumou o quarto',mins:-10},
+  {key:'pen_1',name:'Não ajudou nas refeições',mins:-10},
+  {key:'pen_2',name:'Não arrumou após refeição individual',mins:-10},
 ];
-const DAYS = ['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+const DAYS=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
 
-// ---- STATE ----
-let S = {
-  user: null,
-  config: {},
-  weekData: {}, // cache: week -> rows[]
-  viewOff: 0, paisOff: 0,
-  day: todayIdx(),
-  pin: '', pinTarget: null,
-  conn: {url:'', sheetId:''},
-};
+let S={user:null,config:{},weekData:{},viewOff:0,paisOff:0,day:todayIdx(),pin:'',pinTarget:null};
 
 function todayIdx(){const d=new Date().getDay();return d===0?6:d-1;}
-
 function wk(off){
-  off=off||0;
-  const n=new Date();n.setDate(n.getDate()+off*7);
+  off=off||0;const n=new Date();n.setDate(n.getDate()+off*7);
   const j=new Date(n.getFullYear(),0,1);
   const w=Math.ceil(((n-j)/86400000+j.getDay()+1)/7);
   return 'W'+String(w).padStart(2,'0')+n.getFullYear();
 }
 
-function loadLocal(){
-  try{const c=localStorage.getItem('tdc_conn');if(c)S.conn=JSON.parse(c);}catch(e){}
-}
-function saveConn(){localStorage.setItem('tdc_conn',JSON.stringify(S.conn));}
-
-// ---- API ----
+// ---- API — always uses hardcoded credentials ----
 async function api(params){
-  const url=S.conn.url;
-  if(!url)throw new Error('Sem URL configurado');
-  const qs=new URLSearchParams({...params, sheetId:S.conn.sheetId});
-  const r=await fetch(url+'?'+qs.toString());
+  const qs=new URLSearchParams({...params,sheetId:SHEET_ID});
+  const r=await fetch(SHEETS_URL+'?'+qs.toString());
   const d=await r.json();
   if(d.error)throw new Error(d.error);
   return d;
 }
 
 function loading(show,msg){
-  document.getElementById('loading').classList.toggle('show',show);
+  document.getElementById('loading').classList.toggle('show',!!show);
   if(msg)document.getElementById('loading-msg').textContent=msg;
 }
 
-// ---- SETUP ----
-async function setupConnect(){
-  const url=document.getElementById('setup-url').value.trim();
-  const sheetId=document.getElementById('setup-sheet-id').value.trim();
-  if(!url||!sheetId){showToast('Preenche os dois campos');return;}
-  const st=document.getElementById('setup-status');
-  st.textContent='A testar ligação...';
-  S.conn={url,sheetId};
+// ---- INIT ----
+async function init(){
+  document.getElementById('welcome-sub').textContent='A ligar ao Sheets...';
+  document.getElementById('welcome-error').style.display='none';
+  document.getElementById('profile-grid').style.display='none';
   try{
-    const r=await api({action:'test'});
-    st.textContent='Ligado: '+r.name+' ✓';
-    saveConn();
-    // load config from sheets
-    loading(true,'A carregar configurações...');
-    const cfg=await api({action:'getConfig'});
-    S.config=cfg.config||{};
-    loading(false);
-    showScreen('welcome');
+    await api({action:'test'});
+    const r=await api({action:'getConfig'});
+    S.config=r.config||{};
+    document.getElementById('welcome-sub').textContent='Quem és tu hoje?';
+    document.getElementById('profile-grid').style.display='grid';
   }catch(e){
-    st.textContent='Erro: '+e.message;
-    S.conn={url:'',sheetId:''};
-    loading(false);
+    document.getElementById('welcome-sub').textContent='';
+    document.getElementById('welcome-error').style.display='block';
   }
 }
 
-function resetSetup(){
-  S.conn={url:'',sheetId:''};
-  localStorage.removeItem('tdc_conn');
-  logout();
-  showScreen('setup');
-}
-
-// ---- PIN ----
+// ---- PIN — fix: always compare as strings ----
 function getPin(who){
-  if(who==='pais')return S.config.pinPais||'1234';
-  if(who==='joao')return S.config.pinJoao||'1202';
-  if(who==='bia')return S.config.pinBia||'1623';
+  if(who==='pais')return String(S.config.pinPais||'1234').trim();
+  if(who==='joao')return String(S.config.pinJoao||'1202').trim();
+  if(who==='bia')return String(S.config.pinBia||'1623').trim();
   return '0000';
 }
-
 function showPin(target){
   S.pinTarget=target;S.pin='';updDots();
   document.getElementById('pin-error').textContent='';
@@ -749,6 +605,7 @@ function pinKey(k){if(S.pin.length>=4)return;S.pin+=k;updDots();if(S.pin.length=
 function pinDel(){S.pin=S.pin.slice(0,-1);updDots();}
 function updDots(){for(let i=0;i<4;i++)document.getElementById('pd'+i).classList.toggle('filled',i<S.pin.length);}
 function checkPin(){
+  // always compare as strings to avoid number/string mismatch
   if(S.pin===getPin(S.pinTarget)){hidePin();login(S.pinTarget);}
   else{document.getElementById('pin-error').textContent='PIN incorreto. Tenta novamente.';S.pin='';updDots();}
 }
@@ -769,8 +626,6 @@ function showScreen(n){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-'+n).classList.add('active');
 }
-
-// ---- NAV ----
 function navTo(tab){
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   const b=document.getElementById('nav-'+tab);if(b)b.classList.add('active');
@@ -779,55 +634,38 @@ function navTo(tab){
   if(S.user==='pais'){showScreen('pais');loadAndRenderPais();}
   else{showScreen('filho');loadAndRenderFilho();}
 }
-
 function changeWeek(d){const n=S.viewOff+d;if(n>0)return;S.viewOff=n;S.day=n===0?todayIdx():0;loadAndRenderFilho();}
 function changePaisWeek(d){const n=S.paisOff+d;if(n>0)return;S.paisOff=n;loadAndRenderPais();}
 function goCurrentWeek(){S.viewOff=0;S.day=todayIdx();loadAndRenderFilho();}
 
 // ---- WEEK DATA ----
 async function loadWeek(weekKey){
-  if(S.weekData[weekKey])return S.weekData[weekKey]; // cache
+  if(S.weekData[weekKey])return S.weekData[weekKey];
   const r=await api({action:'getWeek',week:weekKey});
   S.weekData[weekKey]=r.rows||[];
   return S.weekData[weekKey];
 }
-function invalidateWeek(weekKey){delete S.weekData[weekKey];}
-
-// Helper: get task entry from rows
-function getEntry(rows, taskKey, who, day){
-  return rows.find(r=>r.taskKey===taskKey&&r.who===who&&r.day===day)||null;
+function invalidate(weekKey){delete S.weekData[weekKey];}
+function getEntry(rows,taskKey,who,day){
+  return rows.find(r=>r.taskKey===taskKey&&r.who===who&&r.day===day&&r.status!=='desmarcado')||null;
 }
 
-// ---- FILHO LOAD & RENDER ----
+// ---- FILHO ----
 async function loadAndRenderFilho(){
   const weekKey=wk(S.viewOff);
   loading(true,'A carregar tarefas...');
-  try{
-    const rows=await loadWeek(weekKey);
-    loading(false);
-    renderFilho(rows,weekKey);
-  }catch(e){
-    loading(false);
-    showToast('Erro: '+e.message);
-  }
+  try{const rows=await loadWeek(weekKey);loading(false);renderFilho(rows,weekKey);}
+  catch(e){loading(false);showToast('Erro: '+e.message);}
 }
-
-function renderFilho(rows, weekKey){
-  const who=S.user, name=who==='joao'?'João':'Bia';
-  const past=S.viewOff<0;
+function renderFilho(rows,weekKey){
+  const who=S.user,name=who==='joao'?'João':'Bia',past=S.viewOff<0;
   document.getElementById('filho-greeting').textContent='Olá, '+name+'! 👋';
   document.getElementById('filho-week-lbl').textContent=weekKey;
   document.getElementById('filho-week-nav').textContent=past?weekKey+' ← anterior':weekKey+' (atual)';
   document.getElementById('filho-hist-banner').style.display=past?'block':'none';
-
-  // calc week mins for this user from rows
   let wMins=0;
-  rows.forEach(r=>{
-    if(r.who===who&&r.status==='aprovado'&&r.mins>0)wMins+=r.mins;
-  });
-
-  // calc total paid (all weeks) — approximate from config
-  const tot=who==='joao'?(parseFloat(S.config.joaoTotal)||775):(parseFloat(S.config.biaTotal)||780);
+  rows.forEach(r=>{if(r.who===who&&r.status==='aprovado'&&r.mins>0)wMins+=r.mins;});
+  const tot=parseFloat(who==='joao'?(S.config.joaoTotal||775):(S.config.biaTotal||780));
   const paid=parseFloat(who==='joao'?(S.config.joaoPaid||0):(S.config.biaPaid||0));
   const rem=Math.max(0,tot-paid);
   const pct=Math.min(100,(paid/tot)*100);
@@ -836,17 +674,13 @@ function renderFilho(rows, weekKey){
   document.getElementById('filho-debt-bar').style.width=pct+'%';
   document.getElementById('filho-paid-txt').textContent='Pago: €'+paid.toFixed(2);
   document.getElementById('filho-total-txt').textContent='Total: €'+tot;
-
   const pct2=Math.min(100,Math.round((wMins/210)*100));
   document.getElementById('filho-ring').style.strokeDashoffset=377-(pct2/100)*377;
   document.getElementById('filho-ring-pct').textContent=pct2+'%';
   document.getElementById('filho-ring-min').textContent=wMins+' / 210 min';
   document.getElementById('filho-euros').textContent='€'+(wMins/10).toFixed(2);
-
-  renderDays(weekKey,rows);
-  renderFilhoTasks(rows,weekKey,past,who);
+  renderDays(weekKey,rows);renderFilhoTasks(rows,weekKey,past,who);
 }
-
 function renderDays(weekKey,rows){
   const wrap=document.getElementById('filho-days');wrap.innerHTML='';
   DAYS.forEach((d,i)=>{
@@ -856,7 +690,6 @@ function renderDays(weekKey,rows){
     wrap.appendChild(c);
   });
 }
-
 function renderFilhoTasks(rows,weekKey,ro,who){
   const wrap=document.getElementById('filho-tasks');wrap.innerHTML='';
   [{key:'roupa',lbl:'👕 Roupa'},{key:'refeicoes',lbl:'🍽️ Refeições'},{key:'gerais',lbl:'🏠 Gerais'}].forEach(cat=>{
@@ -869,52 +702,47 @@ function renderFilhoTasks(rows,weekKey,ro,who){
       const sl=e?(e.status==='aprovado'?'Aprovado ✓':(e.status==='rejeitado'?'Rejeitado ✗':'Aguarda aprovação...')):(ro?'Não registado':'Por fazer');
       const cc=e?(e.status==='aprovado'?'checked':(e.status==='rejeitado'?'rej':'waiting')):'';
       const ci=e?(e.status==='aprovado'?'✓':(e.status==='rejeitado'?'✗':'⏳')):'';
-      const pc=e&&e.status==='aprovado'?'ok':'';
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${t.cat}">${t.icon}</div>
         <div class="task-info"><div class="task-name">${t.name}</div><div class="task-meta">${sl}</div></div>
-        <div class="task-pts ${pc}">${t.mins} min</div>
+        <div class="task-pts ${e&&e.status==='aprovado'?'ok':''}">${t.mins} min</div>
         ${!ro?`<div class="task-check ${cc}" onclick="toggleTask('${weekKey}','${t.key}','${who}',${S.day},${t.mins},'${t.name}')">${ci}</div>`:`<div class="task-check ${cc}">${ci}</div>`}
       </div>`;
       wrap.appendChild(el);
     });
   });
-
   // Extra
   const hdr=document.createElement('div');hdr.className='section-hdr';hdr.textContent='⭐ Extra';wrap.appendChild(hdr);
-  const extraEl=document.createElement('div');extraEl.className='task-item';
+  const xEl=document.createElement('div');xEl.className='task-item';
   const xe=getEntry(rows,'extra',who,S.day);
   if(xe){
     const sl=xe.status==='aprovado'?'Aprovado ✓':(xe.status==='rejeitado'?'Rejeitado ✗':'Aguarda aprovação...');
     const cc=xe.status==='aprovado'?'checked':(xe.status==='rejeitado'?'rej':'waiting');
     const ci=xe.status==='aprovado'?'✓':(xe.status==='rejeitado'?'✗':'⏳');
-    extraEl.className='task-item'+(xe.status==='aprovado'?' done':(xe.status==='rejeitado'?' rejected':' pending-ap'));
-    extraEl.innerHTML=`<div class="task-hdr">
+    xEl.className='task-item'+(xe.status==='aprovado'?' done':(xe.status==='rejeitado'?' rejected':' pending-ap'));
+    xEl.innerHTML=`<div class="task-hdr">
       <div class="task-icon ti-extra">⭐</div>
       <div class="task-info"><div class="task-name">${xe.desc||'Tarefa extra'}</div><div class="task-meta">${sl}</div></div>
       <div class="task-pts ok">${xe.mins} min</div>
       ${!ro?`<div class="task-check ${cc}" onclick="clearExtra('${weekKey}','${who}',${S.day})">${ci}</div>`:`<div class="task-check ${cc}">${ci}</div>`}
     </div>`;
   } else if(!ro){
-    extraEl.innerHTML=`<div class="task-hdr">
+    xEl.innerHTML=`<div class="task-hdr">
       <div class="task-icon ti-extra">⭐</div>
       <div class="task-info"><div class="task-name">Tarefa extra</div><div class="task-meta">Descreve e escolhe o tempo</div></div>
     </div>
-    <div class="extra-slider-wrap">
-      <div class="extra-slider-inner">
-        <div class="extra-slider-row">
-          <label>Tempo</label>
-          <input type="range" min="5" max="60" step="5" value="15" id="extra-slider" oninput="document.getElementById('extra-val').textContent=this.value+' min'">
-          <span id="extra-val">15 min</span>
-        </div>
-        <input type="text" class="extra-desc" id="extra-desc" placeholder="O que fizeste? (ex: limpei o meu quarto)">
-        <button class="btn-mark-extra" onclick="markExtra('${weekKey}','${who}',${S.day})">✓ Marcar como feito</button>
+    <div class="extra-slider-wrap"><div class="extra-slider-inner">
+      <div class="extra-slider-row">
+        <label>Tempo</label>
+        <input type="range" min="5" max="60" step="5" value="15" id="extra-slider" oninput="document.getElementById('extra-val').textContent=this.value+' min'">
+        <span id="extra-val">15 min</span>
       </div>
-    </div>`;
+      <input type="text" class="extra-desc" id="extra-desc" placeholder="O que fizeste? (ex: limpei o meu quarto)">
+      <button class="btn-mark-extra" onclick="markExtra('${weekKey}','${who}',${S.day})">✓ Marcar como feito</button>
+    </div></div>`;
   }
-  wrap.appendChild(extraEl);
+  wrap.appendChild(xEl);
 }
-
 async function toggleTask(weekKey,taskKey,who,day,mins,name){
   const rows=S.weekData[weekKey]||[];
   const e=getEntry(rows,taskKey,who,day);
@@ -922,20 +750,16 @@ async function toggleTask(weekKey,taskKey,who,day,mins,name){
   loading(true,'A guardar...');
   try{
     if(e&&e.status==='pendente'){
-      // unmark — send with empty status to remove (use a delete action approach: save with status 'desmarcado' and filter out)
       await api({action:'saveTask',week:weekKey,taskKey,who,day,mins:0,desc:'',status:'desmarcado'});
       showToast('Tarefa desmarcada');
     } else {
       await api({action:'saveTask',week:weekKey,taskKey,who,day,mins,desc:name});
       showToast('Marcado! Aguarda aprovação 👍');
     }
-    invalidateWeek(weekKey);
-    const rows2=await loadWeek(weekKey);
-    loading(false);
-    renderFilho(rows2,weekKey);
+    invalidate(weekKey);
+    const rows2=await loadWeek(weekKey);loading(false);renderFilho(rows2,weekKey);
   }catch(err){loading(false);showToast('Erro: '+err.message);}
 }
-
 async function markExtra(weekKey,who,day){
   const mins=parseInt(document.getElementById('extra-slider').value)||15;
   const desc=document.getElementById('extra-desc').value.trim()||'Tarefa extra';
@@ -943,13 +767,9 @@ async function markExtra(weekKey,who,day){
   try{
     await api({action:'saveTask',week:weekKey,taskKey:'extra',who,day,mins,desc});
     showToast('Extra marcado! Aguarda aprovação 👍');
-    invalidateWeek(weekKey);
-    const rows=await loadWeek(weekKey);
-    loading(false);
-    renderFilho(rows,weekKey);
+    invalidate(weekKey);const rows=await loadWeek(weekKey);loading(false);renderFilho(rows,weekKey);
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
-
 async function clearExtra(weekKey,who,day){
   const rows=S.weekData[weekKey]||[];
   const e=getEntry(rows,'extra',who,day);
@@ -957,60 +777,39 @@ async function clearExtra(weekKey,who,day){
   loading(true,'A remover...');
   try{
     await api({action:'saveTask',week:weekKey,taskKey:'extra',who,day,mins:0,desc:'',status:'desmarcado'});
-    invalidateWeek(weekKey);
-    const rows2=await loadWeek(weekKey);
-    loading(false);
-    renderFilho(rows2,weekKey);
+    invalidate(weekKey);const rows2=await loadWeek(weekKey);loading(false);renderFilho(rows2,weekKey);
   }catch(err){loading(false);showToast('Erro: '+err.message);}
 }
 
-// ---- PAIS LOAD & RENDER ----
+// ---- PAIS ----
 async function loadAndRenderPais(){
   const weekKey=wk(S.paisOff);
   loading(true,'A carregar...');
-  try{
-    const rows=await loadWeek(weekKey);
-    loading(false);
-    renderPais(rows,weekKey);
-  }catch(e){
-    loading(false);
-    showToast('Erro: '+e.message);
-  }
+  try{const rows=await loadWeek(weekKey);loading(false);renderPais(rows,weekKey);}
+  catch(e){loading(false);showToast('Erro: '+e.message);}
 }
-
 function renderPais(rows,weekKey){
   const past=S.paisOff<0;
   document.getElementById('pais-week-lbl').textContent=weekKey;
   document.getElementById('pais-week-nav').textContent=past?weekKey+' ← anterior':weekKey+' (atual)';
-
   let jM=0,bM=0,pend=[],appr=[];
   rows.forEach(r=>{
     if(r.status==='desmarcado')return;
-    const m=r.mins||0;
     if(r.status==='aprovado'){
-      if(r.who==='joao')jM+=Math.max(0,m);
-      else bM+=Math.max(0,m);
+      if(r.who==='joao')jM+=Math.max(0,r.mins);else bM+=Math.max(0,r.mins);
       appr.push(r);
-    } else if(r.status==='pendente'){
-      pend.push(r);
-    }
+    } else if(r.status==='pendente') pend.push(r);
   });
-
   document.getElementById('pais-joao-week').textContent=jM+' min';
   document.getElementById('pais-bia-week').textContent=bM+' min';
   document.getElementById('pais-joao-bar').style.width=Math.min(100,(jM/210)*100)+'%';
   document.getElementById('pais-bia-bar').style.width=Math.min(100,(bM/210)*100)+'%';
-
-  const jTot=parseFloat(S.config.joaoTotal)||775;
-  const bTot=parseFloat(S.config.biaTotal)||780;
-  const jPaid=parseFloat(S.config.joaoPaid)||0;
-  const bPaid=parseFloat(S.config.biaPaid)||0;
+  const jTot=parseFloat(S.config.joaoTotal||775),bTot=parseFloat(S.config.biaTotal||780);
+  const jPaid=parseFloat(S.config.joaoPaid||0),bPaid=parseFloat(S.config.biaPaid||0);
   document.getElementById('pais-joao-debt').textContent='€ '+Math.max(0,jTot-jPaid).toFixed(2);
   document.getElementById('pais-bia-debt').textContent='€ '+Math.max(0,bTot-bPaid).toFixed(2);
-
   const badge=document.getElementById('pais-pending-badge');
   badge.textContent=pend.length;badge.style.display=pend.length?'inline-block':'none';
-
   const pList=document.getElementById('pais-pending-list');pList.innerHTML='';
   if(!pend.length){
     pList.innerHTML='<div class="empty"><div class="ei">🎉</div><p>Nada para aprovar!</p></div>';
@@ -1024,11 +823,10 @@ function renderPais(rows,weekKey){
       const el=document.createElement('div');el.className='task-item pending-ap';
       const wn=r.who==='joao'?'João':'Bia';
       const task=TASKS.find(t=>t.key===r.taskKey)||{icon:'⭐',cat:'gerais'};
-      const mLabel=r.mins>0?r.mins+' min':(r.mins<0?r.mins+' min':'—');
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${task.cat||'gerais'}">${task.icon||'⭐'}</div>
         <div class="task-info"><div class="task-name">${r.desc||task.name||r.taskKey}</div><div class="task-meta">${wn} — ${DAYS[r.day]}</div></div>
-        <div class="task-pts">${mLabel}</div>
+        <div class="task-pts">${r.mins} min</div>
       </div>${!past?`<div class="approve-actions">
         <button class="btn-app yes" onclick="doApprove('${weekKey}','${r.taskKey}','${r.who}',${r.day},true)">✓ Aprovar</button>
         <button class="btn-app no" onclick="doApprove('${weekKey}','${r.taskKey}','${r.who}',${r.day},false)">✗ Rejeitar</button>
@@ -1036,7 +834,6 @@ function renderPais(rows,weekKey){
       pList.appendChild(el);
     });
   }
-
   const aList=document.getElementById('pais-approved-list');aList.innerHTML='';
   if(!appr.length){
     aList.innerHTML='<div style="padding:16px;color:#888780;font-size:14px;text-align:center">Nenhuma aprovada ainda</div>';
@@ -1045,43 +842,33 @@ function renderPais(rows,weekKey){
       const el=document.createElement('div');el.className='task-item done';
       const wn=r.who==='joao'?'João':'Bia';
       const task=TASKS.find(t=>t.key===r.taskKey)||{icon:'⭐',cat:'gerais'};
-      const mLabel=r.mins>0?r.mins+' min':(r.mins<0?r.mins+' min':'—');
       const pc=r.mins<0?'neg':'ok';
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${task.cat||'gerais'}">${task.icon||'⭐'}</div>
         <div class="task-info"><div class="task-name">${r.desc||task.name||r.taskKey}</div><div class="task-meta">${wn} — ${DAYS[r.day]}</div></div>
-        <div class="task-pts ${pc}">${mLabel}</div>
+        <div class="task-pts ${pc}">${r.mins} min</div>
         <div class="task-check checked">✓</div>
       </div>`;
       aList.appendChild(el);
     });
   }
 }
-
 async function doApprove(weekKey,taskKey,who,day,ok){
   loading(true,'A guardar...');
   try{
     await api({action:'approveTask',week:weekKey,taskKey,who,day,approved:ok?'true':'false'});
     showToast(ok?'Aprovado ✓':'Rejeitado ✗');
-    invalidateWeek(weekKey);
-    const rows=await loadWeek(weekKey);
-    loading(false);
-    renderPais(rows,weekKey);
+    invalidate(weekKey);const rows=await loadWeek(weekKey);loading(false);renderPais(rows,weekKey);
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
-
 async function doApproveAll(weekKey){
   loading(true,'A aprovar tudo...');
   try{
     await api({action:'approveAll',week:weekKey});
     showToast('Tudo aprovado ✓');
-    invalidateWeek(weekKey);
-    const rows=await loadWeek(weekKey);
-    loading(false);
-    renderPais(rows,weekKey);
+    invalidate(weekKey);const rows=await loadWeek(weekKey);loading(false);renderPais(rows,weekKey);
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
-
 async function applyPenalty(){
   const who=document.getElementById('pen-who').value;
   const pi=parseInt(document.getElementById('pen-type').value);
@@ -1092,18 +879,13 @@ async function applyPenalty(){
     await api({action:'savePenalty',week:weekKey,taskKey:pen.key+'_'+Date.now(),who,day:todayIdx(),mins:pen.mins,desc:pen.name});
     const wn=who==='joao'?'João':'Bia';
     showToast('Penalização aplicada ao '+wn);
-    invalidateWeek(weekKey);
-    const rows=await loadWeek(weekKey);
-    loading(false);
-    renderPais(rows,weekKey);
+    invalidate(weekKey);const rows=await loadWeek(weekKey);loading(false);renderPais(rows,weekKey);
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
 
 // ---- CONFIG ----
 function renderConfig(){
   const c=S.config;
-  document.getElementById('cfg-url').value=S.conn.url||'';
-  document.getElementById('cfg-sheet-id').value=S.conn.sheetId||'';
   document.getElementById('cfg-pin-pais').value=c.pinPais||'1234';
   document.getElementById('cfg-pin-joao').value=c.pinJoao||'1202';
   document.getElementById('cfg-pin-bia').value=c.pinBia||'1623';
@@ -1111,73 +893,49 @@ function renderConfig(){
   document.getElementById('cfg-app-url').value=c.appUrl||'';
   document.getElementById('cfg-joao-total').value=c.joaoTotal||775;
   document.getElementById('cfg-bia-total').value=c.biaTotal||780;
+  document.getElementById('cfg-joao-paid').value=c.joaoPaid||0;
+  document.getElementById('cfg-bia-paid').value=c.biaPaid||0;
   document.getElementById('script-pre').textContent=SCRIPT;
 }
-
 async function saveConfig(){
   loading(true,'A guardar no Sheets...');
   try{
     const params={
       action:'saveConfig',
-      pinPais:document.getElementById('cfg-pin-pais').value||'1234',
-      pinJoao:document.getElementById('cfg-pin-joao').value||'1202',
-      pinBia:document.getElementById('cfg-pin-bia').value||'1623',
+      pinPais:String(document.getElementById('cfg-pin-pais').value||'1234'),
+      pinJoao:String(document.getElementById('cfg-pin-joao').value||'1202'),
+      pinBia:String(document.getElementById('cfg-pin-bia').value||'1623'),
       email:document.getElementById('cfg-email').value.trim(),
       appUrl:document.getElementById('cfg-app-url').value.trim(),
-      joaoTotal:document.getElementById('cfg-joao-total').value||775,
-      biaTotal:document.getElementById('cfg-bia-total').value||780,
+      joaoTotal:document.getElementById('cfg-joao-total').value||'775',
+      biaTotal:document.getElementById('cfg-bia-total').value||'780',
+      joaoPaid:document.getElementById('cfg-joao-paid').value||'0',
+      biaPaid:document.getElementById('cfg-bia-paid').value||'0',
     };
-    // update conn if URL changed
-    const newUrl=document.getElementById('cfg-url').value.trim();
-    const newId=document.getElementById('cfg-sheet-id').value.trim();
-    if(newUrl)S.conn.url=newUrl;
-    if(newId)S.conn.sheetId=newId;
-    saveConn();
     await api(params);
-    // reload config
     const r=await api({action:'getConfig'});
     S.config=r.config||{};
-    loading(false);
-    showToast('Configuração guardada no Sheets ✓');
+    loading(false);showToast('Configuração guardada ✓');
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
-
 async function testConn(){
-  const st=document.getElementById('cfg-status');
-  st.textContent='A testar...';
+  const st=document.getElementById('cfg-status');st.textContent='A testar...';
   try{
     const r=await api({action:'test'});
-    st.innerHTML='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1D9E75;margin-right:6px"></span>'+r.name;
+    st.innerHTML='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1D9E75;margin-right:6px"></span>Ligado: '+r.name;
   }catch(e){
     st.innerHTML='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;margin-right:6px"></span>Erro: '+e.message;
   }
 }
-
 function copyScript(){navigator.clipboard.writeText(SCRIPT).then(()=>showToast('Script copiado ✓'));}
-
 function showToast(msg){
   const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-// ---- INIT ----
-loadLocal();
+// ---- START ----
 document.getElementById('script-pre').textContent=SCRIPT;
-
-// If already configured, go to welcome
-if(S.conn.url&&S.conn.sheetId){
-  loading(true,'A carregar...');
-  api({action:'getConfig'}).then(r=>{
-    S.config=r.config||{};
-    loading(false);
-    showScreen('welcome');
-  }).catch(()=>{
-    loading(false);
-    showScreen('setup');
-  });
-} else {
-  showScreen('setup');
-}
+init();
 </script>
 </body>
 </html>
