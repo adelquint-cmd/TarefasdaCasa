@@ -69,13 +69,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .day-scroll::-webkit-scrollbar{display:none}
 .day-chip{flex-shrink:0;padding:8px 14px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid #D3D1C7;background:#fff;color:#444441;transition:all .15s;user-select:none}
 .day-chip.active{background:#7F77DD;border-color:#7F77DD;color:#fff}
+.day-chip.disabled{opacity:.35;cursor:default}
 .section-hdr{padding:14px 16px 4px;font-size:12px;color:#888780;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
-.task-item{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid rgba(0,0,0,.07);overflow:hidden;transition:opacity .2s}
+.task-item{background:#fff;margin:6px 16px;border-radius:16px;border:1.5px solid rgba(0,0,0,.07);overflow:hidden}
 .task-item.done{border-color:#9FE1CB;background:#F7FFFC}
 .task-item.pending-ap{border-color:#FAC775;background:#FFFCF3}
 .task-item.rejected{border-color:#F09595;background:#FFF5F5}
 .task-item.penalty-item{border-color:#F09595;background:#FFF5F5}
-.task-item.optimistic{opacity:.6}
 .task-hdr{display:flex;align-items:center;gap:12px;padding:13px 14px}
 .task-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .ti-roupa{background:#EEEDFE}.ti-refeicoes{background:#E1F5EE}.ti-gerais{background:#FAECE7}.ti-penalizacao{background:#FCEBEB}.ti-extra{background:#E1F5EE}
@@ -285,7 +285,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div style="padding:14px 16px 0">
     <div class="info-box">
       Configurações guardadas no Google Sheets — disponíveis em todos os dispositivos automaticamente.<br><br>
-      <strong>A dívida é calculada automaticamente</strong> com base em todos os minutos aprovados em todas as semanas — não precisas de atualizar manualmente.
+      A dívida é calculada automaticamente com base em todos os minutos aprovados em todas as semanas.
     </div>
   </div>
   <div class="cfg-section">
@@ -344,12 +344,41 @@ const DAYS=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
 
 let S={user:null,config:{},weekData:{},totalMins:{},viewOff:0,paisOff:0,day:todayIdx(),pin:'',pinTarget:null};
 
-function todayIdx(){const d=new Date().getDay();return d===0?6:d-1;}
+function todayIdx(){
+  const d=new Date().getDay();
+  return d===0?6:d-1; // Mon=0 ... Sun=6
+}
+
+// ISO week number — week starts Monday
+function isoWeek(date){
+  const d=new Date(date);
+  const day=d.getDay()||7; // Mon=1...Sun=7
+  d.setDate(d.getDate()+4-day); // Thursday of this week
+  const jan1=new Date(d.getFullYear(),0,1);
+  const w=Math.ceil(((d-jan1)/86400000+1)/7);
+  return 'W'+String(w).padStart(2,'0')+d.getFullYear();
+}
+
 function wk(off){
-  off=off||0;const n=new Date();n.setDate(n.getDate()+off*7);
-  const j=new Date(n.getFullYear(),0,1);
-  const w=Math.ceil(((n-j)/86400000+j.getDay()+1)/7);
-  return 'W'+String(w).padStart(2,'0')+n.getFullYear();
+  off=off||0;
+  const n=new Date();
+  n.setDate(n.getDate()+off*7);
+  return isoWeek(n);
+}
+
+// Is a given day index editable for a filho?
+// Allowed: current week days up to today, AND yesterday if it's in the previous week
+function isDayEditable(weekOff, dayIdx){
+  const today=todayIdx();
+  if(weekOff===0){
+    // current week: allow today and all past days this week
+    return dayIdx<=today;
+  }
+  if(weekOff===-1){
+    // previous week: only allow if today is Monday (dayIdx=0) and we want Sunday (dayIdx=6)
+    return today===0 && dayIdx===6;
+  }
+  return false; // older weeks: read only for filhos
 }
 
 async function api(params){
@@ -365,7 +394,6 @@ function loading(show,msg){
   if(msg)document.getElementById('loading-msg').textContent=msg;
 }
 
-// ---- INIT ----
 async function init(){
   document.getElementById('welcome-sub').textContent='A ligar ao Sheets...';
   document.getElementById('welcome-error').style.display='none';
@@ -382,7 +410,6 @@ async function init(){
   }
 }
 
-// ---- PIN ----
 function getPin(who){
   if(who==='pais')return String(S.config.pinPais||'1234').trim();
   if(who==='joao')return String(S.config.pinJoao||'1202').trim();
@@ -405,9 +432,10 @@ function checkPin(){
   else{document.getElementById('pin-error').textContent='PIN incorreto. Tenta novamente.';S.pin='';updDots();}
 }
 
-// ---- LOGIN ----
 function login(u){
   S.user=u;S.viewOff=0;S.paisOff=0;S.day=todayIdx();
+  // If Monday, default to Sunday of previous week for filhos
+  if(u!=='pais' && todayIdx()===0){S.viewOff=-1;S.day=6;}
   document.getElementById('bottom-nav').classList.add('visible');
   document.getElementById('nav-config').style.display=u==='pais'?'flex':'none';
   navTo('home');
@@ -429,11 +457,18 @@ function navTo(tab){
   if(S.user==='pais'){showScreen('pais');loadAndRenderPais();}
   else{showScreen('filho');loadAndRenderFilho();}
 }
-function changeWeek(d){const n=S.viewOff+d;if(n>0)return;S.viewOff=n;S.day=n===0?todayIdx():0;loadAndRenderFilho();}
+function changeWeek(d){
+  const n=S.viewOff+d;
+  if(n>0)return;
+  // filhos can only go back 1 week (to allow Sunday on Monday)
+  if(S.user!=='pais'&&n<-1)return;
+  S.viewOff=n;
+  S.day=n===0?todayIdx():(n===-1&&todayIdx()===0?6:0);
+  loadAndRenderFilho();
+}
 function changePaisWeek(d){const n=S.paisOff+d;if(n>0)return;S.paisOff=n;loadAndRenderPais();}
 function goCurrentWeek(){S.viewOff=0;S.day=todayIdx();loadAndRenderFilho();}
 
-// ---- DATA ----
 async function loadWeek(weekKey){
   if(S.weekData[weekKey])return S.weekData[weekKey];
   const r=await api({action:'getWeek',week:weekKey});
@@ -442,11 +477,10 @@ async function loadWeek(weekKey){
 }
 function invalidate(weekKey){delete S.weekData[weekKey];}
 
-// Total mins across all weeks (for debt) — cached
 async function getTotalMins(who){
   if(S.totalMins[who]!==undefined)return S.totalMins[who];
   const r=await api({action:'getAllWeeks',who});
-  S.totalMins[who]=r.totalMins||0;
+  S.totalMins[who]=parseInt(r.totalMins)||0;
   return S.totalMins[who];
 }
 function invalidateTotals(){S.totalMins={};}
@@ -454,11 +488,9 @@ function invalidateTotals(){S.totalMins={};}
 function getEntry(rows,taskKey,who,day){
   return rows.find(r=>r.taskKey===taskKey&&r.who===who&&r.day===day&&r.status!=='desmarcado')||null;
 }
-
-// Net mins for a user in a week (approved tasks minus penalties)
 function calcWeekMins(rows,who){
   let tot=0;
-  rows.forEach(r=>{if(r.who===who&&r.status==='aprovado')tot+=r.mins;});
+  rows.forEach(r=>{if(r.who===who&&r.status==='aprovado')tot+=(parseInt(r.mins)||0);});
   return tot;
 }
 
@@ -480,17 +512,15 @@ function renderFilho(rows,weekKey,totalMins){
   document.getElementById('filho-week-nav').textContent=past?weekKey+' ← anterior':weekKey+' (atual)';
   document.getElementById('filho-hist-banner').style.display=past?'block':'none';
 
-  // Week mins (net: tasks - penalties)
   const wMins=Math.max(0,calcWeekMins(rows,who));
   const pct2=Math.min(100,Math.round((wMins/210)*100));
   document.getElementById('filho-ring').style.strokeDashoffset=377-(pct2/100)*377;
   document.getElementById('filho-ring-pct').textContent=pct2+'%';
   document.getElementById('filho-ring-min').textContent=wMins+' / 210 min';
-  document.getElementById('filho-euros').textContent='€'+(Math.max(0,wMins)/10).toFixed(2);
+  document.getElementById('filho-euros').textContent='€'+(wMins/10).toFixed(2);
 
-  // Debt — calculated from all-time approved mins
   const tot=parseFloat(who==='joao'?(S.config.joaoTotal||775):(S.config.biaTotal||780));
-  const paid=Math.max(0,totalMins)/10;
+  const paid=Math.max(0,parseInt(totalMins)||0)/10;
   const rem=Math.max(0,tot-paid);
   const pct=Math.min(100,(paid/tot)*100);
   document.getElementById('filho-debt').textContent='€ '+rem.toFixed(2);
@@ -500,33 +530,35 @@ function renderFilho(rows,weekKey,totalMins){
   document.getElementById('filho-total-txt').textContent='Total: €'+tot;
 
   renderDays(weekKey,rows);
-  renderFilhoTasks(rows,weekKey,past,who);
+  renderFilhoTasks(rows,weekKey,who);
 }
 
 function renderDays(weekKey,rows){
   const wrap=document.getElementById('filho-days');wrap.innerHTML='';
   DAYS.forEach((d,i)=>{
-    const c=document.createElement('div');c.className='day-chip'+(i===S.day?' active':'');
+    const editable=isDayEditable(S.viewOff,i);
+    const c=document.createElement('div');
+    c.className='day-chip'+(i===S.day?' active':'')+((!editable&&S.viewOff<=0)?' disabled':'');
     c.textContent=d;
-    c.onclick=()=>{S.day=i;renderDays(weekKey,rows);renderFilhoTasks(rows,weekKey,S.viewOff<0,S.user);};
+    c.onclick=()=>{S.day=i;renderDays(weekKey,rows);renderFilhoTasks(rows,weekKey,S.user);};
     wrap.appendChild(c);
   });
 }
 
-function renderFilhoTasks(rows,weekKey,ro,who){
+function renderFilhoTasks(rows,weekKey,who){
   const wrap=document.getElementById('filho-tasks');wrap.innerHTML='';
+  const ro=!isDayEditable(S.viewOff,S.day);
 
-  // Show penalties received today (if any)
-  const todayPenalties=rows.filter(r=>r.who===who&&r.day===S.day&&r.mins<0&&r.status==='aprovado');
-  if(todayPenalties.length){
+  // Penalty banner
+  const todayPens=rows.filter(r=>r.who===who&&r.day===S.day&&(parseInt(r.mins)||0)<0&&r.status==='aprovado');
+  if(todayPens.length){
     const banner=document.createElement('div');
     banner.className='pen-banner';
     banner.innerHTML='<div class="pen-banner-title">⚠️ Penalizações de hoje</div>'+
-      todayPenalties.map(p=>'<div style="font-size:13px">'+p.desc+' <strong>('+p.mins+' min)</strong></div>').join('');
+      todayPens.map(p=>'<div>'+p.desc+' <strong>('+(parseInt(p.mins)||0)+' min)</strong></div>').join('');
     wrap.appendChild(banner);
   }
 
-  // Tasks by category
   [{key:'roupa',lbl:'👕 Roupa'},{key:'refeicoes',lbl:'🍽️ Refeições'},{key:'gerais',lbl:'🏠 Gerais'}].forEach(cat=>{
     const ct=TASKS.filter(t=>t.cat===cat.key);if(!ct.length)return;
     const h=document.createElement('div');h.className='section-hdr';h.textContent=cat.lbl;wrap.appendChild(h);
@@ -547,7 +579,7 @@ function renderFilhoTasks(rows,weekKey,ro,who){
     });
   });
 
-  // Extra task
+  // Extra
   const hdr=document.createElement('div');hdr.className='section-hdr';hdr.textContent='⭐ Extra';wrap.appendChild(hdr);
   const xEl=document.createElement('div');xEl.className='task-item';
   const xe=getEntry(rows,'extra',who,S.day);
@@ -559,7 +591,7 @@ function renderFilhoTasks(rows,weekKey,ro,who){
     xEl.innerHTML=`<div class="task-hdr">
       <div class="task-icon ti-extra">⭐</div>
       <div class="task-info"><div class="task-name">${xe.desc||'Tarefa extra'}</div><div class="task-meta">${sl}</div></div>
-      <div class="task-pts ok">${xe.mins} min</div>
+      <div class="task-pts ok">${parseInt(xe.mins)||0} min</div>
       ${!ro?`<div class="task-check ${cc}" onclick="clearExtra('${weekKey}','${who}',${S.day})">${ci}</div>`:`<div class="task-check ${cc}">${ci}</div>`}
     </div>`;
   } else if(!ro){
@@ -580,25 +612,21 @@ function renderFilhoTasks(rows,weekKey,ro,who){
   wrap.appendChild(xEl);
 }
 
-// Optimistic toggle — updates UI immediately, then syncs
 async function toggleTask(weekKey,taskKey,who,day,mins,name){
   const rows=S.weekData[weekKey]||[];
   const e=getEntry(rows,taskKey,who,day);
   if(e&&e.status==='aprovado'){showToast('Já aprovado pelos pais 🔒');return;}
-
-  // Optimistic update
+  // optimistic
   if(e&&e.status==='pendente'){
     e.status='desmarcado';
-    renderFilhoTasks(rows,weekKey,false,who);
+    renderFilhoTasks(rows,weekKey,who);
     showToast('Tarefa desmarcada');
   } else {
-    const newEntry={taskKey,who,day,status:'pendente',mins,desc:name};
-    rows.push(newEntry);
+    rows.push({taskKey,who,day,status:'pendente',mins,desc:name});
     S.weekData[weekKey]=rows;
-    renderFilhoTasks(rows,weekKey,false,who);
+    renderFilhoTasks(rows,weekKey,who);
     showToast('Marcado! Aguarda aprovação 👍');
   }
-
   try{
     if(e&&e.status==='desmarcado'){
       await api({action:'saveTask',week:weekKey,taskKey,who,day,mins:0,desc:'',status:'desmarcado'});
@@ -607,29 +635,24 @@ async function toggleTask(weekKey,taskKey,who,day,mins,name){
     }
     invalidate(weekKey);
     const rows2=await loadWeek(weekKey);
-    renderFilhoTasks(rows2,weekKey,false,who);
-  }catch(err){
-    invalidate(weekKey);
-    showToast('Erro ao guardar: '+err.message);
-    loadAndRenderFilho();
-  }
+    renderFilhoTasks(rows2,weekKey,who);
+  }catch(err){invalidate(weekKey);showToast('Erro: '+err.message);loadAndRenderFilho();}
 }
 
 async function markExtra(weekKey,who,day){
   const mins=parseInt(document.getElementById('extra-slider').value)||15;
   const desc=document.getElementById('extra-desc').value.trim()||'Tarefa extra';
-  // Optimistic
   const rows=S.weekData[weekKey]||[];
   rows.push({taskKey:'extra',who,day,status:'pendente',mins,desc});
   S.weekData[weekKey]=rows;
-  renderFilhoTasks(rows,weekKey,false,who);
+  renderFilhoTasks(rows,weekKey,who);
   showToast('Extra marcado! Aguarda aprovação 👍');
   try{
     await api({action:'saveTask',week:weekKey,taskKey:'extra',who,day,mins,desc});
     invalidate(weekKey);
     const rows2=await loadWeek(weekKey);
-    renderFilhoTasks(rows2,weekKey,false,who);
-  }catch(e){invalidate(weekKey);showToast('Erro: '+e.message);loadAndRenderFilho();}
+    renderFilhoTasks(rows2,weekKey,who);
+  }catch(e){invalidate(weekKey);showToast('Erro: '+e.message);}
 }
 
 async function clearExtra(weekKey,who,day){
@@ -637,12 +660,12 @@ async function clearExtra(weekKey,who,day){
   const e=getEntry(rows,'extra',who,day);
   if(e&&e.status==='aprovado'){showToast('Já aprovado pelos pais 🔒');return;}
   if(e)e.status='desmarcado';
-  renderFilhoTasks(rows,weekKey,false,who);
+  renderFilhoTasks(rows,weekKey,who);
   try{
     await api({action:'saveTask',week:weekKey,taskKey:'extra',who,day,mins:0,desc:'',status:'desmarcado'});
     invalidate(weekKey);
     const rows2=await loadWeek(weekKey);
-    renderFilhoTasks(rows2,weekKey,false,who);
+    renderFilhoTasks(rows2,weekKey,who);
   }catch(err){invalidate(weekKey);showToast('Erro: '+err.message);}
 }
 
@@ -652,19 +675,15 @@ async function loadAndRenderPais(){
   loading(true,'A carregar...');
   try{
     const [rows,jTotal,bTotal]=await Promise.all([
-      loadWeek(weekKey),
-      getTotalMins('joao'),
-      getTotalMins('bia')
+      loadWeek(weekKey),getTotalMins('joao'),getTotalMins('bia')
     ]);
-    loading(false);
-    renderPais(rows,weekKey,jTotal,bTotal);
+    loading(false);renderPais(rows,weekKey,jTotal,bTotal);
   }catch(e){loading(false);showToast('Erro: '+e.message);}
 }
 
 function renderPais(rows,weekKey,jTotal,bTotal){
-  const past=S.paisOff<0;
   document.getElementById('pais-week-lbl').textContent=weekKey;
-  document.getElementById('pais-week-nav').textContent=past?weekKey+' ← anterior':weekKey+' (atual)';
+  document.getElementById('pais-week-nav').textContent=S.paisOff===0?weekKey+' (atual)':weekKey+' ← anterior';
 
   const jNet=Math.max(0,calcWeekMins(rows,'joao'));
   const bNet=Math.max(0,calcWeekMins(rows,'bia'));
@@ -674,8 +693,8 @@ function renderPais(rows,weekKey,jTotal,bTotal){
   document.getElementById('pais-bia-bar').style.width=Math.min(100,(bNet/210)*100)+'%';
 
   const jTot=parseFloat(S.config.joaoTotal||775),bTot=parseFloat(S.config.biaTotal||780);
-  document.getElementById('pais-joao-debt').textContent='€ '+Math.max(0,jTot-jTotal/10).toFixed(2);
-  document.getElementById('pais-bia-debt').textContent='€ '+Math.max(0,bTot-bTotal/10).toFixed(2);
+  document.getElementById('pais-joao-debt').textContent='€ '+Math.max(0,jTot-(parseInt(jTotal)||0)/10).toFixed(2);
+  document.getElementById('pais-bia-debt').textContent='€ '+Math.max(0,bTot-(parseInt(bTotal)||0)/10).toFixed(2);
 
   let pend=[],appr=[];
   rows.forEach(r=>{
@@ -691,23 +710,23 @@ function renderPais(rows,weekKey,jTotal,bTotal){
   if(!pend.length){
     pList.innerHTML='<div class="empty"><div class="ei">🎉</div><p>Nada para aprovar!</p></div>';
   } else {
-    if(!past){
-      const d=document.createElement('div');d.style.cssText='padding:0 16px 8px';
-      d.innerHTML=`<button class="btn-primary" onclick="doApproveAll('${weekKey}')">✓ Aprovar tudo de uma vez</button>`;
-      pList.appendChild(d);
-    }
+    // Always show approve buttons regardless of week offset
+    const d=document.createElement('div');d.style.cssText='padding:0 16px 8px';
+    d.innerHTML=`<button class="btn-primary" onclick="doApproveAll('${weekKey}')">✓ Aprovar tudo de uma vez</button>`;
+    pList.appendChild(d);
     pend.forEach(r=>{
       const el=document.createElement('div');el.className='task-item pending-ap';
       const wn=r.who==='joao'?'João':'Bia';
       const task=TASKS.find(t=>t.key===r.taskKey)||{icon:'⭐',cat:'gerais'};
+      const m=parseInt(r.mins)||0;
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${task.cat||'gerais'}">${task.icon||'⭐'}</div>
         <div class="task-info"><div class="task-name">${r.desc||task.name||r.taskKey}</div><div class="task-meta">${wn} — ${DAYS[r.day]}</div></div>
-        <div class="task-pts">${r.mins} min</div>
-      </div>${!past?`<div class="approve-actions">
+        <div class="task-pts">${m} min</div>
+      </div><div class="approve-actions">
         <button class="btn-app yes" onclick="doApprove('${weekKey}','${r.taskKey}','${r.who}',${r.day},true)">✓ Aprovar</button>
         <button class="btn-app no" onclick="doApprove('${weekKey}','${r.taskKey}','${r.who}',${r.day},false)">✗ Rejeitar</button>
-      </div>`:''}`;
+      </div>`;
       pList.appendChild(el);
     });
   }
@@ -718,14 +737,15 @@ function renderPais(rows,weekKey,jTotal,bTotal){
   } else {
     appr.slice().reverse().forEach(r=>{
       const el=document.createElement('div');
-      const isPen=r.mins<0;
+      const isPen=(parseInt(r.mins)||0)<0;
       el.className='task-item'+(isPen?' penalty-item':' done');
       const wn=r.who==='joao'?'João':'Bia';
       const task=TASKS.find(t=>t.key===r.taskKey)||{icon:isPen?'⚠️':'⭐',cat:isPen?'penalizacao':'gerais'};
+      const m=parseInt(r.mins)||0;
       el.innerHTML=`<div class="task-hdr">
         <div class="task-icon ti-${task.cat||'gerais'}">${task.icon||'⭐'}</div>
         <div class="task-info"><div class="task-name">${r.desc||task.name||r.taskKey}</div><div class="task-meta">${wn} — ${DAYS[r.day]}</div></div>
-        <div class="task-pts ${isPen?'neg':'ok'}">${r.mins} min</div>
+        <div class="task-pts ${isPen?'neg':'ok'}">${m} min</div>
         <div class="task-check ${isPen?'rej':'checked'}">${isPen?'✗':'✓'}</div>
       </div>`;
       aList.appendChild(el);
@@ -763,8 +783,7 @@ async function applyPenalty(){
   loading(true,'A aplicar...');
   try{
     await api({action:'savePenalty',week:weekKey,taskKey:pen.key+'_'+Date.now(),who,day:todayIdx(),mins:pen.mins,desc:pen.name});
-    const wn=who==='joao'?'João':'Bia';
-    showToast('Penalização aplicada ao '+wn+' ⚠️');
+    showToast('Penalização aplicada ao '+(who==='joao'?'João':'Bia')+' ⚠️');
     invalidate(weekKey);invalidateTotals();
     const [rows,jT,bT]=await Promise.all([loadWeek(weekKey),getTotalMins('joao'),getTotalMins('bia')]);
     loading(false);renderPais(rows,weekKey,jT,bT);
